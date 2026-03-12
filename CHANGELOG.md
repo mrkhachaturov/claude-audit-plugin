@@ -4,6 +4,16 @@ All notable changes to `claude-audit` are documented here.
 
 ---
 
+## [1.1.0] — 2026-03-12
+
+### Added
+- `agents/automation-analyst-refs/` — 5 reference files ported from `claude-code-setup`: `mcp-servers.md`, `hooks-patterns.md`, `subagent-templates.md`, `skills-reference.md`, `plugins-reference.md`
+
+### Changed
+- `agents/automation-analyst.md`: add `memory: user`, bootstrap from reference files via `installed_plugins.json` (mirrors `claude-code-expert`); add `projects.md` accumulation after each audit; enriched fallback tables (LSP plugins, notification hooks, model selection for subagents)
+
+---
+
 ## [1.0.5] — 2026-03-12
 
 ### Added
