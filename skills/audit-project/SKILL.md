@@ -99,9 +99,27 @@ Priority Actions: [count] items — top action: [#1 action]
 
 ### Step 4: Next steps prompt
 
-After printing the summary, ask:
+Before asking, check if superpowers is available:
 
-> Audit spec saved. What would you like to do next?
-> 1. **Write implementation plan** — run `superpowers:writing-plans` using the audit spec as requirements
+```bash
+find ~/.claude/plugins/cache -name "SKILL.md" -path "*/writing-plans/*" 2>/dev/null | head -1 || echo "NOT FOUND"
+```
+
+Then ask:
+
+> Audit spec saved to `.claude/specs/YYYY-MM-DD-ai-readiness-audit.md`. What would you like to do next?
+> 1. **Write implementation plan** — invoke `superpowers:writing-plans` with the audit spec as requirements;
+>    plan will be saved to `.claude/plans/YYYY-MM-DD-ai-readiness-plan.md`
 > 2. **Save to project memory** — summarize findings into project memory for future sessions
 > 3. Done
+
+If superpowers is NOT found: show option 1 as unavailable and tell the user to install it first:
+`claude plugin install superpowers@ccode-personal-plugins`
+
+**If user selects option 1:** invoke `superpowers:writing-plans` and pass this context explicitly:
+
+> Spec file: `<project-path>/.claude/specs/YYYY-MM-DD-ai-readiness-audit.md`
+> Output plan to: `<project-path>/.claude/plans/YYYY-MM-DD-ai-readiness-plan.md`
+> Use the Priority Actions table as the implementation steps.
+
+This explicit path override ensures the plan lands in `.claude/plans/` regardless of whether the target project has superpowers path overrides in its CLAUDE.md.
