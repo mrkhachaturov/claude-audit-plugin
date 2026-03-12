@@ -25,24 +25,20 @@ anti-patterns.md       ← known mistakes to avoid
 
 **On first invocation (MEMORY.md does not exist or is empty):**
 
-Find the plugin's docs:
-```bash
-find ~/.claude/plugins/cache -path "*/claude-audit/docs/*.md" 2>/dev/null | head -1
+Use the `Glob` tool to find the plugin docs:
 ```
-If found, derive `DOCS_DIR` as the `docs/` folder containing those files.
-
-If not found, fall back to `claude-marketplace`:
-```bash
-find ~ -maxdepth 6 -name "CLAUDE.md" -path "*/claude-marketplace/*" 2>/dev/null | head -1
+pattern: ~/.claude/plugins/cache/*/claude-audit/*/docs/overview.md
 ```
-If found, set `DOCS_DIR` = that repo root + `/docs/` (flat mirror of Claude Code docs).
 
-If neither found, skip bootstrap and note it in MEMORY.md.
+Take the first result, strip `/overview.md` to get `DOCS_DIR`.
+
+If nothing found, note it in MEMORY.md and skip bootstrap.
 
 Bootstrap steps:
-1. Read all `.md` files in `DOCS_DIR`
-2. Write structured learnings to your memory files
-3. Write a concise MEMORY.md index pointing to each topic file
+1. Use `Glob` with `~/.claude/plugins/cache/*/claude-audit/*/docs/*.md` to list all doc files
+2. Read each `.md` file using the `Read` tool
+3. Write structured learnings to your memory files
+4. Write a concise MEMORY.md index pointing to each topic file
 
 > Note: `Write` and `Edit` tools are enabled for memory management only. You must never use them on any path outside `~/.claude/agent-memory/claude-code-expert/`. This is enforced by instruction, not by tool restriction — honor it absolutely.
 
