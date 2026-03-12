@@ -1,45 +1,37 @@
 ---
 name: audit-project
-description: Audit any project for AI-readiness. Analyzes Claude Code structure and suggests improvements. Invoked by user with /audit-project /path.
+description: Audit any project for AI-readiness. Analyzes Claude Code structure and suggests improvements. Run /audit-project from within the project you want to audit.
 ---
 
 # audit-project
 
 Analyze a project's AI-readiness and produce a structured improvement report.
 
-**Announce at start:** "Running AI-readiness audit on `<path>`..."
+**Announce at start:** "Running AI-readiness audit on `<current directory>`..."
 
 ## Usage
 
+Run from within the project directory you want to audit:
+
 ```
-/audit-project /absolute/path/to/project
-```
-
-If no path provided, use the current working directory.
-
-## Prerequisite Check
-
-Before running, verify `claude-code-setup` plugin is installed with the skill available:
-
-```bash
-find ~/.claude/plugins/cache -name "SKILL.md" -path "*/claude-automation-recommender/*" 2>/dev/null | head -1 || echo "NOT FOUND"
+/audit-project
 ```
 
-If not found: inform the user to run `/plugin install claude-code-setup@ccode-personal-plugins`, then restart the session.
+The skill audits the current working directory.
 
 ## Workflow
 
-### Step 1: Expert analysis
+### Steps 1 & 2: Parallel analysis
 
-Dispatch the `claude-code-expert` subagent with this exact context:
+Dispatch both agents in a **single message** (two Agent tool calls simultaneously):
 
+**Agent 1 — `claude-code-expert`:**
 > Analyze the project at `<path>` for AI-readiness. Read its CLAUDE.md, .claude/ structure, settings.json, and .mcp.json. Cross-reference against your knowledge of best practices. Return: (1) what's already good, (2) structure gaps, (3) anti-patterns found.
 
-### Step 2: Automation gap analysis
+**Agent 2 — `automation-analyst`:**
+> Analyze the project at `<path>` for automation gaps. Detect language, framework, tooling, and CI patterns. Return the Recommended Automations section with top 1-2 picks per category.
 
-Invoke the `claude-code-setup:claude-automation-recommender` skill using the Skill tool directly (not as a subagent). The skill runs in the current session context and will analyze the current project directory.
-
-Note: Steps 1 and 2 run sequentially — Step 1 as a subagent, Step 2 as a skill in the main context.
+Wait for both to complete before proceeding to Step 3.
 
 ### Step 3: Compile report
 
@@ -49,9 +41,9 @@ Merge outputs into this format:
 ## AI-Readiness Audit: <path>
 
 ### Project Profile
-- Type: [detected stack — languages, frameworks, IaC tools]
-- Secrets management: [how secrets are handled]
-- Existing Claude setup: [summary of what's already configured]
+- **Type:** [detected stack — languages, frameworks, IaC tools]
+- **Secrets management:** [how secrets are handled]
+- **Existing Claude setup:** [summary of what's already configured]
 
 ### What's Already Good
 | Area | Detail |
@@ -64,7 +56,7 @@ Merge outputs into this format:
 | [gap] | [fix] | 🔴/🟡/🟢 |
 
 ### Recommended Automations
-[output from claude-automation-recommender — top 1-2 per category with code snippets]
+[Full output from automation-analyst — MCP servers, hooks, subagents, skills, plugins]
 
 ### Suggested Plugins to Install
 | Plugin | Reason |
@@ -76,6 +68,12 @@ Merge outputs into this format:
 |---|--------|--------|--------|
 | 1 | [highest impact first] | High/Med/Low | High/Med/Low |
 | 2 | ... | | |
+
+### Quick Wins (do today)
+- [action that takes < 30 min and has high impact]
+
+### Long-term Improvements
+- [architectural or structural changes worth planning]
 ```
 
 Print the report to the session. Do not write it to disk unless the user asks.
