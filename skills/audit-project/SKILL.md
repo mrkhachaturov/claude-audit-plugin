@@ -15,17 +15,17 @@ Analyze a project's AI-readiness and produce a structured improvement report.
 /audit-project /absolute/path/to/project
 ```
 
+If no path provided, use the current working directory.
+
 ## Prerequisite Check
 
-Before running, verify `claude-code-setup` plugin is installed and enabled:
+Before running, verify `claude-code-setup` plugin is installed with the skill available:
 
 ```bash
-find ~/.claude/plugins/cache -type d -name "claude-code-setup" 2>/dev/null | head -1 || echo "NOT INSTALLED"
+find ~/.claude/plugins/cache -name "SKILL.md" -path "*/claude-automation-recommender/*" 2>/dev/null | head -1 || echo "NOT FOUND"
 ```
 
-If not installed: inform the user to run `/plugin install claude-code-setup` from the `mrkhachaturov/ccode-personal-plugins` marketplace, then restart the session.
-
-If installed but `claude-automation-recommender` is not responding: the plugin may need to be enabled. Ask the user to verify with `/plugin list`.
+If not found: inform the user to run `/plugin install claude-code-setup@ccode-personal-plugins`, then restart the session.
 
 ## Workflow
 
@@ -37,39 +37,54 @@ Dispatch the `claude-code-expert` subagent with this exact context:
 
 ### Step 2: Automation gap analysis
 
-Invoke the `claude-automation-recommender` skill by dispatching it as a subagent with the target project path as context:
+Invoke the `claude-code-setup:claude-automation-recommender` skill using the Skill tool directly (not as a subagent). The skill runs in the current session context and will analyze the current project directory.
 
-```
-Use the claude-automation-recommender skill to analyze the project at <path>.
-Focus on hooks, MCP servers, subagents, skills, and plugins. Return the top 1-2 recommendations per category.
-```
+Note: Steps 1 and 2 run sequentially — Step 1 as a subagent, Step 2 as a skill in the main context.
 
 ### Step 3: Compile report
 
-Merge outputs into this format (6 sections):
+Merge outputs into this format:
 
 ```markdown
 ## AI-Readiness Audit: <path>
 
 ### Project Profile
-- Type: [detected stack]
-- Existing Claude setup: [summary]
+- Type: [detected stack — languages, frameworks, IaC tools]
+- Secrets management: [how secrets are handled]
+- Existing Claude setup: [summary of what's already configured]
 
 ### What's Already Good
-- [item]
+| Area | Detail |
+|------|--------|
+| [area] | [what's well done] |
 
 ### Structure Gaps
-- [gap] — [recommended fix]
+| Gap | Recommended Fix | Priority |
+|-----|----------------|----------|
+| [gap] | [fix] | 🔴/🟡/🟢 |
 
 ### Recommended Automations
-[output from claude-automation-recommender — top 1-2 per category]
+[output from claude-automation-recommender — top 1-2 per category with code snippets]
 
 ### Suggested Plugins to Install
-- [plugin] — [reason]
+| Plugin | Reason |
+|--------|--------|
+| [plugin] | [reason] |
 
 ### Priority Actions
-1. [highest impact first]
-2. ...
+| # | Action | Impact | Effort |
+|---|--------|--------|--------|
+| 1 | [highest impact first] | High/Med/Low | High/Med/Low |
+| 2 | ... | | |
 ```
 
 Print the report to the session. Do not write it to disk unless the user asks.
+
+### Step 4: Next steps prompt
+
+After printing the report, ask:
+
+> Would you like me to:
+> 1. Generate an implementation plan for the Priority Actions (`superpowers:writing-plans`)
+> 2. Save audit findings to project memory
+> 3. Done
