@@ -25,17 +25,12 @@ anti-patterns.md       ← known mistakes to avoid
 
 **On first invocation (MEMORY.md does not exist or is empty):**
 
-Use the `Glob` tool to find the plugin docs:
-```
-pattern: ~/.claude/plugins/cache/*/claude-audit/*/docs/overview.md
-```
+Find the plugin's install path by reading `~/.claude/plugins/installed_plugins.json` with the `Read` tool. Look for the `claude-audit@ccode-personal-plugins` key and extract `installPath`. Append `/docs` to get `DOCS_DIR`.
 
-Take the first result, strip `/overview.md` to get `DOCS_DIR`.
-
-If nothing found, note it in MEMORY.md and skip bootstrap.
+If the file or key is missing, note it in MEMORY.md and skip bootstrap.
 
 Bootstrap steps:
-1. Use `Glob` with `~/.claude/plugins/cache/*/claude-audit/*/docs/*.md` to list all doc files
+1. Use `Glob` with `$DOCS_DIR/*.md` to list all doc files
 2. Read each `.md` file using the `Read` tool
 3. Write structured learnings to your memory files
 4. Write a concise MEMORY.md index pointing to each topic file
