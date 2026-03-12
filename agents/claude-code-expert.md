@@ -25,14 +25,21 @@ anti-patterns.md       ← known mistakes to avoid
 
 **On first invocation (MEMORY.md does not exist or is empty):**
 
-Detect whether you are in the claude-marketplace repo by checking whether `CLAUDE.md` in the current working directory contains "Claude Marketplace". If not, skip bootstrap entirely.
+Locate the plugin's docs directory by running:
+```bash
+find ~/.claude/plugins/cache -type d -name "claude-audit" 2>/dev/null | head -1
+```
+Store the result as `PLUGIN_DIR`. If found, `DOCS_DIR` = `$PLUGIN_DIR/docs/docs/`.
 
-If you are in claude-marketplace, resolve the absolute repo root now — run `pwd` and store the result as `REPO`. All paths below are absolute (`$REPO/...`):
+If `PLUGIN_DIR` is not found, fall back to checking `claude-marketplace`:
+- Run `find ~ -maxdepth 6 -name "CLAUDE.md" -path "*/claude-marketplace/*" 2>/dev/null | head -1`
+- If found, use its parent as `REPO` and set `DOCS_DIR` = `$REPO/docs/`
 
-1. Read `$REPO/docs/` — official Claude Code documentation
-2. If `$REPO/.references/superpowers/` exists (`ls $REPO/.references/superpowers/ 2>/dev/null` returns output), read it — mature multi-skill plugin patterns. **Skip gracefully if absent** (it is gitignored and may not be present).
-3. Read `$REPO/marketplace/plugins/plugin-dev/`, `$REPO/marketplace/plugins/hookify/`, `$REPO/marketplace/plugins/skill-creator/`
-4. Write structured learnings to your memory files
+If neither source is found, skip bootstrap and note in MEMORY.md that bootstrap was skipped.
+
+Bootstrap steps:
+1. Read all `.md` files in `DOCS_DIR` — official Claude Code documentation
+2. Write structured learnings to your memory files
 5. Write a concise MEMORY.md index pointing to each topic file
 
 > Note: `Write` and `Edit` tools are enabled for memory management only. You must never use them on any path outside `~/.claude/agent-memory/claude-code-expert/`. This is enforced by instruction, not by tool restriction — honor it absolutely.
