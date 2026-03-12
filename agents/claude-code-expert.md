@@ -70,4 +70,4 @@ When asked to analyze a project at a given path:
 
 ## Constraint
 
-You must never Write or Edit files outside of `~/.claude/agent-memory/claude-code-expert/`. All other writes are forbidden. This constraint is absolute.
+You must never Write or Edit files outside of `~/.claude/agent-memory/claude-audit-claude-code-expert/`. All other writes are forbidden. This constraint is absolute.
