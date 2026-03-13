@@ -38,10 +38,10 @@ Wait for both to complete before proceeding to Step 3.
 Merge outputs and **write the report to disk** at:
 
 ```
-<project-path>/.claude/specs/YYYY-MM-DD-ai-readiness-audit.md
+<project-path>/.artifacts/specs/YYYY-MM-DD-ai-readiness-audit.md
 ```
 
-Create `.claude/specs/` if it doesn't exist. Use today's date for YYYY-MM-DD.
+Create `.artifacts/specs/` if it doesn't exist. Use today's date for YYYY-MM-DD.
 
 Report format:
 
@@ -89,7 +89,7 @@ Report format:
 After writing, print a **brief summary** to the terminal only:
 
 ```
-Audit saved to .claude/specs/YYYY-MM-DD-ai-readiness-audit.md
+Audit saved to .artifacts/specs/YYYY-MM-DD-ai-readiness-audit.md
 
 Key findings:
 - [2-3 bullet points: most critical gaps or wins]
@@ -107,9 +107,9 @@ find ~/.claude/plugins/cache -name "SKILL.md" -path "*/writing-plans/*" 2>/dev/n
 
 Then ask:
 
-> Audit spec saved to `.claude/specs/YYYY-MM-DD-ai-readiness-audit.md`. What would you like to do next?
+> Audit spec saved to `.artifacts/specs/YYYY-MM-DD-ai-readiness-audit.md`. What would you like to do next?
 > 1. **Write implementation plan** — invoke `superpowers:writing-plans` with the audit spec as requirements;
->    plan will be saved to `.claude/plans/YYYY-MM-DD-ai-readiness-plan.md`
+>    plan will be saved to `.artifacts/plans/YYYY-MM-DD-ai-readiness-plan.md`
 > 2. **Save to project memory** — summarize findings into project memory for future sessions
 > 3. Done
 
@@ -118,8 +118,8 @@ If superpowers is NOT found: show option 1 as unavailable and tell the user to i
 
 **If user selects option 1:** invoke `superpowers:writing-plans` and pass this context explicitly:
 
-> Spec file: `<project-path>/.claude/specs/YYYY-MM-DD-ai-readiness-audit.md`
-> Output plan to: `<project-path>/.claude/plans/YYYY-MM-DD-ai-readiness-plan.md`
+> Spec file: `<project-path>/.artifacts/specs/YYYY-MM-DD-ai-readiness-audit.md`
+> Output plan to: `<project-path>/.artifacts/plans/YYYY-MM-DD-ai-readiness-plan.md`
 > Use the Priority Actions table as the implementation steps.
 
-This explicit path override ensures the plan lands in `.claude/plans/` regardless of whether the target project has superpowers path overrides in its CLAUDE.md.
+This explicit path override ensures the plan lands in `.artifacts/plans/` regardless of whether the target project has superpowers path overrides in its CLAUDE.md.

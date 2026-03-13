@@ -4,6 +4,13 @@ All notable changes to `claude-audit` are documented here.
 
 ---
 
+## [1.1.1] — 2026-03-14
+
+### Changed
+- `skills/audit-project/SKILL.md`: updated output paths from `.claude/specs/` and `.claude/plans/` to `.artifacts/specs/` and `.artifacts/plans/`
+
+---
+
 ## [1.1.0] — 2026-03-12
 
 ### Added
