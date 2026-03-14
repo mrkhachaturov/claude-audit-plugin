@@ -1,6 +1,7 @@
 ---
 name: audit-project
 description: Audit any project for AI-readiness. Analyzes Claude Code structure and suggests improvements. Run /audit-project from within the project you want to audit.
+disable-model-invocation: true
 ---
 
 # audit-project
