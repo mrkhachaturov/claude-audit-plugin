@@ -1059,6 +1059,129 @@ git commit -m "feat: add initial navigation.md with 12 routes across 6 domains"
 
 ---
 
+### Task 9.5: Compute real sha256 hashes for seed_manifest.json
+
+Now that all content files (Tasks 3-9) exist, replace the `"placeholder"` hashes in `seed_manifest.json` with real sha256 values.
+
+- [ ] **Step 1: Compute and update file_hash and headings_hash for each source_doc**
+
+```python
+import hashlib, json, re
+from pathlib import Path
+
+repo = Path(".")
+manifest_path = repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
+manifest = json.loads(manifest_path.read_text())
+
+docs_dir = repo / "docs"
+for filename in manifest["source_docs"]:
+    doc_path = docs_dir / filename
+    if not doc_path.exists():
+        print(f"WARNING: {filename} not found in docs/, skipping")
+        continue
+    content = doc_path.read_bytes()
+    file_hash = hashlib.sha256(content).hexdigest()
+    headings = re.findall(r'^#{1,4}\s+(.+)', doc_path.read_text(), re.MULTILINE)
+    headings_hash = hashlib.sha256("\n".join(headings).encode()).hexdigest()
+    manifest["source_docs"][filename]["file_hash"] = file_hash
+    manifest["source_docs"][filename]["headings_hash"] = headings_hash
+    manifest["source_docs"][filename]["headings"] = headings
+    print(f"  {filename}: {file_hash[:12]}...")
+
+manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+print("Done — seed_manifest.json updated with real hashes")
+```
+
+Run with:
+
+```bash
+cd /Volumes/storage/Projects/Git/Github/mrkhachaturov/claude-audit-plugin
+python3 - <<'EOF'
+import hashlib, json, re
+from pathlib import Path
+
+repo = Path(".")
+manifest_path = repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
+manifest = json.loads(manifest_path.read_text())
+
+docs_dir = repo / "docs"
+for filename in manifest["source_docs"]:
+    doc_path = docs_dir / filename
+    if not doc_path.exists():
+        print(f"WARNING: {filename} not found in docs/, skipping")
+        continue
+    content = doc_path.read_bytes()
+    file_hash = hashlib.sha256(content).hexdigest()
+    headings = re.findall(r'^#{1,4}\s+(.+)', doc_path.read_text(), re.MULTILINE)
+    headings_hash = hashlib.sha256("\n".join(headings).encode()).hexdigest()
+    manifest["source_docs"][filename]["file_hash"] = file_hash
+    manifest["source_docs"][filename]["headings_hash"] = headings_hash
+    manifest["source_docs"][filename]["headings"] = headings
+    print(f"  {filename}: {file_hash[:12]}...")
+
+manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+print("Done — seed_manifest.json updated with real hashes")
+EOF
+```
+
+- [ ] **Step 2: Compute content_hash for each output file**
+
+```bash
+python3 - <<'EOF'
+import hashlib, json
+from pathlib import Path
+
+repo = Path(".")
+manifest_path = repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
+manifest = json.loads(manifest_path.read_text())
+
+generated_dir = repo / "agent-memory-seed" / "generated"
+for output_file in manifest["outputs"]:
+    out_path = generated_dir / output_file
+    if not out_path.exists():
+        print(f"WARNING: {output_file} not found, skipping")
+        continue
+    content_hash = hashlib.sha256(out_path.read_bytes()).hexdigest()
+    manifest["outputs"][output_file]["content_hash"] = content_hash
+    print(f"  {output_file}: {content_hash[:12]}...")
+
+manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+print("Done — output content_hashes updated")
+EOF
+```
+
+- [ ] **Step 3: Verify no placeholders remain**
+
+```bash
+python3 -c "
+import json
+m = json.load(open('agent-memory-seed/generated/seed_manifest.json'))
+placeholders = []
+for doc, meta in m['source_docs'].items():
+    for k in ['file_hash', 'headings_hash']:
+        if meta[k] == 'placeholder':
+            placeholders.append(f'source_docs[{doc}][{k}]')
+for out, meta in m['outputs'].items():
+    if meta['content_hash'] == 'placeholder':
+        placeholders.append(f'outputs[{out}][content_hash]')
+if placeholders:
+    print('ERROR: still has placeholders:', placeholders)
+    exit(1)
+print('OK: all hashes are real sha256 values')
+"
+```
+
+Expected: `OK: all hashes are real sha256 values`
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add agent-memory-seed/generated/seed_manifest.json
+git commit -m "feat: populate seed_manifest.json with real sha256 hashes"
+```
+
+---
+
 ## Chunk 2: Python Build Scripts (TDD)
 
 **Files:**
@@ -1209,7 +1332,7 @@ from unittest.mock import patch, MagicMock
 def test_no_changes_returns_no_rebuild(tmp_repo, minimal_manifest):
     """When docs haven't changed, rebuild should be False."""
     import sys
-    sys.path.insert(0, str(tmp_repo.parent.parent / "scripts"))
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
     seed_manifest_path = tmp_repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
     seed_manifest_path.write_text(json.dumps(minimal_manifest))
@@ -1227,7 +1350,7 @@ def test_no_changes_returns_no_rebuild(tmp_repo, minimal_manifest):
 def test_new_file_triggers_rebuild(tmp_repo, minimal_manifest):
     """Adding a new doc should always trigger rebuild."""
     import sys
-    sys.path.insert(0, str(tmp_repo.parent.parent / "scripts"))
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
     seed_manifest_path = tmp_repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
     seed_manifest_path.write_text(json.dumps(minimal_manifest))
@@ -1245,7 +1368,7 @@ def test_new_file_triggers_rebuild(tmp_repo, minimal_manifest):
 def test_small_change_no_rebuild(tmp_repo, minimal_manifest):
     """A small prose change (< 30 lines, no heading change) should not trigger rebuild."""
     import sys
-    sys.path.insert(0, str(tmp_repo.parent.parent / "scripts"))
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
     seed_manifest_path = tmp_repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
     seed_manifest_path.write_text(json.dumps(minimal_manifest))
@@ -1268,7 +1391,7 @@ def test_small_change_no_rebuild(tmp_repo, minimal_manifest):
 def test_heading_change_triggers_rebuild(tmp_repo, minimal_manifest):
     """A changed heading in a tracked doc should trigger rebuild."""
     import sys
-    sys.path.insert(0, str(tmp_repo.parent.parent / "scripts"))
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
     seed_manifest_path = tmp_repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
     seed_manifest_path.write_text(json.dumps(minimal_manifest))
@@ -1292,7 +1415,7 @@ def test_heading_change_triggers_rebuild(tmp_repo, minimal_manifest):
 def test_large_change_triggers_rebuild(tmp_repo, minimal_manifest):
     """30+ changed lines should trigger rebuild regardless of heading changes."""
     import sys
-    sys.path.insert(0, str(tmp_repo.parent.parent / "scripts"))
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
     seed_manifest_path = tmp_repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
     seed_manifest_path.write_text(json.dumps(minimal_manifest))
@@ -1315,7 +1438,7 @@ def test_large_change_triggers_rebuild(tmp_repo, minimal_manifest):
 def test_affected_routes_identified(tmp_repo, minimal_manifest):
     """Changed doc sections should identify which routes are affected."""
     import sys
-    sys.path.insert(0, str(tmp_repo.parent.parent / "scripts"))
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
     seed_manifest_path = tmp_repo / "agent-memory-seed" / "generated" / "seed_manifest.json"
     seed_manifest_path.write_text(json.dumps(minimal_manifest))
@@ -1685,6 +1808,43 @@ def test_missing_section_in_depends_on_fails(tmp_repo, minimal_manifest):
     from validate_seed import validate
     issues = validate(str(tmp_repo))
     assert any("nonexistent-section" in i for i in issues)
+
+
+def test_out_of_scope_file_modification_fails(tmp_repo, minimal_manifest):
+    """Files modified outside agent-memory-seed/generated/ should fail validation."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+
+    write_valid_seed(tmp_repo, minimal_manifest)
+
+    from validate_seed import validate
+    # Pass an explicit list of changed files that includes an out-of-scope path
+    changed_files = ["docs/hooks.md", "agent-memory-seed/generated/navigation.md"]
+    issues = validate(str(tmp_repo), changed_files=changed_files)
+    assert any("out-of-scope" in i or "docs/hooks.md" in i for i in issues)
+
+
+def test_route_rename_detected(tmp_repo, minimal_manifest):
+    """A route_id disappearing from prior manifest while a new one appears should flag as possible rename."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+
+    write_valid_seed(tmp_repo, minimal_manifest)
+
+    # Simulate a rename: prior manifest had 'configure-hooks', new manifest has 'setup-hooks'
+    new_manifest = json.loads(json.dumps(minimal_manifest))
+    new_manifest["routes"]["setup-hooks"] = new_manifest["routes"].pop("configure-hooks")
+    generated = tmp_repo / "agent-memory-seed" / "generated"
+    (generated / "seed_manifest.json").write_text(json.dumps(new_manifest))
+
+    # Update navigation.md to match new route_id
+    nav = (generated / "navigation.md").read_text()
+    nav = nav.replace("configure-hooks", "setup-hooks")
+    (generated / "navigation.md").write_text(nav)
+
+    from validate_seed import validate
+    issues = validate(str(tmp_repo), prior_route_ids=set(minimal_manifest["routes"].keys()))
+    assert any("rename" in i.lower() or "setup-hooks" in i for i in issues)
 ```
 
 - [ ] **Step 2: Run tests to confirm they fail**
@@ -1705,10 +1865,11 @@ Create `scripts/validate_seed.py`:
 Validate seed output after Codex rebuild.
 
 Checks:
-1. All route_ids in navigation.md exist in manifest routes
-2. All domain_file references in routes resolve to files in generated/
-3. All depends_on_sections in outputs reference sections that exist in source_docs
-4. agent-notes/ was not touched (no unexpected new files)
+1. No files modified outside agent-memory-seed/generated/ (via changed_files param or git diff)
+2. All route_ids in navigation.md exist in manifest routes
+3. All domain_file references in routes resolve to files in generated/
+4. All depends_on_sections in outputs reference sections that exist in source_docs
+5. No route IDs were silently renamed (compare against prior_route_ids)
 
 Exit 0 = valid. Exit 1 = issues found (printed to stdout).
 
@@ -1717,29 +1878,78 @@ Usage: python scripts/validate_seed.py
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 
-def validate(repo_root: str) -> list[str]:
+def get_changed_files(repo_root: str) -> list[str]:
+    """Return list of files changed vs HEAD using git diff --name-only."""
+    try:
+        result = subprocess.run(
+            ["git", "diff", "--name-only", "HEAD"],
+            capture_output=True, text=True, cwd=repo_root
+        )
+        return [f.strip() for f in result.stdout.splitlines() if f.strip()]
+    except Exception:
+        return []
+
+
+def get_prior_route_ids(repo_root: str) -> set[str]:
+    """Return route_ids from HEAD's seed_manifest.json (before Codex ran)."""
+    try:
+        result = subprocess.run(
+            ["git", "show", "HEAD:agent-memory-seed/generated/seed_manifest.json"],
+            capture_output=True, text=True, cwd=repo_root
+        )
+        if result.returncode == 0:
+            prior = json.loads(result.stdout)
+            return set(prior.get("routes", {}).keys())
+    except Exception:
+        pass
+    return set()
+
+
+def validate(
+    repo_root: str,
+    changed_files: list[str] | None = None,
+    prior_route_ids: set[str] | None = None,
+) -> list[str]:
     """
     Run all validation checks. Returns list of issue strings (empty = valid).
+
+    Args:
+        repo_root: Path to repository root.
+        changed_files: Optional explicit list of changed file paths (relative to repo root).
+                       If None, determined via git diff --name-only HEAD.
+        prior_route_ids: Optional set of route_ids from before the rebuild.
+                         If None, loaded from HEAD's seed_manifest.json via git show.
     """
     root = Path(repo_root)
     generated = root / "agent-memory-seed" / "generated"
     issues = []
 
+    # Check 1: No files modified outside agent-memory-seed/generated/
+    if changed_files is None:
+        changed_files = get_changed_files(repo_root)
+    allowed_prefix = "agent-memory-seed/generated/"
+    for f in changed_files:
+        if not f.startswith(allowed_prefix):
+            issues.append(
+                f"out-of-scope modification: '{f}' is outside '{allowed_prefix}'"
+            )
+
     # Load manifest
     manifest_path = generated / "seed_manifest.json"
     if not manifest_path.exists():
-        return ["seed_manifest.json not found in agent-memory-seed/generated/"]
+        return issues + ["seed_manifest.json not found in agent-memory-seed/generated/"]
 
     manifest = json.loads(manifest_path.read_text())
     routes = manifest.get("routes", {})
     source_docs = manifest.get("source_docs", {})
     outputs = manifest.get("outputs", {})
 
-    # Check 1: All route_ids in navigation.md exist in manifest routes
+    # Check 2: All route_ids in navigation.md exist in manifest routes
     nav_path = generated / "navigation.md"
     if nav_path.exists():
         nav_content = nav_path.read_text()
@@ -1754,7 +1964,7 @@ def validate(repo_root: str) -> list[str]:
     else:
         issues.append("navigation.md not found in agent-memory-seed/generated/")
 
-    # Check 2: All domain_file references in routes resolve to real files
+    # Check 3: All domain_file references in routes resolve to real files
     for route_id, route in routes.items():
         domain_file = route.get("domain_file")
         if domain_file and not (generated / domain_file).exists():
@@ -1762,7 +1972,7 @@ def validate(repo_root: str) -> list[str]:
                 f"route '{route_id}' references domain_file '{domain_file}' which does not exist"
             )
 
-    # Check 3: All depends_on_sections in outputs reference existing sections
+    # Check 4: All depends_on_sections in outputs reference existing sections
     for output_file, output_meta in outputs.items():
         for section_ref in output_meta.get("depends_on_sections", []):
             parts = section_ref.split("::")
@@ -1779,6 +1989,21 @@ def validate(repo_root: str) -> list[str]:
                     f"outputs['{output_file}'] depends on section '{section_id}' "
                     f"not found in source_docs['{doc_name}'].sections"
                 )
+
+    # Check 5: No route IDs were silently renamed
+    if prior_route_ids is None:
+        prior_route_ids = get_prior_route_ids(repo_root)
+    if prior_route_ids:
+        current_route_ids = set(routes.keys())
+        removed = prior_route_ids - current_route_ids
+        added = current_route_ids - prior_route_ids
+        # If routes were both removed and added, flag as possible renames
+        if removed and added:
+            issues.append(
+                f"possible route rename(s): removed={sorted(removed)}, "
+                f"added={sorted(added)} — preserved route_ids are required; "
+                f"use new IDs only for genuinely new routes"
+            )
 
     return issues
 
@@ -1807,7 +2032,7 @@ if __name__ == "__main__":
 python -m pytest tests/test_validate_seed.py -v
 ```
 
-Expected: all 5 tests PASS.
+Expected: all 7 tests PASS.
 
 - [ ] **Step 5: Commit**
 
@@ -1938,6 +2163,7 @@ def bump(repo_root: str, changed_docs: list[str]) -> None:
 
     # Load and bump version
     plugin = json.loads(plugin_json_path.read_text())
+    old_version = plugin["version"]
     version_parts = plugin["version"].split(".")
     version_parts[2] = str(int(version_parts[2]) + 1)
     new_version = ".".join(version_parts)
@@ -1964,7 +2190,7 @@ def bump(repo_root: str, changed_docs: list[str]) -> None:
         updated = existing + "\n" + new_entry
 
     changelog_path.write_text(updated)
-    print(f"Bumped version {plugin['version'].replace(new_version, '')} -> {new_version}")
+    print(f"Bumped version {old_version} -> {new_version}")
 
 
 def main():
@@ -1992,7 +2218,7 @@ Expected: all 3 tests PASS.
 python -m pytest tests/ -v
 ```
 
-Expected: all 14 tests PASS.
+Expected: all 16 tests PASS.
 
 - [ ] **Step 6: Update requirements.txt**
 
@@ -2047,7 +2273,6 @@ Add after the `Fetch latest documentation` step (before `Check for changes`):
     - name: Check seed significance
       id: seed-check
       run: python scripts/check_significance.py >> $GITHUB_OUTPUT
-      continue-on-error: true
 
     - name: Rebuild seed with Codex
       if: steps.seed-check.outputs.rebuild == 'true'
@@ -2153,11 +2378,20 @@ Update only the seed files affected by the provided doc changes. Do not regenera
 
 ## Inputs available to you
 
-Read the following files before starting:
-- `agent-memory-seed/generated/seed_manifest.json` — current manifest; your source of truth for routes, sections, and output dependencies
-- `agent-memory-seed/generated/navigation.md` — current navigation; update only affected routes
-- Any `agent-memory-seed/generated/domain-*.md` files whose `depends_on_sections` overlap with changed sections
-- The changed docs themselves in `docs/`
+Read the following before starting:
+
+1. **`agent-memory-seed/generated/seed_manifest.json`** — current manifest; your source of truth for routes, sections, and output dependencies. The `source_docs[filename].headings` arrays give you the **old heading trees** (the headings as they existed before this doc update).
+
+2. **`agent-memory-seed/generated/navigation.md`** — current navigation; update only affected routes.
+
+3. **Any `agent-memory-seed/generated/domain-*.md` files** whose `depends_on_sections` overlap with changed sections.
+
+4. **The changed docs in `docs/`** — read each doc that appears in the diff to get its **new heading tree** (extract all `#`-prefixed headings). Compare against the old heading tree from `seed_manifest.json` to identify structural changes.
+
+5. **The git diff** — run `git diff HEAD~1 -U0 -- docs/` to get the unified diff. For each changed doc, produce a brief per-doc diff summary:
+   - Which headings were added, removed, or renamed (compare old vs new heading trees)
+   - Approximate lines changed per section
+   Use this summary to decide which routes and domain files need updating.
 
 ## Domain taxonomy
 
@@ -2261,7 +2495,9 @@ On first invocation, `generated/` will not exist. Do this once:
 
 ### Seed version check (subsequent invocations)
 
-On subsequent invocations, check if the plugin ships a newer seed:
+**Frequency:** Check on every invocation before answering any question. The check is two file reads and a string comparison — negligible cost.
+
+On each invocation after bootstrap:
 
 1. Read `seed_version` from your local `generated/seed_manifest.json`
 2. Read `seed_version` from `installPath/agent-memory-seed/generated/seed_manifest.json`
@@ -2391,25 +2627,24 @@ Add at the top of the changelog entries in `CHANGELOG.md`:
 - `agent-memory-seed/generated/navigation.md` — intent-based routing table (12 routes across 6 domains)
 - `agent-memory-seed/generated/domain-*.md` — 6 domain knowledge files covering all Claude Code docs
 - `agent-memory-seed/generated/seed_manifest.json` — section-level hashes enabling incremental Codex rebuilds
-- `skills/ask-claude-code/SKILL.md` — new skill for doc-backed Q&A about Claude Code
 - `scripts/check_significance.py` — determines if doc changes warrant a seed rebuild
 - `scripts/validate_seed.py` — validates Codex seed output before committing
 - `scripts/bump_version.py` — auto-bumps patch version when seed rebuilds
 - `.github/prompts/build-seed.md` — Codex prompt for incremental seed regeneration
 
 ### Changed
+- `skills/ask-claude-code/SKILL.md`: updated skill — now dispatches Q&A mode backed by domain seed files
 - `agents/claude-code-expert.md`: replaced 65-doc bootstrap with instant seed copy; added Q&A mode with intent routing and selective memory rule
 - `.github/workflows/update-docs.yml`: added seed rebuild pipeline (significance check → Codex → validation → version bump)
 
 ---
 ```
 
-- [ ] **Step 3: Commit and push**
+- [ ] **Step 3: Commit**
 
 ```bash
 git add .claude-plugin/plugin.json CHANGELOG.md
 git commit -m "release: v1.2.0 — knowledge seed system"
-git push
 ```
 
 - [ ] **Step 4: Verify final state**
