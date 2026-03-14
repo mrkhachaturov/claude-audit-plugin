@@ -27,7 +27,7 @@ projects.md      ← Patterns observed across real audited projects (grows over 
 
 Find the plugin's install path by reading `~/.claude/plugins/installed_plugins.json`. Look for the `claude-audit@ccode-personal-plugins` key and extract `installPath`. Append `/agents/automation-analyst-refs` to get `REFS_DIR`.
 
-If the file or key is missing, fall back to the inline lookup tables below and skip bootstrap.
+If the file or key is missing, skip bootstrap and proceed to the Fallback section below.
 
 Bootstrap steps:
 1. Use `Glob` with `$REFS_DIR/*.md` to list all reference files
@@ -54,70 +54,11 @@ ls -la .eslintrc* .prettierrc* ruff.toml jest.config* playwright.config* tsconfi
 ls -la .github/workflows/ .gitlab-ci.yml Dockerfile docker-compose.yml 2>/dev/null
 ```
 
-Cross-reference detected signals against your memory knowledge base. If memory is loaded, use it. If not bootstrapped yet, use the fallback tables below.
+Cross-reference detected signals against your memory knowledge base. If memory is loaded, use it. If bootstrap failed, see the Fallback section below.
 
-## Fallback Lookup Tables
+## Fallback
 
-Use these only if memory bootstrap failed.
-
-### MCP Servers
-| Signal | MCP | Install |
-|--------|-----|---------|
-| Popular libraries | context7 | `claude mcp add context7` |
-| Frontend + E2E | Playwright | `claude mcp add playwright` |
-| Supabase | Supabase MCP | `claude mcp add supabase` |
-| PostgreSQL | PostgreSQL MCP | `claude mcp add postgres` |
-| GitHub remote | GitHub MCP | `claude mcp add github` |
-| GitLab remote | GitLab MCP | `claude mcp add gitlab` |
-| Linear issues | Linear MCP | `claude mcp add linear` |
-| Docker Compose | Docker MCP | `claude mcp add docker` |
-| Sentry | Sentry MCP | `claude mcp add sentry` |
-
-### Hooks
-| Signal | Event | Action |
-|--------|-------|--------|
-| `.prettierrc` | PostToolUse | `prettier --write $file` |
-| `.eslintrc` / `eslint.config.js` | PostToolUse | `eslint --fix $file` |
-| `ruff.toml` / `[tool.ruff]` | PostToolUse | `ruff check --fix $file` |
-| `tsconfig.json` | PostToolUse | `tsc --noEmit` |
-| `jest.config.*` | PostToolUse | run related tests |
-| `.env` files | PreToolUse | block edits |
-| lock files | PreToolUse | block edits |
-| Long sessions | Notification | idle/permission alerts |
-
-### Subagents
-| Signal | Agent | Model |
-|--------|-------|-------|
-| Auth/payments/secrets | security-reviewer | sonnet |
-| >500 files | code-reviewer | sonnet |
-| API routes | api-documenter | sonnet |
-| Frontend | ui-reviewer | sonnet |
-| Low tests | test-writer | sonnet |
-| Complex migration | migration-helper | opus |
-
-### Skills
-| Signal | Skill | Invocation |
-|--------|-------|-----------|
-| API routes | api-doc | both |
-| Database | create-migration | user-only |
-| Test suite | gen-test | user-only |
-| Components | new-component | user-only |
-| PR workflow | pr-check | user-only |
-| Releases | release-notes | user-only |
-| Code style | project-conventions | claude-only |
-
-### Plugins
-| Signal | Plugin |
-|--------|--------|
-| TypeScript | typescript-lsp |
-| Python | pyright-lsp |
-| Go | gopls-lsp |
-| Rust | rust-analyzer-lsp |
-| Building plugins | plugin-dev |
-| Git workflow | commit-commands |
-| React/Vue/Angular | frontend-design |
-| Security-sensitive | security-guidance |
-| PR workflow | pr-review-toolkit |
+If memory bootstrap failed and reference files are unavailable, state that recommendations may be limited and suggest the user re-run the audit after verifying the plugin installation.
 
 ## Phase 2: Generate Recommendations
 
