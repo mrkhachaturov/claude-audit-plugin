@@ -1,6 +1,6 @@
 # claude-audit
 
-AI-readiness audit plugin for Claude Code. Run `/audit-project` inside any project to get a structured report on what's good, what's missing, and what to add.
+AI-readiness audit plugin for Claude Code. Analyzes any project's Claude Code setup and produces a structured report with prioritized improvements.
 
 ## Install
 
@@ -8,10 +8,9 @@ AI-readiness audit plugin for Claude Code. Run `/audit-project` inside any proje
 /plugin install claude-audit
 ```
 
-> Requires `claude-code-setup` plugin for full automation recommendations:
-> `/plugin install claude-code-setup`
+## Skills
 
-## Usage
+### `/audit-project`
 
 Run from inside the project you want to audit:
 
@@ -19,20 +18,29 @@ Run from inside the project you want to audit:
 /audit-project
 ```
 
-## What It Produces
+Produces a report covering:
+
+- **Project Profile** — detected stack, secrets management, existing Claude setup
+- **What's Already Good** — areas where the project follows best practices
+- **Structure Gaps** — missing CLAUDE.md, hooks, rules, etc. with priority ratings
+- **Recommended Automations** — MCP servers, hooks, subagents, skills, plugins
+- **Priority Actions** — ranked by impact and effort
+
+The report is saved to `.artifacts/specs/YYYY-MM-DD-ai-readiness-audit.md`.
+
+### `/claude-audit:ask <question>`
+
+Ask any question about Claude Code — CLAUDE.md, memory, hooks, skills, agents, plugins, MCP, settings, permissions, or best practices. Answers are backed by official documentation.
 
 ```
-## AI-Readiness Audit: <path>
-
-### Project Profile
-### What's Already Good
-### Structure Gaps
-### Recommended Automations
-### Suggested Plugins to Install
-### Priority Actions
+/claude-audit:ask how do hooks work?
 ```
 
-## Contents
+## Architecture
 
-- `skills/audit-project/` — `/audit-project` skill
-- `agents/claude-code-expert.md` — subagent with persistent Claude Code knowledge base
+- `agents/claude-code-expert.md` — Claude Code expertise subagent with persistent knowledge base
+- `agents/automation-analyst.md` — automation gap analyst subagent
+- `agents/automation-analyst-refs/` — reference lookup tables for automation recommendations
+- `agent-memory-seed/` — pre-built knowledge seed, updated by CI every 3 hours
+- `scripts/` — CI build pipeline for knowledge seed (slugify, validation, significance detection)
+- `tests/` — pytest tests for build scripts
