@@ -89,7 +89,9 @@ match:
   - "auto-format on save"
   - "PostToolUse hook"
   - "notification hook"
-strong_terms: [hook, PostToolUse, PreToolUse, Notification, Stop, matcher, blocking]
+  - "Elicitation hook"
+  - "PostCompact hook"
+strong_terms: [hook, PostToolUse, PreToolUse, Notification, Stop, Elicitation, ElicitationResult, PostCompact, matcher, blocking]
 avoid: [scheduled tasks, cron, skills]
 answer_from_domain_if:
   - what hooks are
@@ -204,7 +206,8 @@ match:
   - "connect Claude to Jira"
   - "stdio vs SSE"
   - "MCP configuration"
-strong_terms: [MCP, stdio, SSE, http, mcp server, claude mcp add, external tool]
+  - "MCP elicitation"
+strong_terms: [MCP, stdio, SSE, http, mcp server, claude mcp add, external tool, elicitation]
 avoid: [plugins, hooks, skills]
 answer_from_domain_if:
   - what MCP is

@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.2.2] — 2026-03-14
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - best-practices.md
+  - changelog.md
+  - cli-reference.md
+  - commands.md
+  - common-workflows.md
+  - costs.md
+  - env-vars.md
+  - hooks-guide.md
+  - hooks.md
+  - mcp.md
+  - model-config.md
+  - overview.md
+  - quickstart.md
+  - settings.md
+
+---
+
 All notable changes to `claude-audit` are documented here.
 
 ---

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-14T00:00:00Z",
+  "seed_version": "2026-03-14T03:47:57Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -33,7 +33,19 @@
         "Delegate, don't dictate",
         "What's next"
       ],
-      "sections": {}
+      "sections": {
+        "the-agentic-loop": {
+          "hash": "b25eb35c7ad8b9729b8461195938137d0bfffafeab7f5fd7ac587ff855c472cf",
+          "start_heading": "The agentic loop",
+          "end_heading": "What Claude can access",
+          "domains": [
+            "foundation"
+          ],
+          "routes": [
+            "how-claude-code-works"
+          ]
+        }
+      }
     },
     "memory.md": {
       "file_hash": "1498263fcc978c17628381746c7a51804e367d150dda6933159616276b24abb6",
@@ -72,11 +84,34 @@
         "Instructions seem lost after `/compact`",
         "Related resources"
       ],
-      "sections": {}
+      "sections": {
+        "claude-md-vs-auto-memory": {
+          "hash": "62e83030ca0b88d0f309ce91acf43275ab1d6bfd364d4da5db088197d5384023",
+          "start_heading": "CLAUDE.md vs auto memory",
+          "end_heading": "CLAUDE.md files",
+          "domains": [
+            "configuration-persistence"
+          ],
+          "routes": [
+            "configure-memory"
+          ]
+        },
+        "claude-md-files": {
+          "hash": "11576aae216db0a8268539f8e6a5786cddde7ec0e55acbc634e17a0241db0288",
+          "start_heading": "CLAUDE.md files",
+          "end_heading": "Additional Instructions",
+          "domains": [
+            "configuration-persistence"
+          ],
+          "routes": [
+            "claude-md-structure"
+          ]
+        }
+      }
     },
     "settings.md": {
-      "file_hash": "f1cd6aa94a50d71eb52d7631ddd4f1830013fd2a4f9e191e74d9adf7c52c110d",
-      "headings_hash": "1e067ccd0e27cd3b5cf668ebdeee09484365474275d31bf90670e9d110200019",
+      "file_hash": "8ea39110846f8dc21e78d1469f678ee108ae88e945e0e6da41885e8cf13134cf",
+      "headings_hash": "497c8e58cb20fa069f964c62cd9cc77ed4b297c94583cd99802fd04e5ce513a2",
       "headings": [
         "Claude Code settings",
         "Configuration scopes",
@@ -86,6 +121,7 @@
         "What uses scopes",
         "Settings files",
         "Available settings",
+        "Worktree settings",
         "Permission settings",
         "Permission rule syntax",
         "Sandbox settings",
@@ -109,11 +145,19 @@
         "Tools available to Claude",
         "See also"
       ],
-      "sections": {}
+      "sections": {
+        "configuration-scopes": {
+          "hash": "1d770b21ce5c8f934538176c21a5bf06049d23c098311f00514553f3bd663aa1",
+          "start_heading": "Configuration scopes",
+          "end_heading": "Settings files",
+          "domains": [],
+          "routes": []
+        }
+      }
     },
     "hooks.md": {
-      "file_hash": "e55b2bf33078fcdb2a058abf0a9f7b85223c8befd4990a64904fe7f569e7733a",
-      "headings_hash": "d7a998fa3fead05319ff8d4cb2c6124a027a4f237405c39570d206cd63f55d80",
+      "file_hash": "1c47952ebaab6845ac518d2b9f0e9ce43deb6ba905b95ae7ca7f3ac579a72ab5",
+      "headings_hash": "27112a7c6215f6c488ae1ebf9cd85f685f5dc9c5710656cecd89580c066fb9f1",
       "headings": [
         "Hooks reference",
         "Hook lifecycle",
@@ -190,8 +234,16 @@
         "WorktreeRemove input",
         "PreCompact",
         "PreCompact input",
+        "PostCompact",
+        "PostCompact input",
         "SessionEnd",
         "SessionEnd input",
+        "Elicitation",
+        "Elicitation input",
+        "Elicitation output",
+        "ElicitationResult",
+        "ElicitationResult input",
+        "ElicitationResult output",
         "Prompt-based hooks",
         "How prompt-based hooks work",
         "Prompt hook configuration",
@@ -214,10 +266,33 @@
         "Security best practices",
         "Debug hooks"
       ],
-      "sections": {}
+      "sections": {
+        "hook-events": {
+          "hash": "81e471256efcac10f89b20f4e8300e3cbe957b22c6d622ea2669fbc7eee782d7",
+          "start_heading": "Hook events",
+          "end_heading": "Run your setup commands that modify the environment",
+          "domains": [
+            "automation-control"
+          ],
+          "routes": [
+            "configure-hooks"
+          ]
+        },
+        "hook-lifecycle": {
+          "hash": "08495b7eb8fab9d8984048592295a8d28841dff7eabc1bdd858eb0d9286bf096",
+          "start_heading": "Hook lifecycle",
+          "end_heading": ".claude/hooks/block-rm.sh",
+          "domains": [
+            "automation-control"
+          ],
+          "routes": [
+            "hooks-vs-skills"
+          ]
+        }
+      }
     },
     "hooks-guide.md": {
-      "file_hash": "d5d83819c2e6103e8f7101c191652f23980220b82b2a1c2455a8743cc6e86202",
+      "file_hash": "14b85dfa240d62d426a0ff3c37d0f76966f8370a321b6a942be7ad7ca7b29e08",
       "headings_hash": "ac5aa60704be1f8d196976ab8b453158dfc55877f4b213d97d3acf046353b77c",
       "headings": [
         "Automate workflows with hooks",
@@ -250,7 +325,15 @@
         "Debug techniques",
         "Learn more"
       ],
-      "sections": {}
+      "sections": {
+        "what-you-can-automate": {
+          "hash": "3d3bfadfc3e5b0bb0c5399c588e1b57a1293ea746308eed7b0a86be69d003a27",
+          "start_heading": "What you can automate",
+          "end_heading": "How hooks work",
+          "domains": [],
+          "routes": []
+        }
+      }
     },
     "skills.md": {
       "file_hash": "ad28135a47ba4445fe168d2eff753bc4af92743474f0dc83ec6b81f3a85890c2",
@@ -293,7 +376,19 @@
         "Claude doesn't see all my skills",
         "Related resources"
       ],
-      "sections": {}
+      "sections": {
+        "configure-skills": {
+          "hash": "a1d2d48e759aa3541e7fc85f0f9ba5537d5efeb7037e6096cc2ad97672fc97e5",
+          "start_heading": "Configure skills",
+          "end_heading": "Additional resources",
+          "domains": [
+            "extension-capability"
+          ],
+          "routes": [
+            "configure-skills"
+          ]
+        }
+      }
     },
     "sub-agents.md": {
       "file_hash": "fb2000fbc3321caae6d7ad0f0d62980e4cce7407918dbe7c6b90237f79ac4d5a",
@@ -344,11 +439,23 @@
         "Block write operations (case-insensitive)",
         "Next steps"
       ],
-      "sections": {}
+      "sections": {
+        "configure-subagents": {
+          "hash": "0547d71b37d32ed68d5754949dee083e452abb7e2d0eca10f43e394f640043fa",
+          "start_heading": "Configure subagents",
+          "end_heading": "./scripts/validate-readonly-query.sh",
+          "domains": [
+            "extension-capability"
+          ],
+          "routes": [
+            "configure-agents"
+          ]
+        }
+      }
     },
     "mcp.md": {
-      "file_hash": "f4e949ca71c5fc2155d48b26c1616cf229d689c92bf955cb668f939ccf475b29",
-      "headings_hash": "1799d0b80f35cce2c856de483acbfdf99f3b7ad93935b984ba8fc0be2d17240c",
+      "file_hash": "b8f74c2915ca461d75f6ce5b35bea6cef088f7ac84e4fcdc1d77aa2170806017",
+      "headings_hash": "cb33dd0a85a657e81dbc34136bcab9f32f169412e96bb7b0ee17db5513f7a3cc",
       "headings": [
         "Connect Claude Code to tools via MCP",
         "What you can do with MCP",
@@ -400,6 +507,7 @@
         "Start Claude as a stdio MCP server",
         "MCP output limits and warnings",
         "Set a higher limit for MCP tool outputs",
+        "Respond to MCP elicitation requests",
         "Use MCP resources",
         "Reference MCP resources",
         "Scale with MCP Tool Search",
@@ -421,7 +529,19 @@
         "Denylist behavior (`deniedMcpServers`)",
         "Important notes"
       ],
-      "sections": {}
+      "sections": {
+        "installing-mcp-servers": {
+          "hash": "4f484fa79452a25f409db5c64a86aa5c99f100f88281205660ceffe9ab94626f",
+          "start_heading": "Installing MCP servers",
+          "end_heading": "Basic syntax",
+          "domains": [
+            "extension-capability"
+          ],
+          "routes": [
+            "configure-mcp"
+          ]
+        }
+      }
     },
     "plugins.md": {
       "file_hash": "0c6bd0a745385c1de82c1c70e882d0290cf02e29306d43d3d5b64086509ca7c1",
@@ -449,7 +569,19 @@
         "For plugin users",
         "For plugin developers"
       ],
-      "sections": {}
+      "sections": {
+        "plugin-structure-overview": {
+          "hash": "62cd69d48ef441625bc5bb472ed34e755b67b3d20e0b6efe1e7c5ec293bf34b0",
+          "start_heading": "Plugin structure overview",
+          "end_heading": "Develop more complex plugins",
+          "domains": [
+            "extension-capability"
+          ],
+          "routes": [
+            "configure-plugins"
+          ]
+        }
+      }
     },
     "permissions.md": {
       "file_hash": "9f9f53135ccbed011bbeb24b8093a78fb2a388a4b5ee9c15d47810764216221c",
@@ -478,10 +610,22 @@
         "Example configurations",
         "See also"
       ],
-      "sections": {}
+      "sections": {
+        "permission-rule-syntax": {
+          "hash": "6d21d2a7afbb3d16cb1bcdbe307c0e08a5022e35ab077a296e8cab54f6a74226",
+          "start_heading": "Permission rule syntax",
+          "end_heading": "Tool-specific permission rules",
+          "domains": [
+            "access-control-safety"
+          ],
+          "routes": [
+            "configure-permissions"
+          ]
+        }
+      }
     },
     "best-practices.md": {
-      "file_hash": "5c458ea858f40ceb576d5bea89f3baa08ee56c488b222fcdc8a68287a49d403d",
+      "file_hash": "30e611a4f87e7651bf7b089e51dee8934cbdc9e39b6df3fe0ff22a4156575ba4",
       "headings_hash": "2035decc2c1bda3dfdf72a372af0f10df10ccb60a0fb71a8c112f31d216ecc7e",
       "headings": [
         "Best Practices for Claude Code",
@@ -522,7 +666,19 @@
         "Develop your intuition",
         "Related resources"
       ],
-      "sections": {}
+      "sections": {
+        "explore-first-then-plan-then-code": {
+          "hash": "d70f4def6388da9148e3b60575bbca2f133817b67fff0e308474fea4b182c4c1",
+          "start_heading": "Explore first, then plan, then code",
+          "end_heading": "Provide specific context in your prompts",
+          "domains": [
+            "effective-interaction"
+          ],
+          "routes": [
+            "best-practices"
+          ]
+        }
+      }
     },
     "features-overview.md": {
       "file_hash": "561370536d0d7ed02fbc72c14ad9ceafa36beb5b2e1f9cc14d320529f177a977",
@@ -539,7 +695,19 @@
         "Understand how features load",
         "Learn more"
       ],
-      "sections": {}
+      "sections": {
+        "compare-similar-features": {
+          "hash": "7bfe1977f8984a7507b1bdd694afc31fc3e9505c78128bd76de4af68f914df4d",
+          "start_heading": "Compare similar features",
+          "end_heading": "Understand how features layer",
+          "domains": [
+            "extension-capability"
+          ],
+          "routes": [
+            "skills-vs-claudemd"
+          ]
+        }
+      }
     }
   },
   "routes": {
@@ -558,7 +726,7 @@
       "primary_doc": "memory.md",
       "secondary_doc": "settings.md",
       "depends_on_sections": [
-        "memory.md::claudemd-vs-auto-memory"
+        "memory.md::claude-md-vs-auto-memory"
       ]
     },
     "claude-md-structure": {
@@ -567,7 +735,7 @@
       "primary_doc": "memory.md",
       "secondary_doc": "settings.md",
       "depends_on_sections": [
-        "memory.md::claudemd-files"
+        "memory.md::claude-md-files"
       ]
     },
     "configure-hooks": {
@@ -662,20 +830,20 @@
     "domain-configuration-persistence.md": {
       "content_hash": "2bd05fe0784b04df6d5e4180755bed324b98040aa2d983b3ebd587607d8edb2d",
       "depends_on_sections": [
-        "memory.md::claudemd-vs-auto-memory",
-        "memory.md::claudemd-files",
+        "memory.md::claude-md-vs-auto-memory",
+        "memory.md::claude-md-files",
         "settings.md::configuration-scopes"
       ]
     },
     "domain-automation-control.md": {
-      "content_hash": "ae1384c58e4d549ed41fbcc771698122bbc0e88c7f48bd877c9dcaae4da26075",
+      "content_hash": "cc31ae99ace7688c99bc175086161fdacb064a944f49df42d73d3fd36f961b86",
       "depends_on_sections": [
         "hooks.md::hook-events",
         "hooks-guide.md::what-you-can-automate"
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "d63012d2ae4826c92269aa0a49ebb850ef8aca71cbfe55a9cb0d94c9b34a338f",
+      "content_hash": "4406cc2c75c41b9f154780dc1badbfacb318ddf97bba0f30e0903ae8d9a7db1f",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -696,7 +864,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "7d4a4fe43f9d67c6a0e864955d9c7f4d53dfebc155c6f6e16172248349aceac5",
+      "content_hash": "5260e5f78adaec2af012bf16d46a135de5ece8b83dbc511017c858d04dfe35a9",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

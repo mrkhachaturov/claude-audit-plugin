@@ -11,7 +11,7 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 
 ## Fast answers
 - **What are hooks?** Shell commands in settings.json that run before/after specific Claude tool uses
-- **Hook events (common):** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `SubagentStop`; many more exist (`SessionStart`, `PermissionRequest`, `PreCompact`, `TaskCompleted`, etc.) — see hooks.md for the full list
+- **Hook events (common):** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `SubagentStop`; newer lifecycle events include `PostCompact`, `Elicitation`, and `ElicitationResult` — see hooks.md for the full list
 - **Can hooks block Claude?** Yes — `PreToolUse` hooks that exit non-zero can block the tool call
 - **Where do hooks live?** `.claude/settings.json` under the `hooks` key
 
@@ -20,12 +20,14 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 - **Hooks vs CLAUDE.md:** Hooks are deterministic shell commands; CLAUDE.md is natural language instructions
 - **Hooks vs scheduled tasks:** Hooks respond to tool events; scheduled tasks run on time intervals
 - **PreToolUse vs PostToolUse:** Pre can block/modify; Post observes and reacts
+- **PreCompact vs PostCompact:** Pre runs before compaction; Post runs after compaction with access to the compact summary
 
 ## Common tasks
 - "Auto-format code after every file write" → PostToolUse hook on Write tool
 - "Block dangerous shell commands" → PreToolUse hook on Bash tool
 - "Get notified when Claude finishes a task" → Notification hook
 - "Run linting after edits" → PostToolUse hook on Edit/Write tools
+- "Auto-handle MCP auth/input prompts" → Elicitation hook (or validate/override with ElicitationResult)
 - "Run a script every night" → scheduled-tasks.md
 
 ## When you must read source docs
