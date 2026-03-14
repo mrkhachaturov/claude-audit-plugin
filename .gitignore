@@ -1,6 +1,9 @@
 # Local planning/design artifacts
 superpowers/
 
+# Audit artifacts (specs, plans)
+.artifacts/
+
 # Python
 __pycache__/
 *.py[cod]
