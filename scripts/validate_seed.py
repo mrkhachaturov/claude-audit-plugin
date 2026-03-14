@@ -77,6 +77,14 @@ def validate(
                 f"out-of-scope modification: '{f}' is outside '{allowed_prefix}'"
             )
 
+    # Check 1b: agent-notes/ must not be touched
+    agent_notes_prefix = "agent-memory-seed/agent-notes/"
+    for f in changed_files:
+        if f.startswith(agent_notes_prefix):
+            issues.append(
+                f"agent-notes/ modification: '{f}' — agent-notes/ is agent-owned and must never be modified by CI or scripts"
+            )
+
     # Load manifest
     manifest_path = generated / "seed_manifest.json"
     if not manifest_path.exists():

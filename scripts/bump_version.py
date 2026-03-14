@@ -10,9 +10,29 @@ Usage: python scripts/bump_version.py
 
 import json
 import os
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
+
+
+def get_generated_changes(repo_root: str) -> list[str]:
+    """Return list of changed files under agent-memory-seed/generated/ via git diff.
+
+    Returns a non-empty sentinel list if git is unavailable, so that a git failure
+    does not silently suppress a version bump.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "diff", "--name-only", "agent-memory-seed/generated/"],
+            capture_output=True, text=True, cwd=repo_root
+        )
+        if result.returncode != 0:
+            # git unavailable or not a repo — assume changes to avoid silent skips
+            return ["<git-unavailable>"]
+        return [f.strip() for f in result.stdout.splitlines() if f.strip()]
+    except Exception:
+        return ["<git-unavailable>"]
 
 
 def bump(repo_root: str, changed_docs: list[str]) -> None:
@@ -21,6 +41,12 @@ def bump(repo_root: str, changed_docs: list[str]) -> None:
     """
     if not changed_docs:
         print("No changed docs — skipping version bump")
+        return
+
+    # Also check if generated files actually changed on disk
+    generated_changes = get_generated_changes(repo_root)
+    if not generated_changes:
+        print("No changes in agent-memory-seed/generated/ — skipping version bump")
         return
 
     root = Path(repo_root)

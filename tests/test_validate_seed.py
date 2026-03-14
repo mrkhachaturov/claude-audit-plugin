@@ -113,6 +113,22 @@ def test_out_of_scope_file_modification_fails(tmp_repo, minimal_manifest):
     assert any("out-of-scope" in i or "docs/hooks.md" in i for i in issues)
 
 
+def test_agent_notes_modification_fails(tmp_repo, minimal_manifest):
+    """A file added to agent-notes/ appearing in changed_files should fail validation."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+
+    write_valid_seed(tmp_repo, minimal_manifest)
+
+    from validate_seed import validate
+    changed_files = [
+        "agent-memory-seed/generated/navigation.md",
+        "agent-memory-seed/agent-notes/qa-patterns.md",
+    ]
+    issues = validate(str(tmp_repo), changed_files=changed_files)
+    assert any("agent-notes" in i for i in issues)
+
+
 def test_route_rename_detected(tmp_repo, minimal_manifest):
     """A route_id disappearing from prior manifest while a new one appears should flag as possible rename."""
     import sys

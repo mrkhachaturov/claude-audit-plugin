@@ -2,6 +2,7 @@
 import json
 import pytest
 from pathlib import Path
+from unittest.mock import patch
 
 
 def test_patch_version_incremented(tmp_repo):
@@ -60,6 +61,27 @@ def test_no_change_no_bump(tmp_repo):
 
     from bump_version import bump
     bump(str(tmp_repo), changed_docs=[])
+
+    updated = json.loads(plugin_json.read_text())
+    assert updated["version"] == "1.1.1"
+
+
+def test_no_generated_changes_no_bump(tmp_repo):
+    """If git diff shows no changes to generated/, version should not be bumped even with changed_docs."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+
+    plugin_json = tmp_repo / ".claude-plugin" / "plugin.json"
+    plugin_json.parent.mkdir(parents=True, exist_ok=True)
+    plugin_json.write_text(json.dumps({"name": "claude-audit", "version": "1.1.1"}))
+
+    changelog = tmp_repo / "CHANGELOG.md"
+    changelog.write_text("# Changelog\n\n## [1.1.1] — 2026-03-01\n")
+
+    # Mock get_generated_changes to return empty list (no actual generated file changes)
+    with patch("bump_version.get_generated_changes", return_value=[]):
+        from bump_version import bump
+        bump(str(tmp_repo), changed_docs=["hooks.md"])
 
     updated = json.loads(plugin_json.read_text())
     assert updated["version"] == "1.1.1"
