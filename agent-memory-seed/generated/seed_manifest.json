@@ -523,6 +523,23 @@
         "Related resources"
       ],
       "sections": {}
+    },
+    "features-overview.md": {
+      "file_hash": "561370536d0d7ed02fbc72c14ad9ceafa36beb5b2e1f9cc14d320529f177a977",
+      "headings_hash": "119ac0f333c79af52126ff6757f696c7643da8e0fb7d0d39a75d6485a660c64c",
+      "headings": [
+        "Extend Claude Code",
+        "Overview",
+        "Match features to your goal",
+        "Compare similar features",
+        "Understand how features layer",
+        "Combine features",
+        "Understand context costs",
+        "Context cost by feature",
+        "Understand how features load",
+        "Learn more"
+      ],
+      "sections": {}
     }
   },
   "routes": {
