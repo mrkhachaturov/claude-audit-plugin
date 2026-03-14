@@ -74,12 +74,14 @@ def bump(repo_root: str, changed_docs: list[str]) -> None:
     )
 
     existing = changelog_path.read_text()
-    # Insert after the first line (the # Changelog header)
-    lines = existing.split("\n", 2)
-    if len(lines) >= 2:
-        updated = lines[0] + "\n\n" + new_entry + ("\n".join(lines[1:])).lstrip("\n")
+    # Insert after the first line (# Changelog header)
+    first_newline = existing.find("\n")
+    if first_newline == -1:
+        updated = existing + "\n\n" + new_entry
     else:
-        updated = existing + "\n" + new_entry
+        header = existing[: first_newline + 1]
+        rest = existing[first_newline + 1 :].lstrip("\n")
+        updated = header + "\n" + new_entry + rest
 
     changelog_path.write_text(updated)
     print(f"Bumped version {old_version} -> {new_version}")

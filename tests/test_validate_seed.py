@@ -37,7 +37,7 @@ def test_valid_seed_passes(tmp_repo, minimal_manifest):
     write_valid_seed(tmp_repo, minimal_manifest)
 
     from validate_seed import validate
-    issues = validate(str(tmp_repo))
+    issues = validate(str(tmp_repo), changed_files=[])
     assert issues == [], f"Expected no issues, got: {issues}"
 
 
@@ -51,7 +51,7 @@ def test_missing_domain_file_fails(tmp_repo, minimal_manifest):
     (generated / "domain-automation-control.md").unlink()
 
     from validate_seed import validate
-    issues = validate(str(tmp_repo))
+    issues = validate(str(tmp_repo), changed_files=[])
     assert any("domain-automation-control.md" in i for i in issues)
 
 
@@ -68,7 +68,7 @@ def test_route_in_nav_missing_from_manifest_fails(tmp_repo, minimal_manifest):
     (generated / "navigation.md").write_text(nav)
 
     from validate_seed import validate
-    issues = validate(str(tmp_repo))
+    issues = validate(str(tmp_repo), changed_files=[])
     assert any("ghost-route" in i for i in issues)
 
 
@@ -82,7 +82,7 @@ def test_agent_notes_not_modified_passes(tmp_repo, minimal_manifest):
     (notes / "qa-patterns.md").write_text("# Q&A Patterns\n")
 
     from validate_seed import validate
-    issues = validate(str(tmp_repo))
+    issues = validate(str(tmp_repo), changed_files=[])
     assert issues == []
 
 
@@ -96,7 +96,7 @@ def test_missing_section_in_depends_on_fails(tmp_repo, minimal_manifest):
     write_valid_seed(tmp_repo, manifest)
 
     from validate_seed import validate
-    issues = validate(str(tmp_repo))
+    issues = validate(str(tmp_repo), changed_files=[])
     assert any("nonexistent-section" in i for i in issues)
 
 

@@ -78,9 +78,9 @@ def test_no_generated_changes_no_bump(tmp_repo):
     changelog = tmp_repo / "CHANGELOG.md"
     changelog.write_text("# Changelog\n\n## [1.1.1] — 2026-03-01\n")
 
+    from bump_version import bump
     # Mock get_generated_changes to return empty list (no actual generated file changes)
     with patch("bump_version.get_generated_changes", return_value=[]):
-        from bump_version import bump
         bump(str(tmp_repo), changed_docs=["hooks.md"])
 
     updated = json.loads(plugin_json.read_text())
