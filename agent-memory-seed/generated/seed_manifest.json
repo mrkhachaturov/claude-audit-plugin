@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "seed_version": "2026-03-14T00:00:00Z",
+  "source_docs": {
+    "how-claude-code-works.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "memory.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "settings.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "hooks.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "hooks-guide.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "skills.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "sub-agents.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "mcp.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "plugins.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "permissions.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    },
+    "best-practices.md": {
+      "file_hash": "placeholder",
+      "headings_hash": "placeholder",
+      "headings": [],
+      "sections": {}
+    }
+  },
+  "routes": {
+    "how-claude-code-works": {
+      "domain_id": "foundation",
+      "domain_file": "domain-foundation.md",
+      "primary_doc": "how-claude-code-works.md",
+      "secondary_doc": "overview.md",
+      "depends_on_sections": ["how-claude-code-works.md::agentic-loop"]
+    },
+    "configure-memory": {
+      "domain_id": "configuration-persistence",
+      "domain_file": "domain-configuration-persistence.md",
+      "primary_doc": "memory.md",
+      "secondary_doc": "settings.md",
+      "depends_on_sections": ["memory.md::memory-types"]
+    },
+    "claude-md-structure": {
+      "domain_id": "configuration-persistence",
+      "domain_file": "domain-configuration-persistence.md",
+      "primary_doc": "memory.md",
+      "secondary_doc": "settings.md",
+      "depends_on_sections": ["memory.md::claude-md"]
+    },
+    "configure-hooks": {
+      "domain_id": "automation-control",
+      "domain_file": "domain-automation-control.md",
+      "primary_doc": "hooks.md",
+      "secondary_doc": "hooks-guide.md",
+      "depends_on_sections": ["hooks.md::event-types"]
+    },
+    "hooks-vs-skills": {
+      "domain_id": "automation-control",
+      "domain_file": "domain-automation-control.md",
+      "primary_doc": "hooks.md",
+      "secondary_doc": "skills.md",
+      "depends_on_sections": ["hooks.md::overview"]
+    },
+    "configure-skills": {
+      "domain_id": "extension-capability",
+      "domain_file": "domain-extension-capability.md",
+      "primary_doc": "skills.md",
+      "secondary_doc": null,
+      "depends_on_sections": ["skills.md::configure-skills"]
+    },
+    "skills-vs-claudemd": {
+      "domain_id": "extension-capability",
+      "domain_file": "domain-extension-capability.md",
+      "primary_doc": "features-overview.md",
+      "secondary_doc": "skills.md",
+      "depends_on_sections": ["features-overview.md::compare-similar-features"]
+    },
+    "configure-agents": {
+      "domain_id": "extension-capability",
+      "domain_file": "domain-extension-capability.md",
+      "primary_doc": "sub-agents.md",
+      "secondary_doc": null,
+      "depends_on_sections": ["sub-agents.md::configure-subagents"]
+    },
+    "configure-mcp": {
+      "domain_id": "extension-capability",
+      "domain_file": "domain-extension-capability.md",
+      "primary_doc": "mcp.md",
+      "secondary_doc": "settings.md",
+      "depends_on_sections": ["mcp.md::installing-mcp-servers"]
+    },
+    "configure-plugins": {
+      "domain_id": "extension-capability",
+      "domain_file": "domain-extension-capability.md",
+      "primary_doc": "plugins.md",
+      "secondary_doc": "plugin-marketplaces.md",
+      "depends_on_sections": ["plugins.md::plugin-structure-overview"]
+    },
+    "configure-permissions": {
+      "domain_id": "access-control-safety",
+      "domain_file": "domain-access-control-safety.md",
+      "primary_doc": "permissions.md",
+      "secondary_doc": "settings.md",
+      "depends_on_sections": ["permissions.md::permission-rules"]
+    },
+    "best-practices": {
+      "domain_id": "effective-interaction",
+      "domain_file": "domain-effective-interaction.md",
+      "primary_doc": "best-practices.md",
+      "secondary_doc": "common-workflows.md",
+      "depends_on_sections": ["best-practices.md::explore-plan-implement"]
+    }
+  },
+  "outputs": {
+    "domain-foundation.md": {
+      "content_hash": "placeholder",
+      "depends_on_sections": ["how-claude-code-works.md::agentic-loop"]
+    },
+    "domain-configuration-persistence.md": {
+      "content_hash": "placeholder",
+      "depends_on_sections": ["memory.md::memory-types", "memory.md::claude-md", "settings.md::configuration-scopes"]
+    },
+    "domain-automation-control.md": {
+      "content_hash": "placeholder",
+      "depends_on_sections": ["hooks.md::event-types", "hooks-guide.md::common-patterns"]
+    },
+    "domain-extension-capability.md": {
+      "content_hash": "placeholder",
+      "depends_on_sections": ["skills.md::configure-skills", "sub-agents.md::configure-subagents", "mcp.md::installing-mcp-servers", "plugins.md::plugin-structure-overview"]
+    },
+    "domain-access-control-safety.md": {
+      "content_hash": "placeholder",
+      "depends_on_sections": ["permissions.md::permission-rules"]
+    },
+    "domain-effective-interaction.md": {
+      "content_hash": "placeholder",
+      "depends_on_sections": ["best-practices.md::explore-plan-implement"]
+    },
+    "navigation.md": {
+      "content_hash": "placeholder",
+      "depends_on_routes": ["how-claude-code-works", "configure-memory", "claude-md-structure", "configure-hooks", "hooks-vs-skills", "configure-skills", "skills-vs-claudemd", "configure-agents", "configure-mcp", "configure-plugins", "configure-permissions", "best-practices"]
+    }
+  }
+}
