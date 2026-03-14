@@ -11,7 +11,7 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 
 ## Fast answers
 - **What are hooks?** Shell commands in settings.json that run before/after specific Claude tool uses
-- **Hook events:** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `SubagentStop`
+- **Hook events (common):** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `SubagentStop`; many more exist (`SessionStart`, `PermissionRequest`, `PreCompact`, `TaskCompleted`, etc.) — see hooks.md for the full list
 - **Can hooks block Claude?** Yes — `PreToolUse` hooks that exit non-zero can block the tool call
 - **Where do hooks live?** `.claude/settings.json` under the `hooks` key
 
