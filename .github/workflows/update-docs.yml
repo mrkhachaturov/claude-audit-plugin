@@ -20,6 +20,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         ref: main
+        fetch-depth: 2
     
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -40,10 +41,77 @@ jobs:
         python scripts/fetch_claude_docs.py || echo "fetch_failed=true" >> $GITHUB_OUTPUT
       continue-on-error: true
     
+    - name: Check seed significance
+      id: seed-check
+      run: python scripts/check_significance.py >> $GITHUB_OUTPUT
+
+    - name: Rebuild seed with Codex
+      if: steps.seed-check.outputs.rebuild == 'true'
+      id: codex-rebuild
+      continue-on-error: true
+      uses: openai/codex-action@v1
+      with:
+        openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+        prompt-file: .github/prompts/build-seed.md
+        output-file: codex-seed-output.md
+        safety-strategy: drop-sudo
+        sandbox: workspace-write
+
+    - name: Validate seed output
+      if: steps.seed-check.outputs.rebuild == 'true' && steps.codex-rebuild.outcome == 'success'
+      id: seed-validate
+      run: python scripts/validate_seed.py --allow-prefix docs/
+
+    - name: Bump version if seed changed
+      if: steps.seed-validate.outcome == 'success'
+      env:
+        CHANGED_DOCS: ${{ steps.seed-check.outputs.changed_docs }}
+      run: python scripts/bump_version.py
+
+    - name: Create issue on Codex failure
+      if: steps.codex-rebuild.outcome == 'failure' || steps.seed-validate.outcome == 'failure'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const date = new Date().toISOString().split('T')[0];
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `Seed rebuild failed - ${date}`,
+            body: `Seed rebuild failed on ${date}. Docs updated normally. See workflow run for details.`,
+            labels: ['bug', 'automation']
+          })
+
+    - name: Discard seed changes on failure
+      if: steps.codex-rebuild.outcome == 'failure' || steps.seed-validate.outcome == 'failure'
+      run: |
+        git checkout -- agent-memory-seed/ || true
+        git checkout -- .claude-plugin/plugin.json || true
+        git checkout -- CHANGELOG.md || true
+        git clean -fd agent-memory-seed/ || true
+
+    - name: Debug staging decisions
+      run: |
+        echo "=== Staging decision dry-run ==="
+        echo "seed-check.rebuild     : ${{ steps.seed-check.outputs.rebuild }}"
+        echo "codex-rebuild.outcome  : ${{ steps.codex-rebuild.outcome }}"
+        echo "seed-validate.outcome  : ${{ steps.seed-validate.outcome }}"
+        echo ""
+        if [ "${{ steps.seed-validate.outcome }}" = "success" ]; then
+          echo "Seed path: FULL — staging docs/ + agent-memory-seed/generated/ + plugin.json + CHANGELOG.md"
+          git add -n -A agent-memory-seed/generated/ .claude-plugin/plugin.json CHANGELOG.md 2>&1 | sed 's/^/  [seed] /' || echo "  [seed] (no changes)"
+        else
+          echo "Seed path: DOCS ONLY — seed files excluded from this commit"
+        fi
+        git add -n -A docs/ 2>&1 | sed 's/^/  [docs] /' || echo "  [docs] (no changes)"
+
     - name: Check for changes
       id: verify-changed-files
       run: |
         git add -A docs/
+        if [ "${{ steps.seed-validate.outcome }}" = "success" ]; then
+          git add -A agent-memory-seed/generated/ .claude-plugin/plugin.json CHANGELOG.md
+        fi
         git diff --cached --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
 
     - name: Generate commit message

@@ -16,6 +16,7 @@ Exit 0 = valid. Exit 1 = issues found (printed to stdout).
 Usage: python scripts/validate_seed.py
 """
 
+import argparse
 import json
 import re
 import subprocess
@@ -56,6 +57,7 @@ def validate(
     repo_root: str,
     changed_files: list[str] | None = None,
     prior_route_ids: set[str] | None = None,
+    allowed_prefixes: list[str] | None = None,
 ) -> list[str]:
     """
     Run all validation checks. Returns list of issue strings (empty = valid).
@@ -66,17 +68,24 @@ def validate(
                        If None, determined via git diff --name-only HEAD.
         prior_route_ids: Optional set of route_ids from before the rebuild.
                          If None, loaded from HEAD's seed_manifest.json via git show.
+        allowed_prefixes: Optional list of extra path prefixes that are allowed to be
+                          modified without failing validation (for example `docs/`).
     """
     root = Path(repo_root)
     generated = root / "agent-memory-seed" / "generated"
     issues = []
+    allowed_prefixes = allowed_prefixes or []
 
     # Check 1: No files modified outside agent-memory-seed/generated/
     if changed_files is None:
         changed_files = get_changed_files(repo_root)
     allowed_prefix = "agent-memory-seed/generated/"
     for f in changed_files:
-        if not f.startswith(allowed_prefix):
+        if f.startswith(allowed_prefix):
+            continue
+        if any(f.startswith(extra_prefix) for extra_prefix in allowed_prefixes):
+            continue
+        else:
             issues.append(
                 f"out-of-scope modification: '{f}' is outside '{allowed_prefix}'"
             )
@@ -169,8 +178,17 @@ def validate(
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Validate generated knowledge seed output.")
+    parser.add_argument(
+        "--allow-prefix",
+        action="append",
+        default=[],
+        help="Additional changed-file prefix allowed during validation, e.g. docs/",
+    )
+    args = parser.parse_args()
+
     repo_root = Path(__file__).parent.parent
-    issues = validate(str(repo_root))
+    issues = validate(str(repo_root), allowed_prefixes=args.allow_prefix)
 
     if issues:
         print("Seed validation FAILED:")

@@ -1,0 +1,14 @@
+# Local planning/design artifacts
+superpowers/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.python-version
+*.egg-info/
+dist/
+build/
+.venv/
+venv/

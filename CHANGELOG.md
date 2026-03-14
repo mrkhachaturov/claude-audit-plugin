@@ -4,6 +4,14 @@ All notable changes to `claude-audit` are documented here.
 
 ---
 
+## [1.2.0] — 2026-03-14
+
+### Changed
+- `agents/claude-code-expert.md`: replace full-doc bootstrap with seed-copy bootstrap from `agent-memory-seed/generated/`; add Q&A routing mode via `navigation.md` with three-tier ambiguity fallback; add per-invocation seed version check; add selective `qa-patterns.md` persistence rule
+- `skills/ask-claude-code/SKILL.md`: update description to list CLAUDE.md, plugins, MCP, and permissions; fix `Question:` placeholder to match spec (`<verbatim user question>`)
+
+---
+
 ## [1.1.1] — 2026-03-14
 
 ### Changed
