@@ -549,7 +549,7 @@
       "primary_doc": "how-claude-code-works.md",
       "secondary_doc": "overview.md",
       "depends_on_sections": [
-        "how-claude-code-works.md::agentic-loop"
+        "how-claude-code-works.md::the-agentic-loop"
       ]
     },
     "configure-memory": {
@@ -558,7 +558,7 @@
       "primary_doc": "memory.md",
       "secondary_doc": "settings.md",
       "depends_on_sections": [
-        "memory.md::memory-types"
+        "memory.md::claudemd-vs-auto-memory"
       ]
     },
     "claude-md-structure": {
@@ -567,7 +567,7 @@
       "primary_doc": "memory.md",
       "secondary_doc": "settings.md",
       "depends_on_sections": [
-        "memory.md::claude-md"
+        "memory.md::claudemd-files"
       ]
     },
     "configure-hooks": {
@@ -576,7 +576,7 @@
       "primary_doc": "hooks.md",
       "secondary_doc": "hooks-guide.md",
       "depends_on_sections": [
-        "hooks.md::event-types"
+        "hooks.md::hook-events"
       ]
     },
     "hooks-vs-skills": {
@@ -585,7 +585,7 @@
       "primary_doc": "hooks.md",
       "secondary_doc": "skills.md",
       "depends_on_sections": [
-        "hooks.md::overview"
+        "hooks.md::hook-lifecycle"
       ]
     },
     "configure-skills": {
@@ -639,7 +639,7 @@
       "primary_doc": "permissions.md",
       "secondary_doc": "settings.md",
       "depends_on_sections": [
-        "permissions.md::permission-rules"
+        "permissions.md::permission-rule-syntax"
       ]
     },
     "best-practices": {
@@ -648,7 +648,7 @@
       "primary_doc": "best-practices.md",
       "secondary_doc": "common-workflows.md",
       "depends_on_sections": [
-        "best-practices.md::explore-plan-implement"
+        "best-practices.md::explore-first-then-plan-then-code"
       ]
     }
   },
@@ -656,22 +656,22 @@
     "domain-foundation.md": {
       "content_hash": "325bb5809c576cc56d7556386d716a25e8ec323167484298d787c7e3db665451",
       "depends_on_sections": [
-        "how-claude-code-works.md::agentic-loop"
+        "how-claude-code-works.md::the-agentic-loop"
       ]
     },
     "domain-configuration-persistence.md": {
       "content_hash": "2bd05fe0784b04df6d5e4180755bed324b98040aa2d983b3ebd587607d8edb2d",
       "depends_on_sections": [
-        "memory.md::memory-types",
-        "memory.md::claude-md",
+        "memory.md::claudemd-vs-auto-memory",
+        "memory.md::claudemd-files",
         "settings.md::configuration-scopes"
       ]
     },
     "domain-automation-control.md": {
       "content_hash": "ae1384c58e4d549ed41fbcc771698122bbc0e88c7f48bd877c9dcaae4da26075",
       "depends_on_sections": [
-        "hooks.md::event-types",
-        "hooks-guide.md::common-patterns"
+        "hooks.md::hook-events",
+        "hooks-guide.md::what-you-can-automate"
       ]
     },
     "domain-extension-capability.md": {
@@ -686,13 +686,13 @@
     "domain-access-control-safety.md": {
       "content_hash": "73646431379c6e1b5e13518b8a29c78d1c27dfd90fd2e7ec5702022663fd77d9",
       "depends_on_sections": [
-        "permissions.md::permission-rules"
+        "permissions.md::permission-rule-syntax"
       ]
     },
     "domain-effective-interaction.md": {
       "content_hash": "cb9a38f62da3318f92d050f58f44636d64a84b6313ee305bca2af8b61fab4aa8",
       "depends_on_sections": [
-        "best-practices.md::explore-plan-implement"
+        "best-practices.md::explore-first-then-plan-then-code"
       ]
     },
     "navigation.md": {
