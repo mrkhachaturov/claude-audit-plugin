@@ -4,6 +4,13 @@ All notable changes to `claude-audit` are documented here.
 
 ---
 
+## [1.2.1] — 2026-03-14
+
+### Changed
+- Rename skill `ask-claude-code` → `ask` (command: `/claude-audit:ask`)
+
+---
+
 ## [1.2.0] — 2026-03-14
 
 ### Changed
