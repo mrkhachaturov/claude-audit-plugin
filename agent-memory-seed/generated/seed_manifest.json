@@ -660,7 +660,7 @@
       ]
     },
     "domain-configuration-persistence.md": {
-      "content_hash": "6d07df26328fd270bbb3ed19eec4ccbdd16141b805f6a5e64d8a5a0954a3aac7",
+      "content_hash": "2bd05fe0784b04df6d5e4180755bed324b98040aa2d983b3ebd587607d8edb2d",
       "depends_on_sections": [
         "memory.md::memory-types",
         "memory.md::claude-md",
@@ -668,7 +668,7 @@
       ]
     },
     "domain-automation-control.md": {
-      "content_hash": "f09d498c8091b1af97828eb995ad910b826543942b3230b0387a60fbe3feabee",
+      "content_hash": "ae1384c58e4d549ed41fbcc771698122bbc0e88c7f48bd877c9dcaae4da26075",
       "depends_on_sections": [
         "hooks.md::event-types",
         "hooks-guide.md::common-patterns"
