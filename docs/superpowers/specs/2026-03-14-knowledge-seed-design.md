@@ -51,8 +51,10 @@ Only `generated/` is replaced. `agent-notes/` is always preserved. If the shippe
 
 1. Read `navigation.md` → match question to a `route_id`
 2. Read `domain_file` → answer if `answer_from_domain_if` applies
-3. If `read_source_docs_if` applies → read `primary_doc`, then `secondary_doc` only if needed
-4. Cite authoritative source doc(s) from `docs/*.md` in the final answer (never cite seed files)
+3. If `read_source_docs_if` applies → read `primary_doc` from `installPath/docs/`, then `secondary_doc` only if needed
+4. Cite source docs in the final answer using this rule:
+   - **Domain-only answer** (`answer_from_domain_if` applied, source doc not opened): cite the route's `primary_doc` filename as the authoritative source without quoting it directly
+   - **Source-doc answer** (`read_source_docs_if` applied, source doc opened): cite the specific doc(s) read with direct reference to the relevant section
 
 **Fallback:** If no route matches confidently, use `strong_terms` to pick the best candidate. If ambiguity remains, read `primary_doc` for the top 2 candidates and answer conservatively with citations. If ambiguity persists after reading both primary docs, return both candidate answers explicitly, state the uncertainty, and cite all source docs consulted.
 
@@ -60,7 +62,7 @@ Only `generated/` is replaced. `agent-notes/` is always preserved. If the shippe
 
 ## Domain Taxonomy
 
-Six domains cover all docs in `docs/`. Provider-specific, auth, and compliance docs map to the Foundation domain as context-setting material, not primary Q&A targets.
+Six domains cover all docs in `docs/`. Provider-specific, auth, and compliance docs map to the Foundation domain. They are full Q&A targets — the distinction "not primary" means they are not the first docs consulted for general Claude Code questions, not that they are excluded from routing.
 
 | Domain ID | File | Boundary |
 |---|---|---|
@@ -176,6 +178,15 @@ Save only if the note would improve 3+ future questions. Do not save one-off fac
       }
     }
   },
+  "routes": {
+    "configure-hooks": {
+      "domain_id": "automation-control",
+      "domain_file": "domain-automation-control.md",
+      "primary_doc": "hooks.md",
+      "secondary_doc": "hooks-guide.md",
+      "depends_on_sections": ["hooks.md::event-types", "hooks-guide.md::common-patterns"]
+    }
+  },
   "outputs": {
     "domain-automation-control.md": {
       "content_hash": "sha256",
@@ -223,6 +234,17 @@ Save only if the note would improve 3+ future questions. Do not save one-off fac
 
 ### Updated `update-docs.yml`
 
+The existing `actions/checkout@v4` step must add `fetch-depth: 2` so `git diff HEAD~1` is available:
+
+```yaml
+- name: Checkout repository
+  uses: actions/checkout@v4
+  with:
+    token: ${{ secrets.GITHUB_TOKEN }}
+    ref: main
+    fetch-depth: 2   # required for git diff HEAD~1 in check_significance.py
+```
+
 Four new steps added after "Fetch latest documentation":
 
 ```yaml
@@ -266,11 +288,19 @@ Four new steps added after "Fetch latest documentation":
         body: `Seed rebuild failed on ${date}. Docs updated normally. See workflow run for details.`,
         labels: ['bug', 'automation']
       })
+
+- name: Discard seed changes on failure
+  if: steps.codex-rebuild.outcome == 'failure' || steps.seed-validate.outcome == 'failure'
+  run: |
+    git checkout -- agent-memory-seed/ || true
+    git checkout -- plugin.json || true
+    git checkout -- CHANGELOG.md || true
+    git clean -fd agent-memory-seed/ || true
 ```
 
-**Codex failure behavior:** non-destructive. `continue-on-error: true` ensures the docs commit always proceeds. Validation and version bump are skipped. A GitHub issue is opened.
+**Codex failure behavior:** non-destructive. `continue-on-error: true` ensures the docs commit always proceeds. The cleanup step explicitly discards any partial changes to `agent-memory-seed/`, `plugin.json`, and `CHANGELOG.md` so only `docs/` changes are committed. A GitHub issue is opened.
 
-**Commit:** all staged together — `docs/`, `agent-memory-seed/generated/`, `plugin.json`, `CHANGELOG.md`.
+**Commit:** staged conditionally — always `docs/`; only adds `agent-memory-seed/generated/`, `plugin.json`, `CHANGELOG.md` when seed rebuild and validation both pass.
 
 ### `.github/prompts/build-seed.md` — Codex Prompt Contract
 
@@ -308,8 +338,9 @@ When answering a question:
 1. Read generated/navigation.md → match to route_id by intent, match phrases, and strong_terms
 2. Read domain_file
 3. Answer from domain file if answer_from_domain_if applies
-4. If read_source_docs_if applies → read primary_doc, then secondary_doc if needed
-5. Cite source docs from docs/*.md only (never cite navigation.md or domain files)
+   → cite route's primary_doc filename as source without quoting it directly
+4. If read_source_docs_if applies → read primary_doc from installPath/docs/, then secondary_doc if needed
+   → cite the specific doc(s) read with direct reference to the relevant section
 
 Fallback:
 - No confident match → use strong_terms to select best candidate
@@ -363,9 +394,11 @@ Question: <verbatim user question>
 | Invariant | Enforcement |
 |---|---|
 | `agent-notes/` never touched by CI | `validate_seed.py` exit + prompt constraint |
-| Citations always point to `docs/*.md` | Agent instruction |
+| Domain-only answers cite route's primary_doc without reading it | Agent instruction |
+| Source-doc answers cite the doc(s) actually read | Agent instruction |
+| Partial seed changes never leak into docs commit | Cleanup step on failure |
 | Version bump only on validated changes | Conditional on `seed-validate` outcome |
-| Codex failure is non-destructive | `continue-on-error: true` + issue creation |
+| Codex failure is non-destructive | `continue-on-error: true` + cleanup + issue creation |
 | Seed unreadable → use local copy | Agent bootstrap fallback |
 | `route_id`s stable across rebuilds | `validate_seed.py` rename detection + prompt constraint |
 | `navigation.md` and manifest stay in sync | `validate_seed.py` cross-reference check |
