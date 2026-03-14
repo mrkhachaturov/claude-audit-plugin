@@ -100,6 +100,34 @@ def test_missing_section_in_depends_on_fails(tmp_repo, minimal_manifest):
     assert any("nonexistent-section" in i for i in issues)
 
 
+def test_section_id_not_a_heading_slug_fails(tmp_repo, minimal_manifest):
+    """Section IDs in source_docs must be slugs derived from the doc's headings array."""
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+
+    manifest = json.loads(json.dumps(minimal_manifest))
+    # Replace the correct section ID "event-types" with a semantic alias
+    manifest["source_docs"]["hooks.md"]["sections"]["manual-alias"] = (
+        manifest["source_docs"]["hooks.md"]["sections"].pop("event-types")
+    )
+    # Update depends_on_sections to match so we isolate only Check 4
+    for output in manifest["outputs"].values():
+        deps = output.get("depends_on_sections", [])
+        output["depends_on_sections"] = [
+            d.replace("hooks.md::event-types", "hooks.md::manual-alias") for d in deps
+        ]
+    for route in manifest["routes"].values():
+        route["depends_on_sections"] = [
+            d.replace("hooks.md::event-types", "hooks.md::manual-alias")
+            for d in route.get("depends_on_sections", [])
+        ]
+    write_valid_seed(tmp_repo, manifest)
+
+    from validate_seed import validate
+    issues = validate(str(tmp_repo), changed_files=[])
+    assert any("manual-alias" in i for i in issues)
+
+
 def test_out_of_scope_file_modification_fails(tmp_repo, minimal_manifest):
     """Files modified outside agent-memory-seed/generated/ should fail validation."""
     import sys

@@ -4,9 +4,11 @@ Validate seed output after Codex rebuild.
 
 Checks:
 1. No files modified outside agent-memory-seed/generated/ (via changed_files param or git diff)
+1b. agent-notes/ not touched
 2. All route_ids in navigation.md exist in manifest routes
 3. All domain_file references in routes resolve to files in generated/
-4. All depends_on_sections in outputs reference sections that exist in source_docs
+4. All section IDs in source_docs are valid slugs of the doc's headings (slugify contract)
+4b. All depends_on_sections in outputs reference sections that exist in source_docs
 5. No route IDs were silently renamed (compare against prior_route_ids)
 
 Exit 0 = valid. Exit 1 = issues found (printed to stdout).
@@ -19,6 +21,8 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+
+from slugify import slugify_headings
 
 
 def get_changed_files(repo_root: str) -> list[str]:
@@ -118,7 +122,18 @@ def validate(
                 f"route '{route_id}' references domain_file '{domain_file}' which does not exist"
             )
 
-    # Check 4: All depends_on_sections in outputs reference existing sections
+    # Check 4: All section IDs in source_docs are valid slugs of the doc's headings
+    for doc_name, doc_meta in source_docs.items():
+        valid_slugs = set(slugify_headings(doc_meta.get("headings", [])))
+        for section_id in doc_meta.get("sections", {}):
+            if section_id not in valid_slugs:
+                issues.append(
+                    f"source_docs['{doc_name}'].sections['{section_id}'] is not a valid slug "
+                    f"of any heading in '{doc_name}' — section IDs must be derived via "
+                    f"slugify_headings(headings)"
+                )
+
+    # Check 4b: All depends_on_sections in outputs reference sections that exist in source_docs
     for output_file, output_meta in outputs.items():
         for section_ref in output_meta.get("depends_on_sections", []):
             parts = section_ref.split("::")
