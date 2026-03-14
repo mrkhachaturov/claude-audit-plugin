@@ -387,8 +387,8 @@
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-03-14T03:45:11.425106",
-    "fetch_duration_seconds": 36.659437,
+    "last_fetch_completed": "2026-03-14T06:12:07.304828",
+    "fetch_duration_seconds": 36.565756,
     "total_pages_discovered": 64,
     "pages_fetched_successfully": 65,
     "pages_failed": 0,
@@ -398,7 +398,7 @@
     "total_files": 64,
     "fetch_tool_version": "3.0"
   },
-  "last_updated": "2026-03-14T03:45:11.425124",
+  "last_updated": "2026-03-14T06:12:07.304855",
   "base_url": "https://raw.githubusercontent.com/mrkhachaturov/claude-audit-plugin/main/docs/",
   "github_repository": "mrkhachaturov/claude-audit-plugin",
   "github_ref": "main",
