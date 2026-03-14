@@ -13,7 +13,7 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 ## Fast answers
 - **Where does CLAUDE.md live?** Project root or `.claude/CLAUDE.md`; personal at `~/.claude/CLAUDE.md`
 - **What goes in CLAUDE.md?** Project conventions, coding style, architecture notes, commands to run
-- **What is auto-memory?** Claude can save notes to `~/.claude/MEMORY.md` using the `/memory` command
+- **What is auto-memory?** Session notes are auto-saved to `~/.claude/MEMORY.md`; use `/memory` to view and edit what was saved
 - **Settings precedence:** enterprise > project > user (higher wins)
 - **settings.json location:** `.claude/settings.json` (project) or `~/.claude/settings.json` (user)
 
