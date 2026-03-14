@@ -2,27 +2,38 @@
 """
 Check whether doc changes are significant enough to trigger a seed rebuild.
 
-Outputs GitHub Actions output variables:
+Inputs:
+  - agent-memory-seed/generated/seed_manifest.json  (prior headings + section hashes)
+  - git diff -U0 HEAD~1 -- docs/                    (changed files and heading diffs)
+
+Outputs GitHub Actions output variables to stdout (append to $GITHUB_OUTPUT):
   rebuild=true/false
   affected_routes=comma,separated
   affected_domains=comma,separated
   changed_docs=comma,separated
 
+Rebuild triggers (v1 — heading-change + threshold detection):
+  - Any new doc file added to docs/
+  - Any heading changed in a tracked doc (detected via +/- lines starting with #)
+  - 30+ lines changed across docs/ in a single run
+
 Usage: python scripts/check_significance.py >> $GITHUB_OUTPUT
 """
 
 import json
-import os
 import re
+import subprocess
 import sys
 from pathlib import Path
+
+from slugify import slugify_heading
 
 
 LINES_CHANGED_THRESHOLD = 30
 
 
 def load_seed_manifest(repo_root: str) -> dict:
-    """Load the current seed_manifest.json, or return empty dict if missing."""
+    """Load seed_manifest.json, or return empty dict if missing."""
     path = Path(repo_root) / "agent-memory-seed" / "generated" / "seed_manifest.json"
     if not path.exists():
         return {}
@@ -33,14 +44,16 @@ def parse_git_diff(diff_output: str) -> dict:
     """
     Parse unified diff output (git diff -U0) into per-file change info.
 
-    Returns: {
-        "filename.md": {
-            "is_new": bool,
-            "lines_changed": int,
-            "changed_headings": [str],
-            "hunk_line_ranges": [(start, count), ...]
+    Returns:
+        {
+            "filename.md": {
+                "is_new": bool,
+                "lines_changed": int,
+                "changed_headings": [str],   # raw heading text from +/- lines
+            }
         }
-    }
+
+    Only files under docs/ are included.
     """
     result = {}
     current_file = None
@@ -54,7 +67,6 @@ def parse_git_diff(diff_output: str) -> dict:
                     "is_new": False,
                     "lines_changed": 0,
                     "changed_headings": [],
-                    "hunk_line_ranges": []
                 }
             else:
                 current_file = None
@@ -78,12 +90,6 @@ def parse_git_diff(diff_output: str) -> dict:
             if heading_match:
                 result[current_file]["changed_headings"].append(heading_match.group(1).strip())
 
-        hunk_match = re.match(r'^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@', line)
-        if hunk_match:
-            start = int(hunk_match.group(1))
-            count = int(hunk_match.group(2)) if hunk_match.group(2) else 1
-            result[current_file]["hunk_line_ranges"].append((start, count))
-
     return result
 
 
@@ -91,7 +97,12 @@ def identify_affected_routes_and_domains(
     changed_files: dict, seed_manifest: dict
 ) -> tuple[list, list]:
     """
-    Given changed file info and seed_manifest, return affected route_ids and domain_ids.
+    Return affected route_ids and domain_ids given per-file change info and the manifest.
+
+    A doc is considered to affect its routes when:
+    - It is new (not yet in the manifest), or
+    - Any of its known headings changed (compared as slugs), or
+    - Its total lines_changed >= LINES_CHANGED_THRESHOLD
     """
     if not seed_manifest:
         return [], []
@@ -103,15 +114,16 @@ def identify_affected_routes_and_domains(
 
     for filename, change_info in changed_files.items():
         if filename not in source_docs:
+            # Unknown or new doc — conservatively mark all routes affected
             for route_id, route in routes.items():
                 affected_routes.add(route_id)
                 affected_domains.add(route["domain_id"])
             continue
 
         doc_meta = source_docs[filename]
-        known_headings = set(doc_meta.get("headings", []))
-        changed_headings = set(change_info.get("changed_headings", []))
-        heading_overlap = known_headings & changed_headings
+        known_heading_slugs = {slugify_heading(h) for h in doc_meta.get("headings", [])}
+        changed_heading_slugs = {slugify_heading(h) for h in change_info["changed_headings"]}
+        heading_overlap = known_heading_slugs & changed_heading_slugs
 
         if heading_overlap or change_info["lines_changed"] >= LINES_CHANGED_THRESHOLD or change_info["is_new"]:
             for section_id, section in doc_meta.get("sections", {}).items():
@@ -125,7 +137,7 @@ def identify_affected_routes_and_domains(
 
 def analyze_changes(repo_root: str, git_diff: str, seed_manifest: dict) -> dict:
     """
-    Core analysis function. Separated from I/O for testability.
+    Core analysis function — separated from I/O for testability.
 
     Returns dict with keys: rebuild, affected_routes, affected_domains, changed_docs
     """
@@ -141,10 +153,7 @@ def analyze_changes(repo_root: str, git_diff: str, seed_manifest: dict) -> dict:
 
     should_rebuild = False
     for filename, info in changed_files.items():
-        if info["is_new"]:
-            should_rebuild = True
-            break
-        if info["changed_headings"]:
+        if info["is_new"] or info["changed_headings"]:
             should_rebuild = True
             break
         if info["lines_changed"] >= LINES_CHANGED_THRESHOLD:
@@ -168,7 +177,6 @@ def main():
     seed_manifest = load_seed_manifest(str(repo_root))
 
     try:
-        import subprocess
         result = subprocess.run(
             ["git", "diff", "-U0", "HEAD~1", "--", "docs/"],
             capture_output=True, text=True, cwd=repo_root
