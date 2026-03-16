@@ -87,11 +87,12 @@ match:
   - "run a command after Claude edits a file"
   - "block a dangerous command"
   - "auto-format on save"
+  - "auto-approve permission prompts"
   - "PostToolUse hook"
   - "notification hook"
   - "Elicitation hook"
   - "PostCompact hook"
-strong_terms: [hook, PostToolUse, PreToolUse, Notification, Stop, Elicitation, ElicitationResult, PostCompact, matcher, blocking]
+strong_terms: [hook, PostToolUse, PreToolUse, PermissionRequest, ExitPlanMode, Notification, Stop, Elicitation, ElicitationResult, PostCompact, matcher, blocking]
 avoid: [scheduled tasks, cron, skills]
 answer_from_domain_if:
   - what hooks are
@@ -100,6 +101,7 @@ answer_from_domain_if:
 read_source_docs_if:
   - exact matcher syntax
   - blocking semantics and exit codes
+  - PermissionRequest decision schema and updatedPermissions entries
   - specific hook event payload format
 primary_doc: hooks.md
 secondary_doc: hooks-guide.md
@@ -181,6 +183,7 @@ match:
   - "agent frontmatter"
   - "dispatch a subagent"
   - "agent memory"
+  - "plugin subagent fields are ignored"
 strong_terms: [subagent, agent, Agent tool, dispatch, isolated context, agent memory]
 avoid: [MCP, plugins, hooks]
 answer_from_domain_if:
@@ -189,6 +192,7 @@ answer_from_domain_if:
   - when to use subagents
 read_source_docs_if:
   - exact agent frontmatter fields
+  - plugin subagent field limitations
   - tool and memory configuration
   - agent isolation guarantees
 primary_doc: sub-agents.md

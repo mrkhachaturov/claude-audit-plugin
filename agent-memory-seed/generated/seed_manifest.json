@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-14T09:08:27Z",
+  "seed_version": "2026-03-16T18:19:48Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -156,8 +156,8 @@
       }
     },
     "hooks.md": {
-      "file_hash": "1c47952ebaab6845ac518d2b9f0e9ce43deb6ba905b95ae7ca7f3ac579a72ab5",
-      "headings_hash": "27112a7c6215f6c488ae1ebf9cd85f685f5dc9c5710656cecd89580c066fb9f1",
+      "file_hash": "07347a945b66aeed92b6bf546236425539292e1cc4093619def7134cb605c92d",
+      "headings_hash": "14029dd0f19d6f9c5e2cbefea2658a991d522949e7c171b34c2bd97bfaefe720",
       "headings": [
         "Hooks reference",
         "Hook lifecycle",
@@ -202,6 +202,7 @@
         "PermissionRequest",
         "PermissionRequest input",
         "PermissionRequest decision control",
+        "Permission update entries",
         "PostToolUse",
         "PostToolUse input",
         "PostToolUse decision control",
@@ -292,8 +293,8 @@
       }
     },
     "hooks-guide.md": {
-      "file_hash": "14b85dfa240d62d426a0ff3c37d0f76966f8370a321b6a942be7ad7ca7b29e08",
-      "headings_hash": "ac5aa60704be1f8d196976ab8b453158dfc55877f4b213d97d3acf046353b77c",
+      "file_hash": "a7666d84be40f75ae1e200bff62063890dd46521e82661c01c5e15a5ad9bae6b",
+      "headings_hash": "49a850497ef3981ed041b5084ee9a0414928dc22a68bbdadacedfd8cde94a7cf",
       "headings": [
         "Automate workflows with hooks",
         "Set up your first hook",
@@ -303,6 +304,7 @@
         "Block edits to protected files",
         "Re-inject context after compaction",
         "Audit configuration changes",
+        "Auto-approve specific permission prompts",
         "How hooks work",
         "Read input and return output",
         "Hook input",
@@ -327,7 +329,7 @@
       ],
       "sections": {
         "what-you-can-automate": {
-          "hash": "3d3bfadfc3e5b0bb0c5399c588e1b57a1293ea746308eed7b0a86be69d003a27",
+          "hash": "5b11808a435ceeb4e745e729b81bb51c9bcc1492697c850bdac700a0fcebfade",
           "start_heading": "What you can automate",
           "end_heading": "How hooks work",
           "domains": [],
@@ -391,7 +393,7 @@
       }
     },
     "sub-agents.md": {
-      "file_hash": "fb2000fbc3321caae6d7ad0f0d62980e4cce7407918dbe7c6b90237f79ac4d5a",
+      "file_hash": "b376dac44a400a13b71b074b208a55200fa033ae8d02a253f297f1576a1c064f",
       "headings_hash": "b3bebc0040e68e3c69c232de7c97e8e7751c4f7ea44926ad14b3bfe0bfbaaaef",
       "headings": [
         "Create custom subagents",
@@ -441,7 +443,7 @@
       ],
       "sections": {
         "configure-subagents": {
-          "hash": "0547d71b37d32ed68d5754949dee083e452abb7e2d0eca10f43e394f640043fa",
+          "hash": "da36d9fb2ce1a4bcd3a50a88753360f6f09a822a9d0cadde97f5756651cb74ea",
           "start_heading": "Configure subagents",
           "end_heading": "./scripts/validate-readonly-query.sh",
           "domains": [
@@ -836,14 +838,14 @@
       ]
     },
     "domain-automation-control.md": {
-      "content_hash": "cc31ae99ace7688c99bc175086161fdacb064a944f49df42d73d3fd36f961b86",
+      "content_hash": "85399ddd9abb94c68b09898cf2a3cac4923ace51c696c1f1c339cc5f9ed93939",
       "depends_on_sections": [
         "hooks.md::hook-events",
         "hooks-guide.md::what-you-can-automate"
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "4406cc2c75c41b9f154780dc1badbfacb318ddf97bba0f30e0903ae8d9a7db1f",
+      "content_hash": "64427fc9e637c499516650dd21acf682e8f1f0a559b01a8f64eb7c98458a7a64",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -864,7 +866,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "5260e5f78adaec2af012bf16d46a135de5ece8b83dbc511017c858d04dfe35a9",
+      "content_hash": "716bbf566eecee784a1232f28535127ea10fda1c14761f614db4781d908aee32",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

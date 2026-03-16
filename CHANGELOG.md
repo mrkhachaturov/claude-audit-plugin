@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.5] — 2026-03-16
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - hooks-guide.md
+  - hooks.md
+  - server-managed-settings.md
+  - statusline.md
+  - sub-agents.md
+
+---
+
 ## [1.2.4] — 2026-03-14
 
 ### Changed

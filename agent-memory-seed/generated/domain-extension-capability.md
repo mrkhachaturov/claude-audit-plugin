@@ -10,6 +10,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - Use `agent teams` when multiple workers need to coordinate with shared state
 - Use `MCP` to connect Claude to external tools, APIs, or data sources
 - Use `plugins` to package and distribute skills/agents/hooks across projects
+- For plugin subagents, avoid relying on `hooks`, `mcpServers`, or `permissionMode` frontmatter (ignored in plugin scope)
 
 ## Fast answers
 - **What is a skill?** A `SKILL.md` file that defines a reusable workflow; invoked by user or Claude
@@ -17,6 +18,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **What is MCP?** Model Context Protocol — lets Claude connect to external servers that expose tools/resources
 - **What is MCP elicitation?** A structured input request from an MCP server; Claude shows a form/URL dialog and can be auto-handled by hooks
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
+- **Plugin subagent caveat:** plugin-provided agents ignore `hooks`, `mcpServers`, and `permissionMode`; copy to project/user agents if those are required
 - **Skill location:** `.claude/skills/<name>/SKILL.md` (project) or `~/.claude/skills/` (personal)
 
 ## Fast comparisons
@@ -32,11 +34,13 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - "Connect Claude to Jira/Notion/GitHub" → add an MCP server
 - "Handle MCP mid-task auth/input requests" → use built-in elicitation dialog, optionally automate with hooks
 - "Share our hooks and skills with teammates" → package as a plugin
+- "Need per-subagent hooks/MCP/permission mode from a plugin agent" → move that agent into `.claude/agents/` or `~/.claude/agents/`
 - "Invoke a workflow manually" → make it a user-invocable skill
 
 ## When you must read source docs
 - Exact SKILL.md frontmatter fields (name, description, tools, memory)
 - Subagent tool and memory configuration
+- Plugin subagent frontmatter limitations (`hooks`, `mcpServers`, `permissionMode`)
 - MCP transport options (stdio, SSE, HTTP) and auth setup
 - Plugin manifest format and namespace rules
 - Agent team coordination patterns
