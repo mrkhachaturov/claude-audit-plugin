@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-16T18:19:48Z",
+  "seed_version": "2026-03-17T06:21:52Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -710,6 +710,81 @@
           ]
         }
       }
+    },
+    "plugin-marketplaces.md": {
+      "file_hash": "56a1477e15ce0c6b8a86d5f6d694f083766f0782da35629949c7ba16b66853f9",
+      "headings_hash": "cd631261fa60b443963fc69932602a387d3fc30f179d0653b05c7d7b140aa1b5",
+      "headings": [
+        "Create and distribute a plugin marketplace",
+        "Overview",
+        "Walkthrough: create a local marketplace",
+        "Create the marketplace file",
+        "Marketplace schema",
+        "Required fields",
+        "Owner fields",
+        "Optional metadata",
+        "Plugin entries",
+        "Required fields",
+        "Optional plugin fields",
+        "Plugin sources",
+        "Relative paths",
+        "GitHub repositories",
+        "Git repositories",
+        "Git subdirectories",
+        "npm packages",
+        "Advanced plugin entries",
+        "Strict mode",
+        "Host and distribute marketplaces",
+        "Host on GitHub (recommended)",
+        "Host on other git services",
+        "Private repositories",
+        "Test locally before distribution",
+        "Require marketplaces for your team",
+        "Managed marketplace restrictions",
+        "Common configurations",
+        "How restrictions work",
+        "Version resolution and release channels",
+        "Set up release channels",
+        "Validation and testing",
+        "Troubleshooting",
+        "Marketplace not loading",
+        "Marketplace validation errors",
+        "Plugin installation failures",
+        "Private repository authentication fails",
+        "Git operations time out",
+        "Plugins with relative paths fail in URL-based marketplaces",
+        "Files not found after installation",
+        "See also"
+      ],
+      "sections": {
+        "plugin-sources": {
+          "hash": "04d5b4903e72bd0a90a9b1c71154c46de5510da925567a22fcf1f51e9785a84e",
+          "start_heading": "Plugin sources",
+          "end_heading": "Relative paths",
+          "domains": [
+            "extension-capability"
+          ],
+          "routes": [
+            "configure-plugins"
+          ]
+        }
+      }
+    },
+    "changelog.md": {
+      "file_hash": "2576af49d359e34f5f538e173ba6aa38e48afa4e1f280776162bbfc76958f7a4",
+      "headings_hash": "ead07c84baac57a9542f388a07a2a5209456ce790b04251bc9bd7d179ea85cb1",
+      "headings": [
+        "Changelog"
+      ],
+      "sections": {
+        "changelog": {
+          "hash": "9e465d724e33122a4c26df272740e636e0315d1dc46dccb5394782a2f0aad7d7",
+          "start_heading": "Changelog",
+          "end_heading": null,
+          "domains": [],
+          "routes": []
+        }
+      }
     }
   },
   "routes": {
@@ -800,7 +875,8 @@
       "primary_doc": "plugins.md",
       "secondary_doc": "plugin-marketplaces.md",
       "depends_on_sections": [
-        "plugins.md::plugin-structure-overview"
+        "plugins.md::plugin-structure-overview",
+        "plugin-marketplaces.md::plugin-sources"
       ]
     },
     "configure-permissions": {
@@ -845,12 +921,13 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "64427fc9e637c499516650dd21acf682e8f1f0a559b01a8f64eb7c98458a7a64",
+      "content_hash": "dde5541c4e4392ce590ff016b9761d3a5ff68be66d3c6d5f83659e93ba9f143c",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
         "mcp.md::installing-mcp-servers",
-        "plugins.md::plugin-structure-overview"
+        "plugins.md::plugin-structure-overview",
+        "plugin-marketplaces.md::plugin-sources"
       ]
     },
     "domain-access-control-safety.md": {
@@ -866,7 +943,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "716bbf566eecee784a1232f28535127ea10fda1c14761f614db4781d908aee32",
+      "content_hash": "0cc76180dbc2eed58e9fc9f4e6127948eb7a7211f606004ee8530a9867398981",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

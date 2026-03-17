@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.6] — 2026-03-17
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - plugin-marketplaces.md
+
+---
+
 ## [1.2.5] — 2026-03-16
 
 ### Changed

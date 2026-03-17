@@ -244,6 +244,7 @@ answer_from_domain_if:
   - how to install a plugin
 read_source_docs_if:
   - exact plugin.json manifest format
+  - plugin marketplace source schema details (url/ref/sha and URL suffix behavior)
   - plugin namespace and scoping
   - publishing to a registry
 primary_doc: plugins.md

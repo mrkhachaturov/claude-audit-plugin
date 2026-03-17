@@ -18,6 +18,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **What is MCP?** Model Context Protocol — lets Claude connect to external servers that expose tools/resources
 - **What is MCP elicitation?** A structured input request from an MCP server; Claude shows a form/URL dialog and can be auto-handled by hooks
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
+- **Plugin marketplace source note:** `url` plugin sources support git URLs with optional `.git` suffix
 - **Plugin subagent caveat:** plugin-provided agents ignore `hooks`, `mcpServers`, and `permissionMode`; copy to project/user agents if those are required
 - **Skill location:** `.claude/skills/<name>/SKILL.md` (project) or `~/.claude/skills/` (personal)
 
