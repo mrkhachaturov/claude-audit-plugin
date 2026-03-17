@@ -7,6 +7,7 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - Configure permissions in `settings.json` under the `permissions` key
 - Use permission rules to allow safe commands and block dangerous ones
 - Use sandboxing when Claude needs internet access or file system isolation
+- Use `sandbox.filesystem.allowRead` to re-allow specific paths inside denied read regions
 - Use network config for corporate proxy or certificate requirements
 
 ## Fast answers
@@ -14,6 +15,8 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - **Where do permissions live?** `.claude/settings.json` or `~/.claude/settings.json` under `permissions`
 - **Can I allow specific bash commands?** Yes — `allowedTools` with bash command patterns
 - **Can I block Claude from editing certain files?** Yes — `denyTools` or path-based rules
+- **Can I deny broad reads but allow the workspace?** Yes — combine `sandbox.filesystem.denyRead` with `sandbox.filesystem.allowRead`
+- **Do hook approvals override deny rules?** No — hooks can skip interactive prompts, but deny/ask rules still take precedence
 
 ## Fast comparisons
 - **allowedTools vs denyTools:** Allow is a whitelist; deny is a blacklist; deny takes precedence

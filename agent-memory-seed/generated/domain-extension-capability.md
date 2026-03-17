@@ -15,6 +15,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 ## Fast answers
 - **What is a skill?** A `SKILL.md` file that defines a reusable workflow; invoked by user or Claude
 - **What is a subagent?** A Claude instance dispatched via the Agent tool with its own context and tools
+- **How do I resume a subagent?** Claude sends `SendMessage` to the prior agent ID; stopped agents auto-resume in background on message
 - **What is MCP?** Model Context Protocol — lets Claude connect to external servers that expose tools/resources
 - **What is MCP elicitation?** A structured input request from an MCP server; Claude shows a form/URL dialog and can be auto-handled by hooks
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
@@ -32,6 +33,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 ## Common tasks
 - "Teach Claude our API conventions" → write a skill
 - "Run deployment without polluting context" → dispatch a subagent
+- "Background subagent hit a permissions wall" → launch a new foreground subagent with the same task
 - "Connect Claude to Jira/Notion/GitHub" → add an MCP server
 - "Handle MCP mid-task auth/input requests" → use built-in elicitation dialog, optionally automate with hooks
 - "Share our hooks and skills with teammates" → package as a plugin

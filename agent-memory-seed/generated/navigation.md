@@ -182,9 +182,10 @@ match:
   - "what is a subagent"
   - "agent frontmatter"
   - "dispatch a subagent"
+  - "resume a subagent"
   - "agent memory"
   - "plugin subagent fields are ignored"
-strong_terms: [subagent, agent, Agent tool, dispatch, isolated context, agent memory]
+strong_terms: [subagent, agent, Agent tool, SendMessage, dispatch, resume, isolated context, agent memory]
 avoid: [MCP, plugins, hooks]
 answer_from_domain_if:
   - what a subagent is
@@ -194,6 +195,7 @@ read_source_docs_if:
   - exact agent frontmatter fields
   - plugin subagent field limitations
   - tool and memory configuration
+  - resume behavior details (SendMessage, background auto-resume)
   - agent isolation guarantees
 primary_doc: sub-agents.md
 secondary_doc: null

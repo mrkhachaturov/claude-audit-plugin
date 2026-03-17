@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-17T09:17:44Z",
+  "seed_version": "2026-03-17T18:20:38Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -48,7 +48,7 @@
       }
     },
     "memory.md": {
-      "file_hash": "1498263fcc978c17628381746c7a51804e367d150dda6933159616276b24abb6",
+      "file_hash": "022a47f11df1e200085afc53a669305b9a942c2729473a77098e9298a2f34fc7",
       "headings_hash": "a177b8443a700314a9f7d8cccfdd84944b3ddb59a9aa543fa30609c87093cffe",
       "headings": [
         "How Claude remembers your project",
@@ -97,7 +97,7 @@
           ]
         },
         "claude-md-files": {
-          "hash": "11576aae216db0a8268539f8e6a5786cddde7ec0e55acbc634e17a0241db0288",
+          "hash": "3e61cba20df5c7590c143261ce4e5fa63df15803caa9ce00cded085ebc9cd4ff",
           "start_heading": "CLAUDE.md files",
           "end_heading": "Additional Instructions",
           "domains": [
@@ -110,7 +110,7 @@
       }
     },
     "settings.md": {
-      "file_hash": "8ea39110846f8dc21e78d1469f678ee108ae88e945e0e6da41885e8cf13134cf",
+      "file_hash": "0ec03db1fdfeea15b355e9baf0f6959c294e32b4efe9e78aa5b0b1fab1490e47",
       "headings_hash": "497c8e58cb20fa069f964c62cd9cc77ed4b297c94583cd99802fd04e5ce513a2",
       "headings": [
         "Claude Code settings",
@@ -156,7 +156,7 @@
       }
     },
     "hooks.md": {
-      "file_hash": "07347a945b66aeed92b6bf546236425539292e1cc4093619def7134cb605c92d",
+      "file_hash": "898b214470559f5d4990b43ca6ae32f420ee49c95caa4c1a178e3afd9f9a04e0",
       "headings_hash": "14029dd0f19d6f9c5e2cbefea2658a991d522949e7c171b34c2bd97bfaefe720",
       "headings": [
         "Hooks reference",
@@ -280,7 +280,7 @@
           ]
         },
         "hook-lifecycle": {
-          "hash": "08495b7eb8fab9d8984048592295a8d28841dff7eabc1bdd858eb0d9286bf096",
+          "hash": "2603c758ef40e825f3075ae16e0b3767f8fa2d2a52f347bbf5285ff47d7b4f99",
           "start_heading": "Hook lifecycle",
           "end_heading": ".claude/hooks/block-rm.sh",
           "domains": [
@@ -293,7 +293,7 @@
       }
     },
     "hooks-guide.md": {
-      "file_hash": "a7666d84be40f75ae1e200bff62063890dd46521e82661c01c5e15a5ad9bae6b",
+      "file_hash": "fc4a7c9014c87d52b0b8dd63be20ca9d4d6c6a86c69306a07a37140ba026cefa",
       "headings_hash": "49a850497ef3981ed041b5084ee9a0414928dc22a68bbdadacedfd8cde94a7cf",
       "headings": [
         "Automate workflows with hooks",
@@ -393,7 +393,7 @@
       }
     },
     "sub-agents.md": {
-      "file_hash": "b376dac44a400a13b71b074b208a55200fa033ae8d02a253f297f1576a1c064f",
+      "file_hash": "a96d8eedd72568265f68a3994bc9b8b64cfbedeaa568be41cf6b545c82709311",
       "headings_hash": "b3bebc0040e68e3c69c232de7c97e8e7751c4f7ea44926ad14b3bfe0bfbaaaef",
       "headings": [
         "Create custom subagents",
@@ -443,7 +443,7 @@
       ],
       "sections": {
         "configure-subagents": {
-          "hash": "da36d9fb2ce1a4bcd3a50a88753360f6f09a822a9d0cadde97f5756651cb74ea",
+          "hash": "cf80a3d07791194142bdc5bdfc83a4a498a501415a53d229e34a4ca1d25e80b2",
           "start_heading": "Configure subagents",
           "end_heading": "./scripts/validate-readonly-query.sh",
           "domains": [
@@ -586,7 +586,7 @@
       }
     },
     "permissions.md": {
-      "file_hash": "9f9f53135ccbed011bbeb24b8093a78fb2a388a4b5ee9c15d47810764216221c",
+      "file_hash": "ef863b950de5c852f1fd1dec67f6680ce56602991b0a973582ff7a3a59c61a00",
       "headings_hash": "4fa0ab118e93c253e64c09484721b7591bfe146e3ee2b4ac987c02cb045aec3c",
       "headings": [
         "Configure permissions",
@@ -712,8 +712,8 @@
       }
     },
     "plugin-marketplaces.md": {
-      "file_hash": "56a1477e15ce0c6b8a86d5f6d694f083766f0782da35629949c7ba16b66853f9",
-      "headings_hash": "cd631261fa60b443963fc69932602a387d3fc30f179d0653b05c7d7b140aa1b5",
+      "file_hash": "4f0e926e45dd7d036e8d3ed4fd2a96c158bcdbe9da69ea38d428220288385311",
+      "headings_hash": "a8106317856dc36fe58ec90e53a24d64b0c75d4b51172d7efa2fc1eed21d63af",
       "headings": [
         "Create and distribute a plugin marketplace",
         "Overview",
@@ -740,6 +740,7 @@
         "Private repositories",
         "Test locally before distribution",
         "Require marketplaces for your team",
+        "Pre-populate plugins for containers",
         "Managed marketplace restrictions",
         "Common configurations",
         "How restrictions work",
@@ -758,7 +759,7 @@
       ],
       "sections": {
         "plugin-sources": {
-          "hash": "04d5b4903e72bd0a90a9b1c71154c46de5510da925567a22fcf1f51e9785a84e",
+          "hash": "65ed149d78d7cad56c713571941d80d44ff8e2b45e590754139b163516646eda",
           "start_heading": "Plugin sources",
           "end_heading": "Relative paths",
           "domains": [
@@ -900,13 +901,13 @@
   },
   "outputs": {
     "domain-foundation.md": {
-      "content_hash": "325bb5809c576cc56d7556386d716a25e8ec323167484298d787c7e3db665451",
+      "content_hash": "282c828124e1603825d9b722d1122c0cf24820714a644c2261fadb3283818c29",
       "depends_on_sections": [
         "how-claude-code-works.md::the-agentic-loop"
       ]
     },
     "domain-configuration-persistence.md": {
-      "content_hash": "2bd05fe0784b04df6d5e4180755bed324b98040aa2d983b3ebd587607d8edb2d",
+      "content_hash": "361bacef7f88269757277eef5fedb5742773a5df8258ebb8604c54dda246a34e",
       "depends_on_sections": [
         "memory.md::claude-md-vs-auto-memory",
         "memory.md::claude-md-files",
@@ -914,14 +915,14 @@
       ]
     },
     "domain-automation-control.md": {
-      "content_hash": "85399ddd9abb94c68b09898cf2a3cac4923ace51c696c1f1c339cc5f9ed93939",
+      "content_hash": "fa1797f3a92e796f695a525f5ffaa7ea7d452fe89880c47f0d4830d16414f36c",
       "depends_on_sections": [
         "hooks.md::hook-events",
         "hooks-guide.md::what-you-can-automate"
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "dde5541c4e4392ce590ff016b9761d3a5ff68be66d3c6d5f83659e93ba9f143c",
+      "content_hash": "ac3afd3853c531b8cbc900ef2e057b5bb8885b3f63da93088d45e79935f69578",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -931,19 +932,19 @@
       ]
     },
     "domain-access-control-safety.md": {
-      "content_hash": "73646431379c6e1b5e13518b8a29c78d1c27dfd90fd2e7ec5702022663fd77d9",
+      "content_hash": "66afa4d690d2f0e82feb1805b2787c67465df4c7e3a90e12b654315eee061657",
       "depends_on_sections": [
         "permissions.md::permission-rule-syntax"
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "cb9a38f62da3318f92d050f58f44636d64a84b6313ee305bca2af8b61fab4aa8",
+      "content_hash": "52e11d8ab7d549b8443db031c448027aaa647e58dc42aa26ff6a5a51e6ef590c",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code"
       ]
     },
     "navigation.md": {
-      "content_hash": "0cc76180dbc2eed58e9fc9f4e6127948eb7a7211f606004ee8530a9867398981",
+      "content_hash": "03042569a1a2e6f7828e6713035aafc0ea12a7dba3611a79764b8dab16cd7450",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

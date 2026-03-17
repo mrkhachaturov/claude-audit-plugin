@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.2.8] — 2026-03-17
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - authentication.md
+  - commands.md
+  - common-workflows.md
+  - costs.md
+  - env-vars.md
+  - headless.md
+  - hooks-guide.md
+  - hooks.md
+  - interactive-mode.md
+  - memory.md
+  - permissions.md
+  - plugin-marketplaces.md
+  - plugins-reference.md
+  - remote-control.md
+  - sandboxing.md
+  - settings.md
+  - sub-agents.md
+
+---
+
 ## [1.2.7] — 2026-03-17
 
 ### Changed
