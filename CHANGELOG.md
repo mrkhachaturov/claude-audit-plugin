@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.7] — 2026-03-17
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+
+---
+
 ## [1.2.6] — 2026-03-17
 
 ### Changed
