@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-17T18:20:38Z",
+  "seed_version": "2026-03-17T21:14:11Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -110,7 +110,7 @@
       }
     },
     "settings.md": {
-      "file_hash": "0ec03db1fdfeea15b355e9baf0f6959c294e32b4efe9e78aa5b0b1fab1490e47",
+      "file_hash": "9ae208eb127d5ea7c0add4075e2f5560c7d1b725b2ac5b95e2aea93eaeffcfc3",
       "headings_hash": "497c8e58cb20fa069f964c62cd9cc77ed4b297c94583cd99802fd04e5ce513a2",
       "headings": [
         "Claude Code settings",
@@ -157,7 +157,7 @@
     },
     "hooks.md": {
       "file_hash": "898b214470559f5d4990b43ca6ae32f420ee49c95caa4c1a178e3afd9f9a04e0",
-      "headings_hash": "14029dd0f19d6f9c5e2cbefea2658a991d522949e7c171b34c2bd97bfaefe720",
+      "headings_hash": "7f37db532e84216bc35ac9b84531d324750186284682b4d2f7847491060aa135",
       "headings": [
         "Hooks reference",
         "Hook lifecycle",
@@ -198,6 +198,15 @@
         "UserPromptSubmit decision control",
         "PreToolUse",
         "PreToolUse input",
+        "Bash",
+        "Write",
+        "Edit",
+        "Read",
+        "Glob",
+        "Grep",
+        "WebFetch",
+        "WebSearch",
+        "Agent",
         "PreToolUse decision control",
         "PermissionRequest",
         "PermissionRequest input",
@@ -394,7 +403,7 @@
     },
     "sub-agents.md": {
       "file_hash": "a96d8eedd72568265f68a3994bc9b8b64cfbedeaa568be41cf6b545c82709311",
-      "headings_hash": "b3bebc0040e68e3c69c232de7c97e8e7751c4f7ea44926ad14b3bfe0bfbaaaef",
+      "headings_hash": "a58225703802c3d29692914746377df6a9e20c3887e73ea24e7bde1251cb98b2",
       "headings": [
         "Create custom subagents",
         "Built-in subagents",
@@ -412,6 +421,7 @@
         "Permission modes",
         "Preload skills into subagents",
         "Enable persistent memory",
+        "Persistent memory tips",
         "Conditional rules with hooks",
         "./scripts/validate-readonly-query.sh",
         "Block SQL write operations (case-insensitive)",
@@ -713,7 +723,7 @@
     },
     "plugin-marketplaces.md": {
       "file_hash": "4f0e926e45dd7d036e8d3ed4fd2a96c158bcdbe9da69ea38d428220288385311",
-      "headings_hash": "a8106317856dc36fe58ec90e53a24d64b0c75d4b51172d7efa2fc1eed21d63af",
+      "headings_hash": "32533c2dd0c83cb74c8f986e8549a8d9ddf504f5c5ddc0cbe4304f98b75b655d",
       "headings": [
         "Create and distribute a plugin marketplace",
         "Overview",
@@ -746,6 +756,8 @@
         "How restrictions work",
         "Version resolution and release channels",
         "Set up release channels",
+        "Example",
+        "Assign channels to user groups",
         "Validation and testing",
         "Troubleshooting",
         "Marketplace not loading",
@@ -938,7 +950,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "52e11d8ab7d549b8443db031c448027aaa647e58dc42aa26ff6a5a51e6ef590c",
+      "content_hash": "85cb6f18653549e84bddf88f2460f6d32221330991c4c2c20fd3d4c68868388c",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code"
       ]

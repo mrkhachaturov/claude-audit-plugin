@@ -10,8 +10,9 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Use checkpointing for long tasks where you might want to roll back
 
 ## Fast answers
-- **Built-in commands:** `/clear`, `/memory`, `/cost`, `/stats`, `/model`, `/hooks`, `/agents`, `/plugin`, `/branch` (alias: `/fork`)
+- **Built-in commands:** `/clear`, `/memory`, `/cost`, `/stats`, `/model`, `/hooks`, `/agents`, `/plugin`, `/branch` (alias: `/fork`), `/voice`
 - **Copy prior responses:** use `/copy [N]` (for example `/copy 2` for the second-latest response)
+- **Plan acceptance naming:** accepting a plan auto-names the session unless a name is already set via `--name` or `/rename`
 - **How to use a skill:** type `/skill-name` or ask Claude to use it
 - **Model selection:** `/model` command or `model` in settings.json
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
