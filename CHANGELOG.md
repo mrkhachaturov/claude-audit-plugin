@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.13] — 2026-03-18
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - authentication.md
+  - code-review.md
+  - env-vars.md
+  - hooks-guide.md
+  - hooks.md
+  - overview.md
+  - plugins-reference.md
+  - settings.md
+  - terminal-config.md
+  - troubleshooting.md
+
+---
+
 ## [1.2.12] — 2026-03-18
 
 ### Changed

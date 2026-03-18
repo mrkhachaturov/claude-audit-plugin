@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-18T06:21:26Z",
+  "seed_version": "2026-03-18T09:18:38Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -110,8 +110,8 @@
       }
     },
     "settings.md": {
-      "file_hash": "2bb65437f5e7c10f714acd818beceea538a89be41ff789369f55da20909b2653",
-      "headings_hash": "497c8e58cb20fa069f964c62cd9cc77ed4b297c94583cd99802fd04e5ce513a2",
+      "file_hash": "d5b0c0e5046b188b47e32067e0d68040575b091e77eb86de4fdc9199a7d8c95e",
+      "headings_hash": "8e88ed3a8f2a510af40604a6f7f757ee06cd4f366f727adc7e36f4f335117986",
       "headings": [
         "Claude Code settings",
         "Configuration scopes",
@@ -121,6 +121,7 @@
         "What uses scopes",
         "Settings files",
         "Available settings",
+        "Global config settings",
         "Worktree settings",
         "Permission settings",
         "Permission rule syntax",
@@ -156,7 +157,7 @@
       }
     },
     "hooks.md": {
-      "file_hash": "c7be587fc019ee61538c7872b32e35d65a1eb36c005d79c4bdc7f722e81afcf2",
+      "file_hash": "ce940663e32ff004203e55f112e73a1eea034320443ef797855ee2fc488c0510",
       "headings_hash": "7f37db532e84216bc35ac9b84531d324750186284682b4d2f7847491060aa135",
       "headings": [
         "Hooks reference",
@@ -302,7 +303,7 @@
       }
     },
     "hooks-guide.md": {
-      "file_hash": "fc4a7c9014c87d52b0b8dd63be20ca9d4d6c6a86c69306a07a37140ba026cefa",
+      "file_hash": "71921c1cc1e3d8df16bdb8548a41564f61ecbcb91a95f804a501a8ea682332b2",
       "headings_hash": "49a850497ef3981ed041b5084ee9a0414928dc22a68bbdadacedfd8cde94a7cf",
       "headings": [
         "Automate workflows with hooks",
@@ -968,7 +969,7 @@
       "sections": {}
     },
     "plugins-reference.md": {
-      "file_hash": "046ac935f5c68232949301a486d03dbd3fe44a19b236c08650f2aa1211be5fc4",
+      "file_hash": "69031c7407916f05109a49a358f939690d68964e018b7f534b5bb38b424210b0",
       "headings_hash": "d38230a0d64fd483fe56868d378d7bab41754145b04c4f26641ff60e40bc569a",
       "headings": [
         "Plugins reference",
@@ -1151,7 +1152,7 @@
       ]
     },
     "domain-configuration-persistence.md": {
-      "content_hash": "2d2bf6e87284d207413019ea61dc44f54fe67b37cb5226e10041a649ca74d8b8",
+      "content_hash": "fb68dfbabac504bfed71df0212a400397e5dac4caa3407986a07cae10a7a1e0d",
       "depends_on_sections": [
         "memory.md::claude-md-vs-auto-memory",
         "memory.md::claude-md-files",

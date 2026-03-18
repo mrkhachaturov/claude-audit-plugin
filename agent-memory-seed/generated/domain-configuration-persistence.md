@@ -7,7 +7,8 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - Use `CLAUDE.md` for always-on project-level instructions Claude should always follow
 - Use `~/.claude/CLAUDE.md` for personal preferences that apply across all projects
 - Use auto-memory (`/memory` command) for facts Claude should remember across sessions
-- Use `settings.json` for tool permissions, hooks, and UI preferences
+- Use `settings.json` for tool permissions, hooks, and session/tool configuration
+- Use `~/.claude.json` for global display preferences like turn duration and terminal progress bar
 - Use environment variables for secrets and CI/CD configuration
 
 ## Fast answers
@@ -17,6 +18,7 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - **`/init` interactive flow:** set `CLAUDE_CODE_NEW_INIT=true` to run a guided setup for `CLAUDE.md`, skills, hooks, and memory files
 - **Settings precedence:** enterprise > project > user (higher wins)
 - **settings.json location:** `.claude/settings.json` (project) or `~/.claude/settings.json` (user)
+- **Global display settings location:** `~/.claude.json` (for example `showTurnDuration`, `terminalProgressBarEnabled`)
 
 ## Fast comparisons
 - **CLAUDE.md vs memory:** CLAUDE.md is manually curated; memory is agent-written via `/memory`
