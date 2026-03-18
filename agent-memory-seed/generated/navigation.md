@@ -273,6 +273,8 @@ answer_from_domain_if:
   - permissions in CI
 read_source_docs_if:
   - exact rule syntax and pattern matching
+  - Read/Edit rule limits vs Bash subprocess access
+  - Windows path normalization examples for Read/Edit rules
   - full tool name list
   - enterprise policy enforcement
 primary_doc: permissions.md

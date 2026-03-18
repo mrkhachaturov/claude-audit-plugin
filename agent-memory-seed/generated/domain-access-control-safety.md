@@ -16,6 +16,8 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - **Can I allow specific bash commands?** Yes — `allowedTools` with bash command patterns
 - **Can I block Claude from editing certain files?** Yes — `denyTools` or path-based rules
 - **Can I deny broad reads but allow the workspace?** Yes — combine `sandbox.filesystem.denyRead` with `sandbox.filesystem.allowRead`
+- **Does `Read(...)` deny block `cat` in Bash?** No — Read/Edit denies apply to Claude file tools; use sandboxing for OS-level path enforcement
+- **How do Read/Edit patterns work on Windows?** Paths are normalized to POSIX form (for example `C:\\Users\\alice` -> `/c/Users/alice`)
 - **Do hook approvals override deny rules?** No — hooks can skip interactive prompts, but deny/ask rules still take precedence
 
 ## Fast comparisons
@@ -31,6 +33,8 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 
 ## When you must read source docs
 - Exact permission rule syntax and pattern matching
+- Read/Edit deny limitations for Bash subprocesses
+- Windows Read/Edit pattern syntax examples (`//c/**`, `//**`)
 - Full list of tool names for allow/deny rules
 - Sandboxing setup and limitations
 - Network proxy configuration syntax
