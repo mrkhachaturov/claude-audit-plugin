@@ -59,6 +59,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 ## Source map
 - skills.md
 - sub-agents.md
+- settings.md
 - agent-teams.md
 - mcp.md
 - plugins.md

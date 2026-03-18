@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-18T03:55:31Z",
+  "seed_version": "2026-03-18T06:21:26Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -1100,7 +1100,7 @@
       "domain_id": "extension-capability",
       "domain_file": "domain-extension-capability.md",
       "primary_doc": "sub-agents.md",
-      "secondary_doc": null,
+      "secondary_doc": "settings.md",
       "depends_on_sections": [
         "sub-agents.md::configure-subagents"
       ]
@@ -1166,7 +1166,7 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "907688c1a15d938bb767ac7f5d0ed4ddf4cab0a18d213bd8aa66efd8402d01ed",
+      "content_hash": "492c73579e4866ed462c6eb706f0df641211e79fe506efb97e6abcebcc343a7f",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1188,7 +1188,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "78d91bacac36443b05a5641926ab27959dabaeb39900dc0203f4d3847499e4dd",
+      "content_hash": "191fc1df5dc543a93512c1e9237218b6f377af679728c3d5273e9a113b182b14",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

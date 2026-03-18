@@ -206,7 +206,7 @@ read_source_docs_if:
   - resume behavior details (SendMessage, background auto-resume)
   - agent isolation guarantees
 primary_doc: sub-agents.md
-secondary_doc: null
+secondary_doc: settings.md
 
 ---
 

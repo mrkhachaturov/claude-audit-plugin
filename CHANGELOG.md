@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.12] — 2026-03-18
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - settings.md
+  - sub-agents.md
+
+---
+
 ## [1.2.11] — 2026-03-18
 
 ### Changed
