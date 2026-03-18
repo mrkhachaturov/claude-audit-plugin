@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.17] — 2026-03-18
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - remote-control.md
+
+---
+
 ## [1.2.16] — 2026-03-18
 
 ### Changed

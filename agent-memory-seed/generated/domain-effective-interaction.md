@@ -21,6 +21,8 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
 - **Remote session title order:** explicit name flag/command, then `/rename`, then last meaningful message, then first prompt
 - **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
+- **Remote Control on Team/Enterprise:** off by default; admin must enable the Remote Control toggle in Claude Code admin settings
+- **Remote policy errors:** check auth mode (claude.ai OAuth vs API key), org admin toggle state, and org compliance/data-retention policy constraints
 
 ## Fast comparisons
 - **Interactive vs headless:** Interactive is conversational; headless is single-shot for automation

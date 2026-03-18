@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-18T18:19:47Z",
+  "seed_version": "2026-03-18T21:11:16Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -1220,7 +1220,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "62d4716d973a0c967a0b28957d1be17bb0c3b86d4e3b5e1c0976b0d4cbaecc8b",
+      "content_hash": "998a25be4584da3e83e1d84971aa8c722be382cd7f706a3896421236281e8f09",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
