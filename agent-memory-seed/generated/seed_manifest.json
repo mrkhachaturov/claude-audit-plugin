@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-18T15:28:30Z",
+  "seed_version": "2026-03-18T18:19:47Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -700,6 +700,45 @@
         }
       }
     },
+    "remote-control.md": {
+      "file_hash": "d02ea9887ea73bdd912f03982ed66e89048cb4d587387fa1aa84e713a2f6e84e",
+      "headings_hash": "a755d7050202b39951afdb731335c76d699ce81e061db0973e501b7d11f737a3",
+      "headings": [
+        "Continue local sessions from any device with Remote Control",
+        "Requirements",
+        "Start a Remote Control session",
+        "Connect from another device",
+        "Enable Remote Control for all sessions",
+        "Connection and security",
+        "Remote Control vs Claude Code on the web",
+        "Limitations",
+        "Troubleshooting",
+        "\"Remote Control is not yet enabled for your account\"",
+        "\"Remote Control is disabled by your organization's policy\"",
+        "\"Remote credentials fetch failed\"",
+        "Related resources"
+      ],
+      "sections": {
+        "connect-from-another-device": {
+          "hash": "8ab9e3dd4ad4b5fe3cfd1729f34b72c218370663c3f756ccef9a62e593eb093a",
+          "start_heading": "Connect from another device",
+          "end_heading": "Enable Remote Control for all sessions",
+          "domains": [
+            "effective-interaction"
+          ],
+          "routes": []
+        },
+        "troubleshooting": {
+          "hash": "84f1e3fc29778629bcd587551267c86b79f75638ec91315086925a918472a734",
+          "start_heading": "Troubleshooting",
+          "end_heading": "Related resources",
+          "domains": [
+            "effective-interaction"
+          ],
+          "routes": []
+        }
+      }
+    },
     "features-overview.md": {
       "file_hash": "561370536d0d7ed02fbc72c14ad9ceafa36beb5b2e1f9cc14d320529f177a977",
       "headings_hash": "119ac0f333c79af52126ff6757f696c7643da8e0fb7d0d39a75d6485a660c64c",
@@ -1181,9 +1220,11 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "3579d5bed54fe969f9424bfcf88c9c4fdb8c17a44e62fd696f381fac89fee46e",
+      "content_hash": "62d4716d973a0c967a0b28957d1be17bb0c3b86d4e3b5e1c0976b0d4cbaecc8b",
       "depends_on_sections": [
-        "best-practices.md::explore-first-then-plan-then-code"
+        "best-practices.md::explore-first-then-plan-then-code",
+        "remote-control.md::connect-from-another-device",
+        "remote-control.md::troubleshooting"
       ]
     },
     "navigation.md": {

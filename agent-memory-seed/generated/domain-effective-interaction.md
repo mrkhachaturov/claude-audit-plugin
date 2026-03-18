@@ -8,6 +8,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Use `/clear` to reset context when it gets too large or polluted
 - Use headless mode (`claude -p`) for CI/CD and scripted automation
 - Use checkpointing for long tasks where you might want to roll back
+- Use Remote Control when you want to continue a local session from browser/mobile while keeping work on your machine
 
 ## Fast answers
 - **Built-in commands:** `/clear`, `/memory`, `/cost`, `/stats`, `/model`, `/hooks`, `/agents`, `/plugin`, `/feedback`, `/branch` (alias: `/fork`), `/voice`
@@ -17,16 +18,22 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Model selection:** `/model` command or `model` in settings.json
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
 - **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use
+- **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
+- **Remote session title order:** explicit name flag/command, then `/rename`, then last meaningful message, then first prompt
+- **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
 
 ## Fast comparisons
 - **Interactive vs headless:** Interactive is conversational; headless is single-shot for automation
 - **fast mode vs standard:** Fast mode has lower latency; standard may be more thorough on complex tasks
 - **`/clear` vs new session:** `/clear` resets context in same session; new session is fully fresh
+- **Remote Control vs Claude Code on the web:** Remote Control runs on your machine; web sessions run in Anthropic-managed cloud
 
 ## Common tasks
 - "Run Claude without interaction" → headless.md
 - "Reduce context window usage" → `/clear`, or use subagents
 - "Run parallel Claude sessions" → best-practices.md (parallel sessions section)
+- "Continue a local session from phone/browser" → remote-control.md
+- "Fix Remote Control policy/account errors" → remote-control.md (troubleshooting section)
 - "Configure Claude for VSCode" → vs-code.md
 - "Configure Claude for JetBrains" → jetbrains.md
 - "Check token usage and costs" → `/cost` command, monitoring-usage.md
@@ -36,6 +43,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Exact headless mode flags and options
 - Output style configuration options
 - Remote control API details
+- Remote Control eligibility and org-policy troubleshooting matrix
 - Checkpointing setup and restore process
 
 ## Source map
