@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.11] — 2026-03-18
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - amazon-bedrock.md
+  - changelog.md
+  - google-vertex-ai.md
+  - hooks.md
+  - mcp.md
+  - memory.md
+  - permissions.md
+  - plugin-marketplaces.md
+  - plugins-reference.md
+  - settings.md
+  - sub-agents.md
+
+---
+
 ## [1.2.10] — 2026-03-18
 
 ### Changed

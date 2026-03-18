@@ -15,6 +15,7 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 - **Can hooks block Claude?** Yes — `PreToolUse` hooks that exit non-zero can block the tool call
 - **Can hooks auto-approve permission prompts?** Yes — `PermissionRequest` hooks can return JSON `decision.behavior: "allow"` and optionally `updatedPermissions` entries, but deny/ask permission rules still apply
 - **Where do hooks live?** `.claude/settings.json` under the `hooks` key
+- **Plugin hook paths:** Use `${CLAUDE_PLUGIN_ROOT}` for bundled scripts and `${CLAUDE_PLUGIN_DATA}` for dependencies/state that should survive plugin updates
 
 ## Fast comparisons
 - **Hooks vs skills:** Hooks run automatically on events; skills run when explicitly invoked

@@ -22,6 +22,7 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - **CLAUDE.md vs memory:** CLAUDE.md is manually curated; memory is agent-written via `/memory`
 - **CLAUDE.md vs skills:** CLAUDE.md is always loaded; skills are loaded on demand
 - **CLAUDE.md vs rules:** Rules are scoped to paths or topics; CLAUDE.md is always-on project-wide
+- **Managed settings vs managed CLAUDE.md:** Settings enforce hard technical controls (`permissions`, `sandbox`, `env`, login lock); managed CLAUDE.md provides behavioral guidance
 - **Project settings vs user settings:** Project overrides user for the specific project
 
 ## Common tasks

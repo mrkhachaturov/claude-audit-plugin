@@ -40,6 +40,7 @@ match:
   - "how do I make Claude remember something"
   - "what goes in MEMORY.md"
   - "difference between CLAUDE.md and memory"
+  - "managed CLAUDE.md vs managed settings"
 strong_terms: [memory, MEMORY.md, /memory, remember, persist, cross-session]
 avoid: [hooks, skills, permissions]
 answer_from_domain_if:
@@ -102,6 +103,7 @@ read_source_docs_if:
   - exact matcher syntax
   - blocking semantics and exit codes
   - PermissionRequest decision schema and updatedPermissions entries
+  - plugin path variables (`CLAUDE_PLUGIN_ROOT` vs `CLAUDE_PLUGIN_DATA`)
   - specific hook event payload format
 primary_doc: hooks.md
 secondary_doc: hooks-guide.md
@@ -176,23 +178,29 @@ secondary_doc: skills.md
 ### route_id: configure-agents
 domain_id: extension-capability
 domain_file: domain-extension-capability.md
-intent: create or configure a subagent
+intent: create, configure, or explicitly invoke a subagent
 match:
   - "how do I create a subagent"
   - "what is a subagent"
   - "agent frontmatter"
   - "dispatch a subagent"
   - "resume a subagent"
+  - "how do I @mention a subagent"
+  - "run session with --agent"
+  - "agent setting in settings.json"
   - "agent memory"
   - "plugin subagent fields are ignored"
-strong_terms: [subagent, agent, Agent tool, SendMessage, dispatch, resume, isolated context, agent memory]
+strong_terms: [subagent, agent, Agent tool, SendMessage, dispatch, resume, @agent, --agent, agent setting, isolated context, agent memory]
 avoid: [MCP, plugins, hooks]
 answer_from_domain_if:
   - what a subagent is
   - subagent vs skill
+  - natural language vs @-mention vs session-wide agent selection
   - when to use subagents
 read_source_docs_if:
   - exact agent frontmatter fields
+  - explicit invocation syntax (`@` mention forms)
+  - session-wide agent config (`--agent` and `agent` setting precedence)
   - plugin subagent field limitations
   - tool and memory configuration
   - resume behavior details (SendMessage, background auto-resume)
@@ -223,6 +231,7 @@ read_source_docs_if:
   - exact mcp add command syntax
   - transport type selection
   - OAuth and auth configuration
+  - plugin MCP path variables (`CLAUDE_PLUGIN_ROOT` and `CLAUDE_PLUGIN_DATA`)
 primary_doc: mcp.md
 secondary_doc: settings.md
 
@@ -237,16 +246,19 @@ match:
   - "how do I create a plugin"
   - "plugin manifest"
   - "plugin.json"
+  - "what is CLAUDE_PLUGIN_DATA"
   - "share skills across projects"
-strong_terms: [plugin, plugin.json, marketplace, install plugin, publish plugin]
+strong_terms: [plugin, plugin.json, marketplace, install plugin, publish plugin, CLAUDE_PLUGIN_ROOT, CLAUDE_PLUGIN_DATA]
 avoid: [MCP, skills as standalone, hooks standalone]
 answer_from_domain_if:
   - what a plugin is
   - plugin vs skill or MCP
   - how to install a plugin
+  - plugin root path vs persistent data path
 read_source_docs_if:
   - exact plugin.json manifest format
   - plugin marketplace source schema details (url/ref/sha and URL suffix behavior)
+  - plugin persistent data directory behavior and uninstall semantics
   - plugin namespace and scoping
   - publishing to a registry
 primary_doc: plugins.md
