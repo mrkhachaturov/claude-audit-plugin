@@ -181,6 +181,7 @@ domain_file: domain-extension-capability.md
 intent: create, configure, or explicitly invoke a subagent
 match:
   - "how do I create a subagent"
+  - "how do I use /agents"
   - "what is a subagent"
   - "agent frontmatter"
   - "dispatch a subagent"

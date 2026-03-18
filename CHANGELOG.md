@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.15] — 2026-03-18
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - best-practices.md
+  - cli-reference.md
+  - data-usage.md
+  - desktop.md
+  - env-vars.md
+  - permissions.md
+  - security.md
+  - sub-agents.md
+  - troubleshooting.md
+  - vs-code.md
+
+---
+
 ## [1.2.14] — 2026-03-18
 
 ### Changed

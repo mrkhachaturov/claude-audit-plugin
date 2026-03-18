@@ -15,6 +15,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 ## Fast answers
 - **What is a skill?** A `SKILL.md` file that defines a reusable workflow; invoked by user or Claude
 - **What is a subagent?** A Claude instance dispatched via the Agent tool with its own context and tools
+- **How do I manage subagents interactively?** Use `/agents` to create, edit, and manage available subagents
 - **How do I force a specific subagent?** Use an `@` mention (for example `@\"code-reviewer (agent)\"`) for a single task
 - **How do I run the whole session as a subagent?** Start with `claude --agent <name>` or set `agent` in `.claude/settings.json` (CLI flag wins)
 - **How do I resume a subagent?** Claude sends `SendMessage` to the prior agent ID; stopped agents auto-resume in background on message

@@ -15,6 +15,7 @@ How Claude Code operates at its core: the agentic loop, available tools, executi
 - **Auth options:** Claude.ai subscription (OAuth), API key (direct), or enterprise providers (Bedrock/Vertex/Foundry)
 - **Auth scope note:** `apiKeyHelper` and API key env vars apply to terminal CLI sessions; Desktop and Remote Control use OAuth
 - **Does Claude send my code to Anthropic?** Depends on plan — see data-usage.md; zero-data-retention available for API users
+- **How do I send product reports?** Use `/feedback`; disable with `DISABLE_FEEDBACK_COMMAND` (legacy `DISABLE_BUG_COMMAND` is still accepted)
 
 ## Fast comparisons
 - **OAuth vs API key:** OAuth uses your Claude.ai subscription; API key uses pay-per-token billing

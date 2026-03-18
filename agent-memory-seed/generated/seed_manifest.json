@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-18T12:14:18Z",
+  "seed_version": "2026-03-18T15:28:30Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -1144,7 +1144,7 @@
   },
   "outputs": {
     "domain-foundation.md": {
-      "content_hash": "282c828124e1603825d9b722d1122c0cf24820714a644c2261fadb3283818c29",
+      "content_hash": "1aef044e67a051fccefd01b7a100d4bb75e69739ef392fe87f699afe6373fbed",
       "depends_on_sections": [
         "how-claude-code-works.md::the-agentic-loop"
       ]
@@ -1165,7 +1165,7 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "492c73579e4866ed462c6eb706f0df641211e79fe506efb97e6abcebcc343a7f",
+      "content_hash": "a704890f660336b9a4602563213c51ebfd230fe4a1a17f725dacd94bc6a86d99",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1181,13 +1181,13 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "85cb6f18653549e84bddf88f2460f6d32221330991c4c2c20fd3d4c68868388c",
+      "content_hash": "3579d5bed54fe969f9424bfcf88c9c4fdb8c17a44e62fd696f381fac89fee46e",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code"
       ]
     },
     "navigation.md": {
-      "content_hash": "4b0cfecbcd9bb22ab3dc0368c18441f333d6a8bb47aeed7888804a029fc3fc7d",
+      "content_hash": "bcd86d2705ca6d07a611b6cddf6b5b6ea5ae0455ce84729d5108960db81a3f35",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",
