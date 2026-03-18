@@ -11,11 +11,12 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - Use network config for corporate proxy or certificate requirements
 
 ## Fast answers
-- **Permission modes:** `default` (prompt for risky), `acceptEdits` (auto-approve edits), `bypassPermissions` (auto-approve all — use with care)
+- **Permission modes:** `default` (prompt for risky), `acceptEdits` (auto-approve edits), `bypassPermissions` (skips prompts except protected directory writes)
 - **Where do permissions live?** `.claude/settings.json` or `~/.claude/settings.json` under `permissions`
 - **Can I allow specific bash commands?** Yes — `allowedTools` with bash command patterns
 - **Can I block Claude from editing certain files?** Yes — `denyTools` or path-based rules
 - **Can I deny broad reads but allow the workspace?** Yes — combine `sandbox.filesystem.denyRead` with `sandbox.filesystem.allowRead`
+- **Does bypass mode still prompt anywhere?** Yes — writes to `.git`, `.claude`, `.vscode`, and `.idea` still prompt; `.claude/commands`, `.claude/agents`, and `.claude/skills` are exempt
 - **Does `Read(...)` deny block `cat` in Bash?** No — Read/Edit denies apply to Claude file tools; use sandboxing for OS-level path enforcement
 - **How do Read/Edit patterns work on Windows?** Paths are normalized to POSIX form (for example `C:\\Users\\alice` -> `/c/Users/alice`)
 - **Do hook approvals override deny rules?** No — hooks can skip interactive prompts, but deny/ask rules still take precedence
@@ -23,7 +24,7 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 ## Fast comparisons
 - **allowedTools vs denyTools:** Allow is a whitelist; deny is a blacklist; deny takes precedence
 - **Project permissions vs user permissions:** Project overrides user for that project
-- **Permission prompt vs bypassPermissions:** Prompt asks each time; bypass auto-approves (risky in CI)
+- **Permission prompt vs bypassPermissions:** Prompt asks each time; bypass skips most prompts but still protects critical config/repo directories
 
 ## Common tasks
 - "Allow Claude to run npm test without asking" → allowedTools with bash pattern

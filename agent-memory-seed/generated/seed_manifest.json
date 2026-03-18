@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-18T09:18:38Z",
+  "seed_version": "2026-03-18T12:14:18Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -403,8 +403,8 @@
       }
     },
     "sub-agents.md": {
-      "file_hash": "4d06ec2fe3dc728cf0d4567ef32a74e43d14367178daf7770ab24ff1e6276777",
-      "headings_hash": "d8e0313d9603fc3e5ff40ae3cd37979cb583f4f49af4f5ef15edd8fc7d816128",
+      "file_hash": "cd11cbde062305f0dfb1f9c4deb4b17e0e5eda26cbc8cd6bf6a14d2fc102602d",
+      "headings_hash": "e040169e2f98b841b8b48c305602041b02a3da0e2818888adf79482646bd1645",
       "headings": [
         "Create custom subagents",
         "Built-in subagents",
@@ -419,8 +419,6 @@
         "Available tools",
         "Restrict which subagents can be spawned",
         "Scope MCP servers to a subagent",
-        "Inline definition: scoped to this subagent only",
-        "Reference by name: reuses an already-configured server",
         "Permission modes",
         "Preload skills into subagents",
         "Enable persistent memory",
@@ -457,7 +455,7 @@
       ],
       "sections": {
         "configure-subagents": {
-          "hash": "cf80a3d07791194142bdc5bdfc83a4a498a501415a53d229e34a4ca1d25e80b2",
+          "hash": "0d01bfa55d86d2a4f65c8e765ddc6479fb22a5b93ea7c12d72520f58a026b004",
           "start_heading": "Configure subagents",
           "end_heading": "./scripts/validate-readonly-query.sh",
           "domains": [
@@ -606,7 +604,7 @@
       }
     },
     "permissions.md": {
-      "file_hash": "ff47d327d1a10e11e87fbec8edbb1a7dbc449b7239255c20e4538ac9ebbf12f8",
+      "file_hash": "a3ef622c7e891c2a0639b1e4979432dee6f363700c8c855ef2f512432197c10a",
       "headings_hash": "4fa0ab118e93c253e64c09484721b7591bfe146e3ee2b4ac987c02cb045aec3c",
       "headings": [
         "Configure permissions",
@@ -647,7 +645,7 @@
       }
     },
     "best-practices.md": {
-      "file_hash": "30e611a4f87e7651bf7b089e51dee8934cbdc9e39b6df3fe0ff22a4156575ba4",
+      "file_hash": "a20489d6868d9ee03b6c0350b3ce09321fd718d18307a6660b87bf119b14c095",
       "headings_hash": "2035decc2c1bda3dfdf72a372af0f10df10ccb60a0fb71a8c112f31d216ecc7e",
       "headings": [
         "Best Practices for Claude Code",
@@ -1177,7 +1175,7 @@
       ]
     },
     "domain-access-control-safety.md": {
-      "content_hash": "d6203d91736a737b710654b79f7dd0759c3ec2023e6f7068d77035a87b2c499e",
+      "content_hash": "a615cfb43cd938fe7a37afd6d179bff9e504b09eb199762e347c0ad3f9395af6",
       "depends_on_sections": [
         "permissions.md::permission-rule-syntax"
       ]
@@ -1189,7 +1187,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "191fc1df5dc543a93512c1e9237218b6f377af679728c3d5273e9a113b182b14",
+      "content_hash": "4b0cfecbcd9bb22ab3dc0368c18441f333d6a8bb47aeed7888804a029fc3fc7d",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

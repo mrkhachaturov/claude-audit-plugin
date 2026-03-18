@@ -285,6 +285,7 @@ answer_from_domain_if:
   - permissions in CI
 read_source_docs_if:
   - exact rule syntax and pattern matching
+  - bypassPermissions protected-directory prompt exceptions
   - Read/Edit rule limits vs Bash subprocess access
   - Windows path normalization examples for Read/Edit rules
   - full tool name list

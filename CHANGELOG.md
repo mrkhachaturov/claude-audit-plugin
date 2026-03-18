@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.2.14] — 2026-03-18
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - authentication.md
+  - best-practices.md
+  - cli-reference.md
+  - code-review.md
+  - data-usage.md
+  - desktop.md
+  - env-vars.md
+  - hooks-guide.md
+  - hooks.md
+  - overview.md
+  - permissions.md
+  - plugins-reference.md
+  - security.md
+  - settings.md
+  - sub-agents.md
+  - terminal-config.md
+  - troubleshooting.md
+  - vs-code.md
+
+---
+
 ## [1.2.13] — 2026-03-18
 
 ### Changed
