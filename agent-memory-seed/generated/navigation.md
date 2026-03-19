@@ -93,7 +93,7 @@ match:
   - "notification hook"
   - "Elicitation hook"
   - "PostCompact hook"
-strong_terms: [hook, PostToolUse, PreToolUse, PermissionRequest, ExitPlanMode, Notification, Stop, Elicitation, ElicitationResult, PostCompact, matcher, blocking]
+strong_terms: [hook, PostToolUse, PreToolUse, PermissionRequest, ExitPlanMode, Notification, Stop, StopFailure, Elicitation, ElicitationResult, PostCompact, matcher, blocking]
 avoid: [scheduled tasks, cron, skills]
 answer_from_domain_if:
   - what hooks are
@@ -101,8 +101,10 @@ answer_from_domain_if:
   - hooks vs skills or CLAUDE.md
 read_source_docs_if:
   - exact matcher syntax
+  - Stop vs StopFailure behavior and payloads
   - blocking semantics and exit codes
   - PermissionRequest decision schema and updatedPermissions entries
+  - matcher support on InstructionsLoaded/Elicitation/ElicitationResult events
   - plugin path variables (`CLAUDE_PLUGIN_ROOT` vs `CLAUDE_PLUGIN_DATA`)
   - specific hook event payload format
 primary_doc: hooks.md
@@ -203,7 +205,7 @@ read_source_docs_if:
   - explicit invocation syntax (`@` mention forms)
   - session-wide agent config (`--agent` and `agent` setting precedence)
   - plugin subagent field limitations
-  - tool and memory configuration
+  - tool and memory configuration (including recommended `project` memory scope)
   - resume behavior details (SendMessage, background auto-resume)
   - agent isolation guarantees
 primary_doc: sub-agents.md
@@ -259,6 +261,7 @@ answer_from_domain_if:
 read_source_docs_if:
   - exact plugin.json manifest format
   - plugin marketplace source schema details (url/ref/sha and URL suffix behavior)
+  - plugin seed directory layering semantics (`CLAUDE_CODE_PLUGIN_SEED_DIR` with `:`/`;` path lists)
   - plugin persistent data directory behavior and uninstall semantics
   - plugin namespace and scoping
   - publishing to a registry
