@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-19T06:18:49Z",
+  "seed_version": "2026-03-19T09:16:01Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -1314,6 +1314,63 @@
         "See also"
       ],
       "sections": {}
+    },
+    "vs-code.md": {
+      "file_hash": "431042c04776da6da146b36850a0952ddf5fe2db3478592bdb2025a7ba686d7c",
+      "headings_hash": "423e6de95a4cab6c40198320659e37ffd223f07ec9abb7cb72fdc537efcef20b",
+      "headings": [
+        "Use Claude Code in VS Code",
+        "Prerequisites",
+        "Install the extension",
+        "Get started",
+        "Use the prompt box",
+        "Reference files and folders",
+        "Resume past conversations",
+        "Resume remote sessions from Claude.ai",
+        "Customize your workflow",
+        "Choose where Claude lives",
+        "Run multiple conversations",
+        "Switch to terminal mode",
+        "Manage plugins",
+        "Install plugins",
+        "Manage marketplaces",
+        "Automate browser tasks with Chrome",
+        "VS Code commands and shortcuts",
+        "Configure settings",
+        "Extension settings",
+        "VS Code extension vs. Claude Code CLI",
+        "Rewind with checkpoints",
+        "Run CLI in VS Code",
+        "Switch between extension and CLI",
+        "Include terminal output in prompts",
+        "Monitor background processes",
+        "Connect to external tools with MCP",
+        "Work with git",
+        "Create commits and pull requests",
+        "Use git worktrees for parallel tasks",
+        "Use third-party providers",
+        "Security and privacy",
+        "The built-in IDE MCP server",
+        "Fix common issues",
+        "Extension won't install",
+        "Spark icon not visible",
+        "Claude Code never responds",
+        "Uninstall the extension",
+        "Next steps"
+      ],
+      "sections": {
+        "the-built-in-ide-mcp-server": {
+          "hash": "06a3f4ef474d0166a8f28561f8ab47ed94a8f54aa80cf007b1a29d3dba55063c",
+          "start_heading": "The built-in IDE MCP server",
+          "end_heading": "Fix common issues",
+          "domains": [
+            "effective-interaction"
+          ],
+          "routes": [
+            "best-practices"
+          ]
+        }
+      }
     }
   },
   "routes": {
@@ -1466,11 +1523,12 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "998a25be4584da3e83e1d84971aa8c722be382cd7f706a3896421236281e8f09",
+      "content_hash": "651294d6e367619ab7a7979f4c5fb59f3333a6dfa4b597f263eeaef5d0926bed",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
-        "remote-control.md::troubleshooting"
+        "remote-control.md::troubleshooting",
+        "vs-code.md::the-built-in-ide-mcp-server"
       ]
     },
     "navigation.md": {

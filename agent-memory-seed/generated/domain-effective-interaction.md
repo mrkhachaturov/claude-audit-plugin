@@ -23,6 +23,9 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
 - **Remote Control on Team/Enterprise:** off by default; admin must enable the Remote Control toggle in Claude Code admin settings
 - **Remote policy errors:** check auth mode (claude.ai OAuth vs API key), org admin toggle state, and org compliance/data-retention policy constraints
+- **Built-in VS Code IDE MCP server:** extension runs hidden local server `ide` (auto-connected by CLI; not listed in `/mcp`)
+- **IDE MCP tools visible to Claude:** `mcp__ide__getDiagnostics` (read-only diagnostics) and `mcp__ide__executeCode` (Jupyter cell execution with VS Code confirmation)
+- **Jupyter execution safety:** `mcp__ide__executeCode` always requires a native Quick Pick confirm/cancel in VS Code and fails if notebook/kernel prerequisites are missing
 
 ## Fast comparisons
 - **Interactive vs headless:** Interactive is conversational; headless is single-shot for automation
@@ -46,6 +49,8 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Output style configuration options
 - Remote control API details
 - Remote Control eligibility and org-policy troubleshooting matrix
+- VS Code built-in `ide` MCP server behavior and local auth model
+- `PreToolUse` allowlist implications for hidden `mcp__ide__*` tools
 - Checkpointing setup and restore process
 
 ## Source map
