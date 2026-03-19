@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.20] — 2026-03-19
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - vs-code.md
+
+---
+
 ## [1.2.19] — 2026-03-19
 
 ### Changed
