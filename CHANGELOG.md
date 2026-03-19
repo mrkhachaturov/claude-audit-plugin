@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.2.19] — 2026-03-19
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - cli-reference.md
+  - env-vars.md
+  - hooks-guide.md
+  - hooks.md
+  - model-config.md
+  - overview.md
+  - plugin-marketplaces.md
+  - plugins-reference.md
+  - sandboxing.md
+  - settings.md
+  - sub-agents.md
+  - vs-code.md
+
+---
+
 ## [1.2.18] — 2026-03-19
 
 ### Changed
