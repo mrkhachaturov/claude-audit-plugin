@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-20T18:11:24Z",
+  "seed_version": "2026-03-20T21:09:20Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -148,7 +148,7 @@
       ],
       "sections": {
         "configuration-scopes": {
-          "hash": "52746fefb8266606e42c68e9a47093363df6c30315ab06d378b7192027b3251b",
+          "hash": "1d770b21ce5c8f934538176c21a5bf06049d23c098311f00514553f3bd663aa1",
           "start_heading": "Configuration scopes",
           "end_heading": "Settings files",
           "domains": [],
@@ -341,7 +341,7 @@
       }
     },
     "skills.md": {
-      "file_hash": "8d388d29ef5e529a23bcdd9bb9f74334d5607ef8eb3074689b3ed968f24b3e8b",
+      "file_hash": "e19f7a4615743756482edeea41eaf50935b6d50be132e84ecbdeed8993ae6834",
       "headings_hash": "1852f47af20d8bd5640da4a56220748f5e64e58dbe5f75481537c46fd34a9037",
       "headings": [
         "Extend Claude with skills",
@@ -592,7 +592,7 @@
       }
     },
     "permissions.md": {
-      "file_hash": "a3ef622c7e891c2a0639b1e4979432dee6f363700c8c855ef2f512432197c10a",
+      "file_hash": "ede47dabbb5e229023ae26565fcb5785df5d076c8a6d0d8006dbe634ed99262e",
       "headings_hash": "4fa0ab118e93c253e64c09484721b7591bfe146e3ee2b4ac987c02cb045aec3c",
       "headings": [
         "Configure permissions",
@@ -1162,7 +1162,7 @@
       "sections": {}
     },
     "discover-plugins.md": {
-      "file_hash": "4ee372e93b650c1fa54fe26f691e9373c29503516e01be0d879994c6af6db581",
+      "file_hash": "d56f9ae512f3292ff6b0dee97546c2f37275282eb6ad88ee63feb9b0d425c314",
       "headings_hash": "82de279c5ae4e336bb54ee633084459295f7b74810525f531497bcd608e739ab",
       "headings": [
         "Discover and install prebuilt plugins through marketplaces",
@@ -1428,7 +1428,7 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "821d6215744d8cca07c0f53aab9226c70c544266564d681d69b713742e45c143",
+      "content_hash": "c427843428ce46a3f6df7dffdf89398ca95015283acaa9757152cbd2816e93a3",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1438,7 +1438,7 @@
       ]
     },
     "domain-access-control-safety.md": {
-      "content_hash": "a615cfb43cd938fe7a37afd6d179bff9e504b09eb199762e347c0ad3f9395af6",
+      "content_hash": "212053b55468bd8079b83f0c53775801bb06d897e8277f1311a1f2db3aef6547",
       "depends_on_sections": [
         "permissions.md::permission-rule-syntax"
       ]
@@ -1453,7 +1453,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "19ae724d6e188812354f42d0a8980a9c6c55546cc109fc32986d375fe025e622",
+      "content_hash": "3ca06353fd819f3d12fe57d696dacfb113366acae573769a0182974a99635de0",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

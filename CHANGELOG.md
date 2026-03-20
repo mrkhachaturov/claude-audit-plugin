@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.26] — 2026-03-20
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - channels.md
+  - cli-reference.md
+  - discover-plugins.md
+  - permissions.md
+  - sandboxing.md
+  - settings.md
+  - skills.md
+  - statusline.md
+
+---
+
 ## [1.2.25] — 2026-03-20
 
 ### Changed

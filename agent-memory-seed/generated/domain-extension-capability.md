@@ -28,6 +28,8 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **What are MCP channels?** MCP servers with the `claude/channel` capability can push external events into your session when you start Claude with `--channels`
 - **Channels policy gate:** channels require claude.ai auth and are blocked for Team/Enterprise unless managed `channelsEnabled` is enabled
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
+- **Plugin install says not found in any marketplace:** add the official marketplace with `/plugin marketplace add anthropics/claude-plugins-official` and retry
+- **Where can I browse official plugins?** `/plugin` Discover tab or https://claude.com/plugins
 - **Plugin file paths:** `${CLAUDE_PLUGIN_ROOT}` points at the current installed plugin directory; `${CLAUDE_PLUGIN_DATA}` is persistent across plugin updates
 - **Plugin source types:** plugin entries can be declared inline with `source: \"settings\"` in settings.json
 - **Plugin marketplace source note:** `url` plugin sources support git URLs with optional `.git` suffix

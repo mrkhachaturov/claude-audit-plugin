@@ -150,6 +150,7 @@ answer_from_domain_if:
   - when to use a skill
 read_source_docs_if:
   - exact SKILL.md frontmatter fields
+  - `effort` frontmatter options and precedence
   - skill scoping (project vs personal vs plugin)
   - how skills load into context
 primary_doc: skills.md
@@ -251,6 +252,7 @@ intent: install, create, or publish a plugin
 match:
   - "how do I install a plugin"
   - "how do I create a plugin"
+  - "plugin not found in any marketplace"
   - "plugin manifest"
   - "plugin.json"
   - "what is CLAUDE_PLUGIN_DATA"
