@@ -1,6 +1,6 @@
 {
   "name": "claude-audit",
-  "version": "1.2.23",
+  "version": "1.2.24",
   "description": "AI-readiness audit for any Claude Code project. Analyzes CLAUDE.md, hooks, skills, agents, MCP setup and produces a structured improvement report with prioritized actions.",
   "author": {
     "name": "mrkhachaturov",

@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.24] — 2026-03-20
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - discover-plugins.md
+  - env-vars.md
+  - hooks-guide.md
+  - hooks.md
+  - model-config.md
+  - plugin-marketplaces.md
+  - plugins.md
+  - settings.md
+  - statusline.md
+  - sub-agents.md
+
+---
+
 ## [1.2.23] — 2026-03-20
 
 ### Changed
