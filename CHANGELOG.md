@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.22] — 2026-03-20
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - cli-reference.md
+  - mcp.md
+  - overview.md
+  - remote-control.md
+  - scheduled-tasks.md
+  - settings.md
+
+---
+
 ## [1.2.21] — 2026-03-19
 
 ### Changed

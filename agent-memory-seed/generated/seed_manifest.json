@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-19T09:16:01Z",
+  "seed_version": "2026-03-20T00:13:16Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -110,7 +110,7 @@
       }
     },
     "settings.md": {
-      "file_hash": "c6e1e8a7b6c5651b97f6e496a71a44a5ed9de868730ce33e562ef16fcfabb35a",
+      "file_hash": "276bfdf761395b0edbab75ed39b65723b3c58fa02d43e88311e0a1f62b32134e",
       "headings_hash": "8e88ed3a8f2a510af40604a6f7f757ee06cd4f366f727adc7e36f4f335117986",
       "headings": [
         "Claude Code settings",
@@ -148,7 +148,7 @@
       ],
       "sections": {
         "configuration-scopes": {
-          "hash": "1d770b21ce5c8f934538176c21a5bf06049d23c098311f00514553f3bd663aa1",
+          "hash": "52746fefb8266606e42c68e9a47093363df6c30315ab06d378b7192027b3251b",
           "start_heading": "Configuration scopes",
           "end_heading": "Settings files",
           "domains": [],
@@ -470,8 +470,8 @@
       }
     },
     "mcp.md": {
-      "file_hash": "fa3d7a71a25a0f2b6fd10651cc99e7decf643781ee2adf5a8fb1c73bf7c59592",
-      "headings_hash": "98c2f9873995360365924bd5aafa7c671d1f4f97a19c5aeeeec83b67756dcaef",
+      "file_hash": "bbdb3c532af84f431b4d55ce500764b99a31090bab02243ea2ffe132a2cec1e6",
+      "headings_hash": "e9b03fd9615aee657a1cfdfc5302cf1de7fabb3a475267550231d95ecccf841e",
       "headings": [
         "Connect Claude Code to tools via MCP",
         "What you can do with MCP",
@@ -494,7 +494,7 @@
         "Remove a server",
         "(within Claude Code) Check server status",
         "Dynamic tool updates",
-        "This creates command=\"cmd\" which Windows can execute",
+        "Push messages with channels",
         "Plugin-provided MCP servers",
         "Within Claude Code, see all MCP servers including plugin ones",
         "MCP installation scopes",
@@ -518,12 +518,7 @@
         "Use pre-configured OAuth credentials",
         "Override OAuth metadata discovery",
         "Add MCP servers from JSON configuration",
-        "Basic syntax",
-        "Example: Adding an HTTP server with JSON configuration",
-        "Example: Adding a stdio server with JSON configuration",
-        "Example: Adding an HTTP server with pre-configured OAuth credentials",
         "Import MCP servers from Claude Desktop",
-        "Basic syntax",
         "Use MCP servers from Claude.ai",
         "Use Claude Code as an MCP server",
         "Start Claude as a stdio MCP server",
@@ -703,7 +698,7 @@
       }
     },
     "remote-control.md": {
-      "file_hash": "d02ea9887ea73bdd912f03982ed66e89048cb4d587387fa1aa84e713a2f6e84e",
+      "file_hash": "dd3fedd9e34529b924bdb2b7ed778ee1685957e6607faadbea71d29808a0795b",
       "headings_hash": "a755d7050202b39951afdb731335c76d699ce81e061db0973e501b7d11f737a3",
       "headings": [
         "Continue local sessions from any device with Remote Control",
@@ -722,7 +717,7 @@
       ],
       "sections": {
         "connect-from-another-device": {
-          "hash": "8ab9e3dd4ad4b5fe3cfd1729f34b72c218370663c3f756ccef9a62e593eb093a",
+          "hash": "56cae94a8c2c7456072bf5da59b940a7c2312dad2a40a84b3d8b41272ebaa5f7",
           "start_heading": "Connect from another device",
           "end_heading": "Enable Remote Control for all sessions",
           "domains": [
@@ -731,7 +726,7 @@
           "routes": []
         },
         "troubleshooting": {
-          "hash": "84f1e3fc29778629bcd587551267c86b79f75638ec91315086925a918472a734",
+          "hash": "5491b3eb1b1b1b4a273e9f9537a0ea0795231d0ef2c2eec8c56798008763fd88",
           "start_heading": "Troubleshooting",
           "end_heading": "Related resources",
           "domains": [
@@ -833,11 +828,12 @@
       }
     },
     "changelog.md": {
-      "file_hash": "07bac80d1d8a02394a60a236e7932998526cf6be630247d72efd42c5bfaabfd9",
-      "headings_hash": "75c0bdb19cbf7aa1fcb551bbbb9d46ae033e0365590abcaa346cc6829e67eaa5",
+      "file_hash": "45eb68e1f57d59ac4222ded001fd2783f62b58c2cc357f33a5151d2af7549a5e",
+      "headings_hash": "592ca725ffeb4027abab888d9841ce97dabb419d6414d571cd542def5ae16501",
       "headings": [
         "Claude Code Changelog",
         "Changelog",
+        "2.1.80",
         "2.1.79",
         "2.1.78",
         "2.1.77",
@@ -1084,7 +1080,7 @@
       ],
       "sections": {
         "changelog": {
-          "hash": "f81010dcea8c4d77edc008c67014060a9d0383b1670595f6091a6b4678864d4f",
+          "hash": "ecf356294cfae513e064b1f737e691e52c5fc0cfeae73612d014e7a86caa1402",
           "start_heading": "Changelog",
           "end_heading": null,
           "domains": [],
@@ -1500,14 +1496,14 @@
       ]
     },
     "domain-automation-control.md": {
-      "content_hash": "8b8a403372865a0fe75095276c3124c72e22499182341bff2e73fc441c03e253",
+      "content_hash": "7ad406c1a7e2bdc19b25f4e0d64eab7d9c91b8b69860d20fcecaa7f91ae1371a",
       "depends_on_sections": [
         "hooks.md::hook-events",
         "hooks-guide.md::what-you-can-automate"
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "85bd4bf7d00cb49d6a345a14ca926e8b2c2a7ae934f91c45e82c4492d3e8333f",
+      "content_hash": "48233363bb6560cda085759ad11712f80995ac864eccfe4e581b19a248294ef7",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1523,7 +1519,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "651294d6e367619ab7a7979f4c5fb59f3333a6dfa4b597f263eeaef5d0926bed",
+      "content_hash": "cbdf1e32521eb813204ce78aeea15313eb78f772a6ebf42d66f567774962f606",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
@@ -1532,7 +1528,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "027f3dca999d5db65294a993bb7c4b071c3d1176c0f6c32d9d53dd0e638f1403",
+      "content_hash": "19cb31769b750760802f8c4cf9e109a02f159af37b889ec518f70f4571003e1b",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

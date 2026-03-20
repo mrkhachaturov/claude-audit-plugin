@@ -19,6 +19,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
 - **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use
 - **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
+- **Stay reactive while away:** combine Remote Control with channels to forward Telegram/Discord/webhook events into the live session
 - **Remote session title order:** explicit name flag/command, then `/rename`, then last meaningful message, then first prompt
 - **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
 - **Remote Control on Team/Enterprise:** off by default; admin must enable the Remote Control toggle in Claude Code admin settings
@@ -38,6 +39,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - "Reduce context window usage" → `/clear`, or use subagents
 - "Run parallel Claude sessions" → best-practices.md (parallel sessions section)
 - "Continue a local session from phone/browser" → remote-control.md
+- "Have Claude react to incoming chat/alert events while remote" → channels.md + remote-control.md
 - "Fix Remote Control policy/account errors" → remote-control.md (troubleshooting section)
 - "Configure Claude for VSCode" → vs-code.md
 - "Configure Claude for JetBrains" → jetbrains.md
@@ -49,6 +51,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Output style configuration options
 - Remote control API details
 - Remote Control eligibility and org-policy troubleshooting matrix
+- Channels setup and integration with active sessions
 - VS Code built-in `ide` MCP server behavior and local auth model
 - `PreToolUse` allowlist implications for hidden `mcp__ide__*` tools
 - Checkpointing setup and restore process
@@ -65,6 +68,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - vs-code.md
 - jetbrains.md
 - remote-control.md
+- channels.md
 - headless.md
 - checkpointing.md
 - monitoring-usage.md
