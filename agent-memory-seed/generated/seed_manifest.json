@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-20T06:16:19Z",
+  "seed_version": "2026-03-20T18:11:24Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -48,7 +48,7 @@
       }
     },
     "memory.md": {
-      "file_hash": "0dc69630422f0b3de0f420122b1d19e5aaa4b2394ec83abb3c394f6529dc2c3c",
+      "file_hash": "dc98f1cd7217947e644c747d1d1333a236b7241f1b95b05ca04790f77df5df5c",
       "headings_hash": "a177b8443a700314a9f7d8cccfdd84944b3ddb59a9aa543fa30609c87093cffe",
       "headings": [
         "How Claude remembers your project",
@@ -86,7 +86,7 @@
       ],
       "sections": {
         "claude-md-vs-auto-memory": {
-          "hash": "62e83030ca0b88d0f309ce91acf43275ab1d6bfd364d4da5db088197d5384023",
+          "hash": "766659f2743a1bd165917ea220edd0f9bf386005893992f4b2bfffddc0a472aa",
           "start_heading": "CLAUDE.md vs auto memory",
           "end_heading": "CLAUDE.md files",
           "domains": [
@@ -97,7 +97,7 @@
           ]
         },
         "claude-md-files": {
-          "hash": "3e61cba20df5c7590c143261ce4e5fa63df15803caa9ce00cded085ebc9cd4ff",
+          "hash": "9591c931ef5553795ad0e216725651d583d514a1fd8c52c3ab0d4b487c69b455",
           "start_heading": "CLAUDE.md files",
           "end_heading": "Additional Instructions",
           "domains": [
@@ -110,7 +110,7 @@
       }
     },
     "settings.md": {
-      "file_hash": "95e4f1a12b4f8e28fdd6fb45330ffc66fbbd01498e7673b168c756e63955ad15",
+      "file_hash": "b9e667667e22b71c593e5f6e4aeb73c2ce40567f6b293e94f2dd9bd4e844f3b1",
       "headings_hash": "8e88ed3a8f2a510af40604a6f7f757ee06cd4f366f727adc7e36f4f335117986",
       "headings": [
         "Claude Code settings",
@@ -148,7 +148,7 @@
       ],
       "sections": {
         "configuration-scopes": {
-          "hash": "1d770b21ce5c8f934538176c21a5bf06049d23c098311f00514553f3bd663aa1",
+          "hash": "52746fefb8266606e42c68e9a47093363df6c30315ab06d378b7192027b3251b",
           "start_heading": "Configuration scopes",
           "end_heading": "Settings files",
           "domains": [],
@@ -341,7 +341,7 @@
       }
     },
     "skills.md": {
-      "file_hash": "ad28135a47ba4445fe168d2eff753bc4af92743474f0dc83ec6b81f3a85890c2",
+      "file_hash": "8d388d29ef5e529a23bcdd9bb9f74334d5607ef8eb3074689b3ed968f24b3e8b",
       "headings_hash": "1852f47af20d8bd5640da4a56220748f5e64e58dbe5f75481537c46fd34a9037",
       "headings": [
         "Extend Claude with skills",
@@ -383,7 +383,7 @@
       ],
       "sections": {
         "configure-skills": {
-          "hash": "a1d2d48e759aa3541e7fc85f0f9ba5537d5efeb7037e6096cc2ad97672fc97e5",
+          "hash": "89a76d81b04b5d7a88272325677b7027dd84357259d9dd9043c0db4e8be3d649",
           "start_heading": "Configure skills",
           "end_heading": "Additional resources",
           "domains": [
@@ -396,8 +396,8 @@
       }
     },
     "sub-agents.md": {
-      "file_hash": "439603d277c02f3b732651d6aa4bbc015309fa6881b44615e5e8d17b897a8ccb",
-      "headings_hash": "d0b4ddb05a21c35ce2046e0de59ffeb168502c733e87a5ec7db9ec517388c63d",
+      "file_hash": "c1a01b67a3631b716a37616a5fa471840a764b8f578deb6edb540344b2452e6f",
+      "headings_hash": "e040169e2f98b841b8b48c305602041b02a3da0e2818888adf79482646bd1645",
       "headings": [
         "Create custom subagents",
         "Built-in subagents",
@@ -415,6 +415,7 @@
         "Permission modes",
         "Preload skills into subagents",
         "Enable persistent memory",
+        "Persistent memory tips",
         "Conditional rules with hooks",
         "./scripts/validate-readonly-query.sh",
         "Block SQL write operations (case-insensitive)",
@@ -447,7 +448,7 @@
       ],
       "sections": {
         "configure-subagents": {
-          "hash": "886090d65d4df7b15edc19f12e93f251f1ff1e34f67875b7ec697ca7ec0446aa",
+          "hash": "4a37c1f961863c11721b69c3c800910567eceb492d47d4063316e67433fc0f06",
           "start_heading": "Configure subagents",
           "end_heading": "./scripts/validate-readonly-query.sh",
           "domains": [
@@ -727,7 +728,7 @@
       }
     },
     "features-overview.md": {
-      "file_hash": "561370536d0d7ed02fbc72c14ad9ceafa36beb5b2e1f9cc14d320529f177a977",
+      "file_hash": "8ff0d769d5cece59088dfbf99032108e6a2db1808ba198f042fe3392735382da",
       "headings_hash": "119ac0f333c79af52126ff6757f696c7643da8e0fb7d0d39a75d6485a660c64c",
       "headings": [
         "Extend Claude Code",
@@ -743,7 +744,7 @@
       ],
       "sections": {
         "compare-similar-features": {
-          "hash": "7bfe1977f8984a7507b1bdd694afc31fc3e9505c78128bd76de4af68f914df4d",
+          "hash": "76f60a09d0bfc64e17eaf87482d04afcb58c1ac238c65aa0b6a06ddd229207c9",
           "start_heading": "Compare similar features",
           "end_heading": "Understand how features layer",
           "domains": [
@@ -756,8 +757,8 @@
       }
     },
     "plugin-marketplaces.md": {
-      "file_hash": "dbdd378ebb88a857c0f53cd35beaa0ad96d88cf85e25ba10d8ea3f5fc1d9a0ec",
-      "headings_hash": "a8106317856dc36fe58ec90e53a24d64b0c75d4b51172d7efa2fc1eed21d63af",
+      "file_hash": "48ed00a91032e4e37e31be6d67be1967749d84d69a7714571693241f3089d7ea",
+      "headings_hash": "32533c2dd0c83cb74c8f986e8549a8d9ddf504f5c5ddc0cbe4304f98b75b655d",
       "headings": [
         "Create and distribute a plugin marketplace",
         "Overview",
@@ -790,6 +791,8 @@
         "How restrictions work",
         "Version resolution and release channels",
         "Set up release channels",
+        "Example",
+        "Assign channels to user groups",
         "Validation and testing",
         "Troubleshooting",
         "Marketplace not loading",
@@ -803,7 +806,7 @@
       ],
       "sections": {
         "plugin-sources": {
-          "hash": "a2c43428329293afa07ce443de534203469a7a0337fab9fc9b49b1250a095740",
+          "hash": "05ddb6abd95a54e84a930b3dcc18d02a0e66a755a27b439e75ca5ddffe0595e9",
           "start_heading": "Plugin sources",
           "end_heading": "Relative paths",
           "domains": [
@@ -1132,7 +1135,7 @@
       "sections": {}
     },
     "channels.md": {
-      "file_hash": "9fff1453abf645fd80ff654a1efcd9c2e58f905f87e87f072daac3279df80fa0",
+      "file_hash": "7821e99139e8a374084456c23aa511a74168c36aaaaedb2d2666fe8b32373465",
       "headings_hash": "76bd87d02df64f83b09ea387c0ee0879d5d91d0bddd2795f20561ca0c5719c5a",
       "headings": [
         "Push events into a running session with channels",
@@ -1147,7 +1150,7 @@
       "sections": {}
     },
     "cli-reference.md": {
-      "file_hash": "9fddd43d3eb57e8acfe1aa444ccc4ca0605dd534b4b875275e5ee614363825b2",
+      "file_hash": "759db9ff2db9dac8765e21a73e6e99a7f943da7223b72e10f061a483d0f73651",
       "headings_hash": "af15295412f2c01e97132e950c4e2901497a69384f2e886ca96f048f213f1410",
       "headings": [
         "CLI reference",
@@ -1159,7 +1162,7 @@
       "sections": {}
     },
     "discover-plugins.md": {
-      "file_hash": "a943a6ca877ad336e3bd80ccd0dcafec1ee8d1d546ff02bccee0fc3342514e8c",
+      "file_hash": "4ee372e93b650c1fa54fe26f691e9373c29503516e01be0d879994c6af6db581",
       "headings_hash": "82de279c5ae4e336bb54ee633084459295f7b74810525f531497bcd608e739ab",
       "headings": [
         "Discover and install prebuilt plugins through marketplaces",
@@ -1264,8 +1267,8 @@
       "sections": {}
     },
     "statusline.md": {
-      "file_hash": "86ddff71f413152fe08db24c8c58899d857efec0dbdecf1d555d338589b9fc44",
-      "headings_hash": "e0c12c6da63d45a1bec9fa91f5bd41db6161bbe0909a120e66f9d9ecf98682bb",
+      "file_hash": "e10070be6faef757776bb4ff3aec4ed75c9bbcde5c689c32e00de951679a73dc",
+      "headings_hash": "e726ebc6f3edf84ea6278537d492ead10a71b7c3f065c341051038a4b2a8259c",
       "headings": [
         "Customize your status line",
         "Set up a status line",
@@ -1282,6 +1285,7 @@
         "Cost and duration tracking",
         "Display multiple lines",
         "Clickable links",
+        "Rate limit usage",
         "Cache expensive operations",
         "Windows configuration",
         "Tips",
@@ -1409,7 +1413,7 @@
       ]
     },
     "domain-configuration-persistence.md": {
-      "content_hash": "2c50a24ea1c73dc57563a3cba936169436d89f729a80ca5022292c6354a29544",
+      "content_hash": "e0b73326f3fb56fae4fc170d9580ef5f9639029b67bd50d97860b491eb34624f",
       "depends_on_sections": [
         "memory.md::claude-md-vs-auto-memory",
         "memory.md::claude-md-files",
@@ -1424,7 +1428,7 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "25d649e96c1b581627c5c27f1cdc03801395d5a4fb7085dc9e5c1109d05d9cb3",
+      "content_hash": "821d6215744d8cca07c0f53aab9226c70c544266564d681d69b713742e45c143",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1449,7 +1453,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "19cb31769b750760802f8c4cf9e109a02f159af37b889ec518f70f4571003e1b",
+      "content_hash": "19ae724d6e188812354f42d0a8980a9c6c55546cc109fc32986d375fe025e622",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

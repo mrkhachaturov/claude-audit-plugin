@@ -206,6 +206,7 @@ read_source_docs_if:
   - session-wide agent config (`--agent` and `agent` setting precedence)
   - plugin subagent field limitations
   - tool and memory configuration (including recommended `project` memory scope)
+  - `tools` vs `disallowedTools` precedence when both are set
   - resume behavior details (SendMessage, background auto-resume)
   - agent isolation guarantees
 primary_doc: sub-agents.md

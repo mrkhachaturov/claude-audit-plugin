@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.25] — 2026-03-20
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - channels.md
+  - cli-reference.md
+  - discover-plugins.md
+  - features-overview.md
+  - memory.md
+  - plugin-marketplaces.md
+  - server-managed-settings.md
+  - settings.md
+  - skills.md
+  - statusline.md
+  - sub-agents.md
+
+---
+
 ## [1.2.24] — 2026-03-20
 
 ### Changed

@@ -19,6 +19,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **How do I force a specific subagent?** Use an `@` mention (for example `@\"code-reviewer (agent)\"`) for a single task
 - **How do I run the whole session as a subagent?** Start with `claude --agent <name>` or set `agent` in `.claude/settings.json` (CLI flag wins)
 - **Subagent frontmatter fields:** includes `effort`, `background`, and `isolation` in addition to model/tools/memory fields
+- **Subagent tool restriction precedence:** when both `disallowedTools` and `tools` are set, deny rules apply first, then the allowlist is resolved from remaining tools
 - **CLI subagent JSON parity:** `--agents` accepts the same frontmatter keys as file-based subagents, including `effort`, `background`, and `isolation`
 - **How do I resume a subagent?** Claude sends `SendMessage` to the prior agent ID; stopped agents auto-resume in background on message
 - **Subagent memory scope default:** prefer `project` for team-shared repo-specific knowledge; use `user` for cross-project knowledge and `local` for non-committed project memory

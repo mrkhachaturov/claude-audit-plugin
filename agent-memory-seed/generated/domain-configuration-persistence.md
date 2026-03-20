@@ -26,6 +26,7 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - **CLAUDE.md vs skills:** CLAUDE.md is always loaded; skills are loaded on demand
 - **CLAUDE.md vs rules:** Rules are scoped to paths or topics; CLAUDE.md is always-on project-wide
 - **Managed settings vs managed CLAUDE.md:** Settings enforce hard technical controls (`permissions`, `sandbox`, `env`, login lock); managed CLAUDE.md provides behavioral guidance
+- **Managed settings hooks/env support:** Server-managed settings can centrally define hooks and environment variables in the same schema used by `settings.json`
 - **Project settings vs user settings:** Project overrides user for the specific project
 
 ## Common tasks
