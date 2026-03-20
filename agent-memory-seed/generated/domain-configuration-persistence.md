@@ -19,6 +19,7 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - **Settings precedence:** enterprise > project > user (higher wins)
 - **settings.json location:** `.claude/settings.json` (project) or `~/.claude/settings.json` (user)
 - **Global display settings location:** `~/.claude.json` (for example `showTurnDuration`, `terminalProgressBarEnabled`)
+- **Enterprise channels control:** managed `channelsEnabled` gates channel message delivery for Team/Enterprise regardless of user `--channels` flags
 
 ## Fast comparisons
 - **CLAUDE.md vs memory:** CLAUDE.md is manually curated; memory is agent-written via `/memory`

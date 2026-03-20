@@ -18,16 +18,21 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **How do I manage subagents interactively?** Use `/agents` to create, edit, and manage available subagents
 - **How do I force a specific subagent?** Use an `@` mention (for example `@\"code-reviewer (agent)\"`) for a single task
 - **How do I run the whole session as a subagent?** Start with `claude --agent <name>` or set `agent` in `.claude/settings.json` (CLI flag wins)
+- **Subagent frontmatter fields:** includes `effort`, `background`, and `isolation` in addition to model/tools/memory fields
+- **CLI subagent JSON parity:** `--agents` accepts the same frontmatter keys as file-based subagents, including `effort`, `background`, and `isolation`
 - **How do I resume a subagent?** Claude sends `SendMessage` to the prior agent ID; stopped agents auto-resume in background on message
 - **Subagent memory scope default:** prefer `project` for team-shared repo-specific knowledge; use `user` for cross-project knowledge and `local` for non-committed project memory
 - **What is MCP?** Model Context Protocol — lets Claude connect to external servers that expose tools/resources
 - **What is MCP elicitation?** A structured input request from an MCP server; Claude shows a form/URL dialog and can be auto-handled by hooks
 - **What are MCP channels?** MCP servers with the `claude/channel` capability can push external events into your session when you start Claude with `--channels`
+- **Channels policy gate:** channels require claude.ai auth and are blocked for Team/Enterprise unless managed `channelsEnabled` is enabled
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
 - **Plugin file paths:** `${CLAUDE_PLUGIN_ROOT}` points at the current installed plugin directory; `${CLAUDE_PLUGIN_DATA}` is persistent across plugin updates
+- **Plugin source types:** plugin entries can be declared inline with `source: \"settings\"` in settings.json
 - **Plugin marketplace source note:** `url` plugin sources support git URLs with optional `.git` suffix
 - **Plugin seed directories:** `CLAUDE_CODE_PLUGIN_SEED_DIR` can layer multiple paths (`:` on Unix, `;` on Windows); first seed containing a marketplace/cache entry wins
 - **Plugin subagent caveat:** plugin-provided agents ignore `hooks`, `mcpServers`, and `permissionMode`; copy to project/user agents if those are required
+- **Effort precedence:** skill/subagent `effort` overrides the session level while active, but not `CLAUDE_CODE_EFFORT_LEVEL`
 - **Skill location:** `.claude/skills/<name>/SKILL.md` (project) or `~/.claude/skills/` (personal)
 
 ## Fast comparisons
@@ -56,10 +61,12 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - Exact SKILL.md frontmatter fields (name, description, tools, memory)
 - Subagent tool and memory configuration
 - Exact explicit-invocation syntax (`@` mentions, `--agent`, and `agent` setting behavior)
+- Full subagent frontmatter field details (`effort`, `background`, `isolation`)
 - Plugin subagent frontmatter limitations (`hooks`, `mcpServers`, `permissionMode`)
 - Plugin persistent data directory lifecycle and uninstall behavior
 - MCP transport options (stdio, SSE, HTTP) and auth setup
 - MCP channels capability (`claude/channel`) and `--channels` startup behavior
+- Channels notification payload/reply-tool contract and sender allowlist gating
 - Plugin manifest format and namespace rules
 - Agent team coordination patterns
 
@@ -69,6 +76,8 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - settings.md
 - agent-teams.md
 - mcp.md
+- channels.md
+- channels-reference.md
 - plugins.md
 - plugins-reference.md
 - plugin-marketplaces.md

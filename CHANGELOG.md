@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.2.23] — 2026-03-20
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - channels-reference.md
+  - channels.md
+  - cli-reference.md
+  - discover-plugins.md
+  - env-vars.md
+  - hooks-guide.md
+  - hooks.md
+  - mcp.md
+  - model-config.md
+  - overview.md
+  - plugin-marketplaces.md
+  - plugins.md
+  - remote-control.md
+  - scheduled-tasks.md
+  - settings.md
+  - statusline.md
+  - sub-agents.md
+
+---
+
 ## [1.2.22] — 2026-03-20
 
 ### Changed

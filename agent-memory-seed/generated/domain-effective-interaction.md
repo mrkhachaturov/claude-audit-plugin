@@ -16,6 +16,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Plan acceptance naming:** accepting a plan auto-names the session unless a name is already set via `--name` or `/rename`
 - **How to use a skill:** type `/skill-name` or ask Claude to use it
 - **Model selection:** `/model` command or `model` in settings.json
+- **Effort controls:** `/effort`, `--effort`, `effortLevel` setting, and `CLAUDE_CODE_EFFORT_LEVEL`; skill/subagent frontmatter can override session effort while active
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
 - **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use
 - **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
@@ -24,6 +25,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
 - **Remote Control on Team/Enterprise:** off by default; admin must enable the Remote Control toggle in Claude Code admin settings
 - **Remote policy errors:** check auth mode (claude.ai OAuth vs API key), org admin toggle state, and org compliance/data-retention policy constraints
+- **Status line trust requirement:** `statusLine` commands run only after workspace trust is accepted; otherwise you'll see `statusline skipped · restart to fix`
 - **Built-in VS Code IDE MCP server:** extension runs hidden local server `ide` (auto-connected by CLI; not listed in `/mcp`)
 - **IDE MCP tools visible to Claude:** `mcp__ide__getDiagnostics` (read-only diagnostics) and `mcp__ide__executeCode` (Jupyter cell execution with VS Code confirmation)
 - **Jupyter execution safety:** `mcp__ide__executeCode` always requires a native Quick Pick confirm/cancel in VS Code and fails if notebook/kernel prerequisites are missing
@@ -49,6 +51,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Full list of slash commands and their arguments
 - Exact headless mode flags and options
 - Output style configuration options
+- Status line execution/trust requirements and troubleshooting
 - Remote control API details
 - Remote Control eligibility and org-policy troubleshooting matrix
 - Channels setup and integration with active sessions

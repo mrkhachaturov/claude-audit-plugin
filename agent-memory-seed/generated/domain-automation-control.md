@@ -12,9 +12,11 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 ## Fast answers
 - **What are hooks?** Shell commands in settings.json that run before/after specific Claude tool uses
 - **Hook events (common):** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `StopFailure`, `SubagentStop`; newer lifecycle events include `PostCompact`, `Elicitation`, and `ElicitationResult` — see hooks.md for the full list
+- **SessionEnd `reason` values:** include `clear`, `resume`, `logout`, `prompt_input_exit`, `bypass_permissions_disabled`, and `other`
 - **Can hooks block Claude?** Yes — `PreToolUse` hooks that exit non-zero can block the tool call
 - **Can hooks auto-approve permission prompts?** Yes — `PermissionRequest` hooks can return JSON `decision.behavior: "allow"` and optionally `updatedPermissions` entries, but deny/ask permission rules still apply
 - **When do Stop vs StopFailure run?** `Stop` runs when Claude finishes normally; API errors fire `StopFailure` instead and ignore hook output/exit code
+- **SessionEnd timeout default:** 1.5s via `CLAUDE_CODE_SESSIONEND_HOOKS_TIMEOUT_MS`; applies to exit, `/clear`, and interactive `/resume` session switches
 - **Where do hooks live?** `.claude/settings.json` under the `hooks` key
 - **Plugin hook paths:** Use `${CLAUDE_PLUGIN_ROOT}` for bundled scripts and `${CLAUDE_PLUGIN_DATA}` for dependencies/state that should survive plugin updates
 
