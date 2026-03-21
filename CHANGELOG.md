@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.27] — 2026-03-21
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - channels-reference.md
+  - channels.md
+  - desktop.md
+  - discover-plugins.md
+  - env-vars.md
+  - permissions.md
+  - remote-control.md
+  - sandboxing.md
+  - settings.md
+  - skills.md
+
+---
+
 ## [1.2.26] — 2026-03-20
 
 ### Changed

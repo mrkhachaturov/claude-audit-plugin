@@ -43,6 +43,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **Skill vs subagent:** Skill provides instructions; subagent is an isolated Claude instance with its own context
 - **Subagent vs agent team:** Subagent returns a summary; agent teams maintain independent sessions
 - **MCP vs plugin:** MCP connects to external services; plugin packages internal Claude Code primitives
+- **Channels vs Remote Control vs web sessions:** Channels push external events into your current local session; Remote Control steers that same session from another device; web sessions run work in a fresh cloud sandbox
 - **Plugin vs skill:** Plugin is a distributable bundle; skill is a single reusable workflow file
 
 ## Common tasks

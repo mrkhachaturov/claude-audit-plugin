@@ -227,6 +227,7 @@ match:
   - "MCP configuration"
   - "MCP elicitation"
   - "MCP channels"
+  - "channels vs remote control"
   - "how do I use --channels"
 strong_terms: [MCP, stdio, SSE, http, mcp server, claude mcp add, external tool, elicitation, channel, --channels]
 avoid: [plugins, hooks, skills]
@@ -239,6 +240,7 @@ read_source_docs_if:
   - transport type selection
   - OAuth and auth configuration
   - channel capability (`claude/channel`) and startup flags (`--channels`)
+  - channels vs web sessions/slack/remote-control behavior differences
   - plugin MCP path variables (`CLAUDE_PLUGIN_ROOT` and `CLAUDE_PLUGIN_DATA`)
 primary_doc: mcp.md
 secondary_doc: settings.md
