@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.28] — 2026-03-21
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - channels-reference.md
+  - channels.md
+  - desktop.md
+  - env-vars.md
+  - remote-control.md
+  - settings.md
+
+---
+
 ## [1.2.27] — 2026-03-21
 
 ### Changed

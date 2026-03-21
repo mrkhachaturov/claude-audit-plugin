@@ -24,7 +24,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Remote session title order:** explicit name flag/command, then `/rename`, then last meaningful message, then first prompt
 - **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
 - **Remote Control on Team/Enterprise:** off by default; admin must enable the Remote Control toggle in Claude Code admin settings
-- **Remote policy errors:** check auth mode (claude.ai OAuth vs API key), org admin toggle state, and org compliance/data-retention policy constraints
+- **Remote policy errors:** run `/status` first, then check auth mode (claude.ai OAuth vs API key), org admin Remote Control toggle state (server-side), and org compliance/data-retention policy constraints
 - **Status line trust requirement:** `statusLine` commands run only after workspace trust is accepted; otherwise you'll see `statusline skipped · restart to fix`
 - **Built-in VS Code IDE MCP server:** extension runs hidden local server `ide` (auto-connected by CLI; not listed in `/mcp`)
 - **IDE MCP tools visible to Claude:** `mcp__ide__getDiagnostics` (read-only diagnostics) and `mcp__ide__executeCode` (Jupyter cell execution with VS Code confirmation)

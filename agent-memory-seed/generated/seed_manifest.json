@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-21T00:11:32Z",
+  "seed_version": "2026-03-21T03:44:35Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -819,7 +819,7 @@
       }
     },
     "changelog.md": {
-      "file_hash": "34cf9735c7bc17f32a8728d8614cc59a7a5a7b0109cd326aff827663a68377a7",
+      "file_hash": "42fdf3eafb4165f82e5e0b0fef7c20eb4f61efa655943bea395aa461e974b953",
       "headings_hash": "11ff724d22d313bf6b7235a732b34c34bf73c86bba5ca2d4247dbf63003036a3",
       "headings": [
         "Claude Code Changelog",
@@ -1072,7 +1072,7 @@
       ],
       "sections": {
         "claude-code-changelog": {
-          "hash": "34cf9735c7bc17f32a8728d8614cc59a7a5a7b0109cd326aff827663a68377a7",
+          "hash": "42fdf3eafb4165f82e5e0b0fef7c20eb4f61efa655943bea395aa461e974b953",
           "start_heading": "Claude Code Changelog",
           "end_heading": null,
           "domains": [],
@@ -1790,7 +1790,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "7510f1e6387516d95f1e1c184278ac937701729b0b68c76d6c8884e4363327c9",
+      "content_hash": "d0ee8f4135b6fb0e5f9a01c24d8a9083892c01ff39e7288701bceb213ed4ed90",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
