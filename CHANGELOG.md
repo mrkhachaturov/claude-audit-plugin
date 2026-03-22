@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.33] — 2026-03-22
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - channels-reference.md
+  - channels.md
+  - cli-reference.md
+  - env-vars.md
+  - headless.md
+  - how-claude-code-works.md
+  - interactive-mode.md
+  - mcp.md
+  - settings.md
+
+---
+
 ## [1.2.32] — 2026-03-22
 
 ### Changed
