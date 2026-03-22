@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.30] — 2026-03-22
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - channels.md
+  - env-vars.md
+  - monitoring-usage.md
+  - plugins-reference.md
+  - settings.md
+  - terminal-config.md
+
+---
+
 ## [1.2.29] — 2026-03-21
 
 ### Changed

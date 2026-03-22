@@ -268,6 +268,8 @@ answer_from_domain_if:
   - plugin root path vs persistent data path
 read_source_docs_if:
   - exact plugin.json manifest format
+  - marketplace recovery steps when install says "not found in any marketplace" (`/plugin marketplace update` vs `/plugin marketplace add`)
+  - when `/reload-plugins` is needed to activate newly installed configure commands
   - plugin marketplace source schema details (url/ref/sha and URL suffix behavior)
   - plugin seed directory layering semantics (`CLAUDE_CODE_PLUGIN_SEED_DIR` with `:`/`;` path lists)
   - plugin persistent data directory behavior and uninstall semantics

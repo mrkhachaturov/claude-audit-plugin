@@ -18,7 +18,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **How do I manage subagents interactively?** Use `/agents` to create, edit, and manage available subagents
 - **How do I force a specific subagent?** Use an `@` mention (for example `@\"code-reviewer (agent)\"`) for a single task
 - **How do I run the whole session as a subagent?** Start with `claude --agent <name>` or set `agent` in `.claude/settings.json` (CLI flag wins)
-- **Subagent frontmatter fields:** includes `effort`, `background`, and `isolation` in addition to model/tools/memory fields
+- **Subagent frontmatter fields:** include `model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, and `isolation` (plugin agents only support `isolation: "worktree"`)
 - **Subagent tool restriction precedence:** when both `disallowedTools` and `tools` are set, deny rules apply first, then the allowlist is resolved from remaining tools
 - **CLI subagent JSON parity:** `--agents` accepts the same frontmatter keys as file-based subagents, including `effort`, `background`, and `isolation`
 - **How do I resume a subagent?** Claude sends `SendMessage` to the prior agent ID; stopped agents auto-resume in background on message
@@ -28,7 +28,8 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **What are MCP channels?** MCP servers with the `claude/channel` capability can push external events into your session when you start Claude with `--channels`
 - **Channels policy gate:** channels require claude.ai auth and are blocked for Team/Enterprise unless managed `channelsEnabled` is enabled
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
-- **Plugin install says not found in any marketplace:** add the official marketplace with `/plugin marketplace add anthropics/claude-plugins-official` and retry
+- **Plugin install says not found in any marketplace:** update marketplace metadata with `/plugin marketplace update claude-plugins-official`, or add it first with `/plugin marketplace add anthropics/claude-plugins-official`, then retry
+- **Plugin configure command missing after install:** run `/reload-plugins` to activate newly installed plugin commands
 - **Where can I browse official plugins?** `/plugin` Discover tab or https://claude.com/plugins
 - **Plugin file paths:** `${CLAUDE_PLUGIN_ROOT}` points at the current installed plugin directory; `${CLAUDE_PLUGIN_DATA}` is persistent across plugin updates
 - **Plugin source types:** plugin entries can be declared inline with `source: \"settings\"` in settings.json
@@ -67,6 +68,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - Exact explicit-invocation syntax (`@` mentions, `--agent`, and `agent` setting behavior)
 - Full subagent frontmatter field details (`effort`, `background`, `isolation`)
 - Plugin subagent frontmatter limitations (`hooks`, `mcpServers`, `permissionMode`)
+- Full plugin-agent frontmatter support (`model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, `isolation`)
 - Plugin persistent data directory lifecycle and uninstall behavior
 - MCP transport options (stdio, SSE, HTTP) and auth setup
 - MCP channels capability (`claude/channel`) and `--channels` startup behavior

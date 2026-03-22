@@ -18,7 +18,9 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - **`/init` interactive flow:** set `CLAUDE_CODE_NEW_INIT=true` to run a guided setup for `CLAUDE.md`, skills, hooks, and memory files
 - **Settings precedence:** enterprise > project > user (higher wins)
 - **settings.json location:** `.claude/settings.json` (project) or `~/.claude/settings.json` (user)
-- **Global config settings location:** `~/.claude.json` (for example `autoConnectIde`, `autoInstallIdeExtension`, `showTurnDuration`, `terminalProgressBarEnabled`)
+- **Global config settings location:** `~/.claude.json` (for example `autoConnectIde`, `autoInstallIdeExtension`, `editorMode`, `showTurnDuration`, `terminalProgressBarEnabled`)
+- **Disable built-in git workflow prompt content:** set `includeGitInstructions: false` or `CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS=1` to remove built-in commit/PR instructions and the git status snapshot from the system prompt
+- **Terminal progress bar support:** `terminalProgressBarEnabled` applies to supported terminals like ConEmu, Ghostty 1.2.0+, and iTerm2 3.6.6+
 - **Enterprise channels control:** managed `channelsEnabled` gates channel message delivery for Team/Enterprise regardless of user `--channels` flags
 
 ## Fast comparisons

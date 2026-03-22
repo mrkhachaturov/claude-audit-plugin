@@ -21,6 +21,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use
 - **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
 - **Stay reactive while away:** combine Remote Control with channels to forward Telegram/Discord/webhook events into the live session
+- **tmux passthrough requirement:** for notifications and terminal progress updates to reach your outer terminal while inside tmux, set `set -g allow-passthrough on`
 - **Remote session title order:** explicit name flag/command, then `/rename`, then last meaningful message, then first prompt
 - **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
 - **Remote Control on Team/Enterprise:** off by default; admin must enable the Remote Control toggle in Claude Code admin settings
@@ -46,6 +47,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - "Configure Claude for VSCode" → vs-code.md
 - "Configure Claude for JetBrains" → jetbrains.md
 - "Check token usage and costs" → `/cost` command, monitoring-usage.md
+- "Segment telemetry by account/user identity" → monitoring-usage.md (`user.account_uuid`, `user.account_id`, `organization.id`)
 
 ## When you must read source docs
 - Full list of slash commands and their arguments
@@ -55,6 +57,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Remote control API details
 - Remote Control eligibility and org-policy troubleshooting matrix
 - Channels setup and integration with active sessions
+- Telemetry attributes and cardinality controls (`OTEL_METRICS_INCLUDE_ACCOUNT_UUID`, `user.account_id`, event-only fields like `prompt.id`)
 - VS Code built-in `ide` MCP server behavior and local auth model
 - `PreToolUse` allowlist implications for hidden `mcp__ide__*` tools
 - Checkpointing setup and restore process

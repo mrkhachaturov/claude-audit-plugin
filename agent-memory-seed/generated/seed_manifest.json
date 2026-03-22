@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-21T06:10:48Z",
+  "seed_version": "2026-03-22T00:10:48Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
@@ -110,7 +110,7 @@
       }
     },
     "settings.md": {
-      "file_hash": "fa98eea5bfd44dbc41292be1d6f92771f9670e454402d3b0949f788e0ab1ee7d",
+      "file_hash": "d162ad920895efd83abff67ac0c00145d02d2a8119f5be7d769358f862b46d5f",
       "headings_hash": "8e88ed3a8f2a510af40604a6f7f757ee06cd4f366f727adc7e36f4f335117986",
       "headings": [
         "Claude Code settings",
@@ -1240,7 +1240,7 @@
       "sections": {}
     },
     "plugins-reference.md": {
-      "file_hash": "f03a9b133834d4f4f80f26b795c73ca214302100141426ccb951a4e66f19aaed",
+      "file_hash": "c98a8d83b405b3f68e85896409f9aa452041f8985fe7d924d93b51a7491d19cd",
       "headings_hash": "d38230a0d64fd483fe56868d378d7bab41754145b04c4f26641ff60e40bc569a",
       "headings": [
         "Plugins reference",
@@ -1381,7 +1381,7 @@
       "sections": {}
     },
     "channels.md": {
-      "file_hash": "0832bdae5fc1052b4b654fa7a2fe2c55fdd957ae6b4700fbd7ecfd6b95e12698",
+      "file_hash": "cc18c6eef3e661c38ee9ab7268eaf88ff573ba5955daf7aa95546ed80f2f7830",
       "headings_hash": "022b51e7bcdd4f57de9fd34204312e48eb6467672864ad09b35ba7ced94fd771",
       "headings": [
         "Push events into a running session with channels",
@@ -1444,7 +1444,7 @@
       "sections": {}
     },
     "env-vars.md": {
-      "file_hash": "cf4ce376b5f1c55a7c60b1fff1a50ce11d728141413532b112eabe053f80a7ed",
+      "file_hash": "7c0df67db979230ebfc9336b89ccda6b653107e890746fbe619d6ae2c12fee2e",
       "headings_hash": "c34f362998cf1a9bb4cbda4acffe8c6d49d05cfffd6c69968af4761c231adf93",
       "headings": [
         "Environment variables",
@@ -1759,7 +1759,7 @@
       ]
     },
     "domain-configuration-persistence.md": {
-      "content_hash": "ade3b2ec0ccb98751f97c227c0c17725c9e2f497ab3f792da82b25dbe005cdd3",
+      "content_hash": "94ff185bbd2ea4ca24b790cfbf7f4036684661c96dd1fdff6872c40b34be57e3",
       "depends_on_sections": [
         "memory.md::claude-md-vs-auto-memory",
         "memory.md::claude-md-files",
@@ -1774,7 +1774,7 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "62608daa1a0c88e981a1d70fa4c0e5f1b2283cfbbf0c551a3b44d892014e5528",
+      "content_hash": "e0cedd8908ebf456d1d5343fd4d319e81cbadc454047e5d661bf6676294e3a3b",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1790,7 +1790,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "d0ee8f4135b6fb0e5f9a01c24d8a9083892c01ff39e7288701bceb213ed4ed90",
+      "content_hash": "276c19f5e5ca7af073b9f026611a7d17ac1b1207ab42a19d4eb2d9c294121447",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
@@ -1799,7 +1799,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "a4a784f0b5854ab742678c0a6d0a537d6059bb76f8d1fa37e3375eb1bb04f6a7",
+      "content_hash": "db8778036fe82ea74f968847e4f174c8a946d2950efece3bbd557cdb091e8599",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",
