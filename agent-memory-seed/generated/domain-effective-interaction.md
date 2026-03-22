@@ -6,7 +6,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 ## Decision rules
 - Use explore-plan-implement workflow for complex or risky tasks
 - Use `/clear` to reset context when it gets too large or polluted
-- Use headless mode (`claude -p`) for CI/CD and scripted automation
+- Use headless mode (`claude -p`) with `--bare` for deterministic CI/CD and scripted automation
 - Use checkpointing for long tasks where you might want to roll back
 - Use Remote Control when you want to continue a local session from browser/mobile while keeping work on your machine
 
@@ -18,10 +18,11 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Model selection:** `/model` command or `model` in settings.json
 - **Effort controls:** `/effort`, `--effort`, `effortLevel` setting, and `CLAUDE_CODE_EFFORT_LEVEL`; skill/subagent frontmatter can override session effort while active
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
-- **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use
+- **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use; add `--bare` to skip local auto-discovery and make runs deterministic
 - **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
 - **Stay reactive while away:** combine Remote Control with channels to forward Telegram/Discord/webhook events into the live session
 - **tmux passthrough requirement:** for notifications and terminal progress updates to reach your outer terminal while inside tmux, set `set -g allow-passthrough on`
+- **Verbose toggle behavior:** `Ctrl+O` expands detailed tool output, including MCP read/search calls that are collapsed to one-line summaries by default.
 - **Remote session title order:** explicit name flag/command, then `/rename`, then last meaningful message, then first prompt
 - **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
 - **Remote Control on Team/Enterprise:** off by default; admin must enable the Remote Control toggle in Claude Code admin settings
@@ -32,7 +33,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Jupyter execution safety:** `mcp__ide__executeCode` always requires a native Quick Pick confirm/cancel in VS Code and fails if notebook/kernel prerequisites are missing
 
 ## Fast comparisons
-- **Interactive vs headless:** Interactive is conversational; headless is single-shot for automation
+- **Interactive vs headless:** Interactive is conversational; headless is single-shot for automation (prefer `--bare` in scripts)
 - **fast mode vs standard:** Fast mode has lower latency; standard may be more thorough on complex tasks
 - **`/clear` vs new session:** `/clear` resets context in same session; new session is fully fresh
 - **Remote Control vs Claude Code on the web:** Remote Control runs on your machine; web sessions run in Anthropic-managed cloud

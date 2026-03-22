@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-22T03:50:39Z",
+  "seed_version": "2026-03-22T18:07:47Z",
   "source_docs": {
     "how-claude-code-works.md": {
-      "file_hash": "3d0820f35fe3c70846237e9db2570846c8e667ce768f2e7dcca66ecd22db2fa2",
+      "file_hash": "4b825bac3f6179d734038f777add047d88d249cccf9804405b27be345300a4da",
       "headings_hash": "389d910da85471dea480d7992c5fd7272fcf71126103ea1d28387c15d3f4d223",
       "headings": [
         "How Claude Code works",
@@ -110,7 +110,7 @@
       }
     },
     "settings.md": {
-      "file_hash": "d162ad920895efd83abff67ac0c00145d02d2a8119f5be7d769358f862b46d5f",
+      "file_hash": "5a8345ce8eedadebde807791e572953c46342402ea3eecdd99e028223eb8974e",
       "headings_hash": "8e88ed3a8f2a510af40604a6f7f757ee06cd4f366f727adc7e36f4f335117986",
       "headings": [
         "Claude Code settings",
@@ -461,7 +461,7 @@
       }
     },
     "mcp.md": {
-      "file_hash": "bbdb3c532af84f431b4d55ce500764b99a31090bab02243ea2ffe132a2cec1e6",
+      "file_hash": "f15349d1f16dad0580df14e5efabbe5d1e22a120484a5f681261d9a2f63e9143",
       "headings_hash": "e9b03fd9615aee657a1cfdfc5302cf1de7fabb3a475267550231d95ecccf841e",
       "headings": [
         "Connect Claude Code to tools via MCP",
@@ -1144,7 +1144,7 @@
       "sections": {}
     },
     "interactive-mode.md": {
-      "file_hash": "1232bf50c2baa1355ccecbe1f318e24093a7b69957054f64a0b0fe791ed66b6f",
+      "file_hash": "a1b8232208d1b6e6c5b2427b730ca2a5f1ebe85d74b835b1cdf37c983beccd4d",
       "headings_hash": "e4a50bacc55b7b5db584c207811007e0210db205aa831d1d7776eeb55a00cb1a",
       "headings": [
         "Interactive mode",
@@ -1361,8 +1361,8 @@
       }
     },
     "channels-reference.md": {
-      "file_hash": "7d6f96b30ece6bfbe7831a0941b5fe7b61265fd03f956c84fae4dd280a33ea96",
-      "headings_hash": "2eeeb35d62089903d9116ac6160f8fec71011a7aa133be7fe13048f015f76b7b",
+      "file_hash": "a5c6e5f5581a74a336807a5bdb4da51a920984f3c63c37c9005727e44a0bfbc0",
+      "headings_hash": "66ed357c1da30c1ab0cd4737e66808a731cd0a44bd36244c635c648b9ad2dfd3",
       "headings": [
         "Channels reference",
         "Overview",
@@ -1375,13 +1375,18 @@
         "Notification format",
         "Expose a reply tool",
         "Gate inbound messages",
+        "Relay permission prompts",
+        "How relay works",
+        "Permission request fields",
+        "Add relay to a chat bridge",
+        "Full example",
         "Package as a plugin",
         "See also"
       ],
       "sections": {}
     },
     "channels.md": {
-      "file_hash": "cc18c6eef3e661c38ee9ab7268eaf88ff573ba5955daf7aa95546ed80f2f7830",
+      "file_hash": "c5b269ea0470e22ad31ce287fcb4ac45400b24a929a786f5d9298bd50f0802d2",
       "headings_hash": "022b51e7bcdd4f57de9fd34204312e48eb6467672864ad09b35ba7ced94fd771",
       "headings": [
         "Push events into a running session with channels",
@@ -1397,7 +1402,7 @@
       "sections": {}
     },
     "cli-reference.md": {
-      "file_hash": "759db9ff2db9dac8765e21a73e6e99a7f943da7223b72e10f061a483d0f73651",
+      "file_hash": "57b1c1c43cd6014037e15467725989c8e0633ea3b1c32fad1cfd7b5da739320a",
       "headings_hash": "af15295412f2c01e97132e950c4e2901497a69384f2e886ca96f048f213f1410",
       "headings": [
         "CLI reference",
@@ -1444,7 +1449,7 @@
       "sections": {}
     },
     "env-vars.md": {
-      "file_hash": "7c0df67db979230ebfc9336b89ccda6b653107e890746fbe619d6ae2c12fee2e",
+      "file_hash": "30649aabeca6609c39cf044b9b5542b99db2d81cadb61d18495bfc150850e634",
       "headings_hash": "c34f362998cf1a9bb4cbda4acffe8c6d49d05cfffd6c69968af4761c231adf93",
       "headings": [
         "Environment variables",
@@ -1638,6 +1643,26 @@
         "See also"
       ],
       "sections": {}
+    },
+    "headless.md": {
+      "file_hash": "33ba27b6bd42db5e981d55f470ee1eac40e4c2b45d36a9e5b6e24805ecf46669",
+      "headings_hash": "1fa33291ac6521050b47b5ffaee85cc36ee73686f7bf55f73768d756ccd2d89a",
+      "headings": [
+        "Run Claude Code programmatically",
+        "Basic usage",
+        "Start faster with bare mode",
+        "Examples",
+        "Get structured output",
+        "Stream responses",
+        "Auto-approve tools",
+        "Create a commit",
+        "Customize the system prompt",
+        "Continue conversations",
+        "First request",
+        "Continue the most recent conversation",
+        "Next steps"
+      ],
+      "sections": {}
     }
   },
   "routes": {
@@ -1753,7 +1778,7 @@
   },
   "outputs": {
     "domain-foundation.md": {
-      "content_hash": "1aef044e67a051fccefd01b7a100d4bb75e69739ef392fe87f699afe6373fbed",
+      "content_hash": "94b40297d92149fdd510d5950fea954b98de7885be45024832a5b19adaffab60",
       "depends_on_sections": [
         "how-claude-code-works.md::the-agentic-loop"
       ]
@@ -1774,7 +1799,7 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "e0cedd8908ebf456d1d5343fd4d319e81cbadc454047e5d661bf6676294e3a3b",
+      "content_hash": "68ece96ebaca43873b8b1cf724354d73b04b740438c95438ed51227fe96e5956",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1790,7 +1815,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "276c19f5e5ca7af073b9f026611a7d17ac1b1207ab42a19d4eb2d9c294121447",
+      "content_hash": "3328eefc88262942b3533f53d9678ae5a8a23d70511a0d5e48d162a7c983101b",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
@@ -1799,7 +1824,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "db8778036fe82ea74f968847e4f174c8a946d2950efece3bbd557cdb091e8599",
+      "content_hash": "63041bdf1aa7f87b80de87b927f045e1949f01914e5fba9a40f1118822d0f484",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

@@ -25,8 +25,11 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **Subagent memory scope default:** prefer `project` for team-shared repo-specific knowledge; use `user` for cross-project knowledge and `local` for non-committed project memory
 - **What is MCP?** Model Context Protocol — lets Claude connect to external servers that expose tools/resources
 - **What is MCP elicitation?** A structured input request from an MCP server; Claude shows a form/URL dialog and can be auto-handled by hooks
+- **MCP OAuth discovery:** Claude supports both Dynamic Client Registration and CIMD (Client ID Metadata Document); use pre-configured credentials when automatic discovery fails.
 - **What are MCP channels?** MCP servers with the `claude/channel` capability can push external events into your session when you start Claude with `--channels`
+- **Can channels relay tool approvals?** Yes. Two-way channels can opt in with `claude/channel/permission` and relay permission prompts (`allow`/`deny`) using request IDs.
 - **Channels policy gate:** channels require claude.ai auth and are blocked for Team/Enterprise unless managed `channelsEnabled` is enabled
+- **Remote approvals race behavior:** terminal prompt and relayed channel prompt stay live in parallel; Claude applies whichever verdict arrives first.
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
 - **Plugin install says not found in any marketplace:** update marketplace metadata with `/plugin marketplace update claude-plugins-official`, or add it first with `/plugin marketplace add anthropics/claude-plugins-official`, then retry
 - **Plugin configure command missing after install:** run `/reload-plugins` to activate newly installed plugin commands
@@ -71,8 +74,8 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - Full plugin-agent frontmatter support (`model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, `isolation`)
 - Plugin persistent data directory lifecycle and uninstall behavior
 - MCP transport options (stdio, SSE, HTTP) and auth setup
-- MCP channels capability (`claude/channel`) and `--channels` startup behavior
-- Channels notification payload/reply-tool contract and sender allowlist gating
+- MCP channels capabilities (`claude/channel`, optional `claude/channel/permission`) and `--channels` startup behavior
+- Channels notification payload/reply-tool contract, sender allowlist gating, and permission relay request/response schema
 - Plugin manifest format and namespace rules
 - Agent team coordination patterns
 
