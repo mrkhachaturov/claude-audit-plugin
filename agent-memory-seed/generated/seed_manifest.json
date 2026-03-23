@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-23T18:17:29Z",
+  "seed_version": "2026-03-23T21:12:05Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "4b825bac3f6179d734038f777add047d88d249cccf9804405b27be345300a4da",
@@ -757,7 +757,7 @@
       }
     },
     "plugin-marketplaces.md": {
-      "file_hash": "48ed00a91032e4e37e31be6d67be1967749d84d69a7714571693241f3089d7ea",
+      "file_hash": "6168e4f8ef56b93633b75c283eb3f9d481572d671110a6a99f6dff1e495f4361",
       "headings_hash": "32533c2dd0c83cb74c8f986e8549a8d9ddf504f5c5ddc0cbe4304f98b75b655d",
       "headings": [
         "Create and distribute a plugin marketplace",
@@ -1548,7 +1548,7 @@
     },
     "desktop.md": {
       "file_hash": "37fd2bb6b940930bf16f2fb392619c40cc6a2a5cb88b341a2513f2f28f1a4181",
-      "headings_hash": "58eb09adfd74f8857fc01d8862703478773ca0ee0fa377d34b54c0893939636b",
+      "headings_hash": "9ecf7ffabd93c15b4aa32c76bbcaeea5ffe018b019d62cd77b36aa2a74ec43c7",
       "headings": [
         "Use Claude Code Desktop",
         "Start a session",
@@ -1571,6 +1571,7 @@
         "Configure preview servers",
         "Auto-verify changes",
         "Configuration fields",
+        "When to use `program` vs `runtimeExecutable`",
         "Port conflicts",
         "Examples",
         "Schedule recurring tasks",
