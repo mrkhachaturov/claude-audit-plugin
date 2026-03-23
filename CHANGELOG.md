@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.34] — 2026-03-23
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - claude-code-on-the-web.md
+  - commands.md
+  - common-workflows.md
+  - desktop.md
+  - overview.md
+  - scheduled-tasks.md
+
+---
+
 ## [1.2.33] — 2026-03-22
 
 ### Changed

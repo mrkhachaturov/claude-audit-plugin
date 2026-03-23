@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-22T21:07:39Z",
+  "seed_version": "2026-03-23T18:17:29Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "4b825bac3f6179d734038f777add047d88d249cccf9804405b27be345300a4da",
@@ -1108,7 +1108,7 @@
       "sections": {}
     },
     "commands.md": {
-      "file_hash": "ee98ecd30e6ec658dd2f5705625ddfabed1f5487dff532dfad26201c05dfaa9c",
+      "file_hash": "cad31f72977983c4ddfb8eef9b75cc458bdc8efcfbb065d18d2e0b0a4fb4b62f",
       "headings_hash": "947864011c9d136baade1d422d0a5c8b515c9b6df9236dcea1c342b35bb3c657",
       "headings": [
         "Built-in commands",
@@ -1488,7 +1488,7 @@
       "sections": {}
     },
     "overview.md": {
-      "file_hash": "ab88fc29e021f76360cc27d60a3ae223cd9470751ac2360009ae2838b60ab1b9",
+      "file_hash": "aafa12c85e38cc90eaf76c3a7a9098e353407b472600aa12f98a19d0ed8ba2ab",
       "headings_hash": "fe285beaaf57b4727a070146a1747e6fde5b264dbce2dba59262141ec5f73a42",
       "headings": [
         "Claude Code overview",
@@ -1500,10 +1500,11 @@
       "sections": {}
     },
     "scheduled-tasks.md": {
-      "file_hash": "e526dfdd7b03826ad2a32cd3509b48878dc1e45020815db303315860631d336e",
-      "headings_hash": "0029c83f4bb0256ffb9470f3f883cceabaea573925676bb38a3de1c5f4a96e7f",
+      "file_hash": "5e42f0269c98ca622a1dde744bce5847b3facf9e8df1c7a25ed871b0ee542fa9",
+      "headings_hash": "3af4b9d4ca29780e11d2d8e0c09580a69128293f295e70c7fed9729947079b20",
       "headings": [
         "Run prompts on a schedule",
+        "Compare scheduling options",
         "Schedule a recurring prompt with /loop",
         "Interval syntax",
         "Loop over another command",
@@ -1546,8 +1547,8 @@
       "sections": {}
     },
     "desktop.md": {
-      "file_hash": "ccc0cb823b26c16f38eeed898241e997213f1fc885cf08d29407a240e4a9a245",
-      "headings_hash": "797a5d1b3ca2ab374b3183e2d3cca45cebb1f2573d40183145656a74f487bc90",
+      "file_hash": "37fd2bb6b940930bf16f2fb392619c40cc6a2a5cb88b341a2513f2f28f1a4181",
+      "headings_hash": "58eb09adfd74f8857fc01d8862703478773ca0ee0fa377d34b54c0893939636b",
       "headings": [
         "Use Claude Code Desktop",
         "Start a session",
@@ -1570,10 +1571,10 @@
         "Configure preview servers",
         "Auto-verify changes",
         "Configuration fields",
-        "When to use `program` vs `runtimeExecutable`",
         "Port conflicts",
         "Examples",
         "Schedule recurring tasks",
+        "Compare scheduling options",
         "Frequency options",
         "How scheduled tasks run",
         "Missed runs",
@@ -1661,6 +1662,142 @@
         "First request",
         "Continue the most recent conversation",
         "Next steps"
+      ],
+      "sections": {}
+    },
+    "claude-code-on-the-web.md": {
+      "file_hash": "1e21c1e67ef542e98828c725a464373bc07c127647dd2f04a4f3287be878d43b",
+      "headings_hash": "9c92ee645d8d031adc8fd7269e2a1fcbb4969f06915e4b737899bc4c07485e39",
+      "headings": [
+        "Claude Code on the web",
+        "What is Claude Code on the web?",
+        "Who can use Claude Code on the web?",
+        "Getting started",
+        "How it works",
+        "Review changes with diff view",
+        "Moving tasks between web and terminal",
+        "From terminal to web",
+        "Tips for remote tasks",
+        "From web to terminal",
+        "Requirements for teleporting",
+        "Sharing sessions",
+        "Sharing from an Enterprise or Teams account",
+        "Sharing from a Max or Pro account",
+        "Schedule recurring tasks",
+        "Managing sessions",
+        "Archiving sessions",
+        "Deleting sessions",
+        "Cloud environment",
+        "Default image",
+        "Checking available tools",
+        "Language-specific setups",
+        "Databases",
+        "Environment configuration",
+        "Setup scripts",
+        "Setup scripts vs. SessionStart hooks",
+        "Dependency management",
+        "Only run in remote environments",
+        "Persist environment variables",
+        "Dependency management limitations",
+        "Network access and security",
+        "Network policy",
+        "GitHub proxy",
+        "Security proxy",
+        "Access levels",
+        "Default allowed domains",
+        "Anthropic Services",
+        "Version Control",
+        "Container Registries",
+        "Cloud Platforms",
+        "Package Managers - JavaScript/Node",
+        "Package Managers - Python",
+        "Package Managers - Ruby",
+        "Package Managers - Rust",
+        "Package Managers - Go",
+        "Package Managers - JVM",
+        "Package Managers - Other Languages",
+        "Linux Distributions",
+        "Development Tools & Platforms",
+        "Cloud Services & Monitoring",
+        "Content Delivery & Mirrors",
+        "Schema & Configuration",
+        "Model Context Protocol",
+        "Security best practices for customized network access",
+        "Security and isolation",
+        "Pricing and rate limits",
+        "Limitations",
+        "Best practices",
+        "Related resources"
+      ],
+      "sections": {}
+    },
+    "common-workflows.md": {
+      "file_hash": "2e4564ec66f7e38102827cec6d2f6fd712928c4db4c840427dc76347705571e1",
+      "headings_hash": "b0abfd699c287d8a47e24f5788b069c9b54781b319ab2f7958b7a90f1d4aecc5",
+      "headings": [
+        "Common workflows",
+        "Understand new codebases",
+        "Get a quick codebase overview",
+        "Find relevant code",
+        "Fix bugs efficiently",
+        "Refactor code",
+        "Use specialized subagents",
+        "Use Plan Mode for safe code analysis",
+        "When to use Plan Mode",
+        "How to use Plan Mode",
+        "Example: Planning a complex refactor",
+        "Configure Plan Mode as default",
+        "Work with tests",
+        "Create pull requests",
+        "Handle documentation",
+        "Work with images",
+        "Reference files and directories",
+        "Use extended thinking (thinking mode)",
+        "Configure thinking mode",
+        "How extended thinking works",
+        "Resume previous conversations",
+        "Name your sessions",
+        "Use the session picker",
+        "Run parallel Claude Code sessions with Git worktrees",
+        "Start Claude in a worktree named \"feature-auth\"",
+        "Creates .claude/worktrees/feature-auth/ with a new branch",
+        "Start another session in a separate worktree",
+        "Auto-generates a name like \"bright-running-fox\"",
+        "Subagent worktrees",
+        "Worktree cleanup",
+        "Manage worktrees manually",
+        "Create a worktree with a new branch",
+        "Create a worktree with an existing branch",
+        "Start Claude in the worktree",
+        "Clean up when done",
+        "Non-git version control",
+        "Get notified when Claude needs your attention",
+        "Use Claude as a unix-style utility",
+        "Add Claude to your verification process",
+        "Pipe in, pipe out",
+        "Control output format",
+        "Run Claude on a schedule",
+        "Ask Claude about its capabilities",
+        "Example questions",
+        "Next steps"
+      ],
+      "sections": {}
+    },
+    "web-scheduled-tasks.md": {
+      "file_hash": "17d688af58bfd1b78f5869d80bb8840b8f5ec569d37aa5fac8877e9f8a2b8415",
+      "headings_hash": "6e915bcbc238ea3bb66cef0b86d215260c870e0d7a4c27b9314d5f89ce749075",
+      "headings": [
+        "Schedule tasks on the web",
+        "Compare scheduling options",
+        "Create a scheduled task",
+        "Frequency options",
+        "Repositories and branch permissions",
+        "Connectors",
+        "Environments",
+        "Manage scheduled tasks",
+        "View and interact with runs",
+        "Edit and control tasks",
+        "Related resources"
       ],
       "sections": {}
     }
@@ -1792,7 +1929,7 @@
       ]
     },
     "domain-automation-control.md": {
-      "content_hash": "59f7fb1516eeb052c0bcd14bac237e9421dce926f3d59d9cd63e1e6b5b260878",
+      "content_hash": "668aa2f86958e12e29955361041069aab1eb06d4313a6ab0f660afe8beff2b88",
       "depends_on_sections": [
         "hooks.md::hook-events",
         "hooks-guide.md::what-you-can-automate"
@@ -1815,7 +1952,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "3328eefc88262942b3533f53d9678ae5a8a23d70511a0d5e48d162a7c983101b",
+      "content_hash": "b3890b8fd69c8c6f02627f95cec793322bb00cfd5e304a21435495c60e32488f",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",

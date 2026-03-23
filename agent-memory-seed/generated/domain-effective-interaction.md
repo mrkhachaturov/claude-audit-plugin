@@ -11,7 +11,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Use Remote Control when you want to continue a local session from browser/mobile while keeping work on your machine
 
 ## Fast answers
-- **Built-in commands:** `/clear`, `/memory`, `/cost`, `/stats`, `/model`, `/hooks`, `/agents`, `/plugin`, `/feedback`, `/branch` (alias: `/fork`), `/voice`
+- **Built-in commands:** `/clear`, `/memory`, `/cost`, `/stats`, `/model`, `/hooks`, `/agents`, `/plugin`, `/schedule`, `/feedback`, `/branch` (alias: `/fork`), `/voice`
 - **Copy prior responses:** use `/copy [N]` (for example `/copy 2` for the second-latest response)
 - **Plan acceptance naming:** accepting a plan auto-names the session unless a name is already set via `--name` or `/rename`
 - **How to use a skill:** type `/skill-name` or ask Claude to use it
@@ -19,6 +19,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Effort controls:** `/effort`, `--effort`, `effortLevel` setting, and `CLAUDE_CODE_EFFORT_LEVEL`; skill/subagent frontmatter can override session effort while active
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
 - **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use; add `--bare` to skip local auto-discovery and make runs deterministic
+- **Recurring scheduling options:** `/loop` (session-scoped), Desktop scheduled tasks (local machine), cloud scheduled tasks (`/schedule` / web UI)
 - **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
 - **Stay reactive while away:** combine Remote Control with channels to forward Telegram/Discord/webhook events into the live session
 - **tmux passthrough requirement:** for notifications and terminal progress updates to reach your outer terminal while inside tmux, set `set -g allow-passthrough on`
@@ -48,10 +49,13 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - "Configure Claude for VSCode" → vs-code.md
 - "Configure Claude for JetBrains" → jetbrains.md
 - "Check token usage and costs" → `/cost` command, monitoring-usage.md
+- "Set up recurring unattended automation" → web-scheduled-tasks.md (`/schedule`) or desktop.md (local scheduled tasks)
+- "Run quick polling while a session is open" → scheduled-tasks.md (`/loop`)
 - "Segment telemetry by account/user identity" → monitoring-usage.md (`user.account_uuid`, `user.account_id`, `organization.id`)
 
 ## When you must read source docs
 - Full list of slash commands and their arguments
+- `/schedule` setup and management commands
 - Exact headless mode flags and options
 - Output style configuration options
 - Status line execution/trust requirements and troubleshooting
@@ -62,6 +66,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - VS Code built-in `ide` MCP server behavior and local auth model
 - `PreToolUse` allowlist implications for hidden `mcp__ide__*` tools
 - Checkpointing setup and restore process
+- Scheduling option tradeoffs (cloud vs desktop vs in-session `/loop`)
 
 ## Source map
 - best-practices.md
@@ -83,6 +88,9 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - statusline.md
 - terminal-config.md
 - desktop.md
+- web-scheduled-tasks.md
+- claude-code-on-the-web.md
+- overview.md
 - desktop-quickstart.md
 - slack.md
 - third-party-integrations.md
