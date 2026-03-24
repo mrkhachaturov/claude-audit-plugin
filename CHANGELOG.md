@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.2.39] — 2026-03-24
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - best-practices.md
+  - channels-reference.md
+  - channels.md
+  - cli-reference.md
+  - desktop.md
+  - hooks.md
+  - how-claude-code-works.md
+  - interactive-mode.md
+  - llm-gateway.md
+  - overview.md
+  - permission-modes.md
+  - permissions.md
+  - remote-control.md
+  - server-managed-settings.md
+  - settings.md
+  - sub-agents.md
+  - vs-code.md
+
+---
+
 ## [1.2.38] — 2026-03-24
 
 ### Changed

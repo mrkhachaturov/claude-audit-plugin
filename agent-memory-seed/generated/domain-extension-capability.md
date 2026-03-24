@@ -28,7 +28,9 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **What is MCP elicitation?** A structured input request from an MCP server; Claude shows a form/URL dialog and can be auto-handled by hooks
 - **MCP OAuth discovery:** Claude supports both Dynamic Client Registration and CIMD (Client ID Metadata Document); use pre-configured credentials when automatic discovery fails.
 - **What are MCP channels?** MCP servers with the `claude/channel` capability can push external events into your session when you start Claude with `--channels`
+- **Which built-in channel plugins exist in preview?** Telegram, Discord, iMessage, and fakechat
 - **Can channels relay tool approvals?** Yes. Two-way channels can opt in with `claude/channel/permission` and relay permission prompts (`allow`/`deny`) using request IDs.
+- **iMessage channel access model:** self-messages are auto-allowed; other senders are added by handle (for example `/imessage:access allow +15551234567`)
 - **Channels policy gate:** channels require claude.ai auth and are blocked for Team/Enterprise unless managed `channelsEnabled` is enabled
 - **Remote approvals race behavior:** terminal prompt and relayed channel prompt stay live in parallel; Claude applies whichever verdict arrives first.
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry

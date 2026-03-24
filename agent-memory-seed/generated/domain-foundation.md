@@ -13,6 +13,7 @@ How Claude Code operates at its core: the agentic loop, available tools, executi
 - **What is the agentic loop?** Claude reads context, decides actions, uses tools, observes results, then repeats until done
 - **What tools does Claude Code have?** Read, Write, Edit, Bash, Glob, Grep, Agent (subagents), and MCP tools
 - **What fills the context window?** Conversation history, file content, command outputs, `CLAUDE.md`, auto memory, loaded skills, and system instructions
+- **Permission control baseline:** mode choices include `default`, `acceptEdits`, `plan`, `auto`, `dontAsk`, and `bypassPermissions`
 - **Auth options:** Claude.ai subscription (OAuth), API key (direct), or enterprise providers (Bedrock/Vertex/Foundry)
 - **Auth scope note:** `apiKeyHelper` and API key env vars apply to terminal CLI sessions; Desktop and Remote Control use OAuth
 - **Does Claude send my code to Anthropic?** Depends on plan — see data-usage.md; zero-data-retention available for API users

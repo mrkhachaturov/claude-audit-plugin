@@ -20,10 +20,11 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Effort controls:** `/effort`, `--effort`, `effortLevel` setting, and `CLAUDE_CODE_EFFORT_LEVEL`; skill/subagent frontmatter can override session effort while active
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
 - **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use; add `--bare` to skip local auto-discovery and make runs deterministic
+- **Enable auto mode in CLI mode cycle:** start with `--enable-auto-mode`, then use `Shift+Tab`/`Alt+M` to cycle modes
 - **Auto mode for unattended runs:** use `claude --permission-mode auto -p "..."` for classifier-guarded execution; non-interactive runs abort after repeated classifier blocks
 - **Recurring scheduling options:** `/loop` (session-scoped), Desktop scheduled tasks (local machine), cloud scheduled tasks (`/schedule` / web UI)
 - **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
-- **Stay reactive while away:** combine Remote Control with channels to forward Telegram/Discord/webhook events into the live session
+- **Stay reactive while away:** combine Remote Control with channels to forward Telegram/Discord/iMessage/webhook events into the live session
 - **tmux passthrough requirement:** for notifications and terminal progress updates to reach your outer terminal while inside tmux, set `set -g allow-passthrough on`
 - **Verbose toggle behavior:** `Ctrl+O` expands detailed tool output, including MCP read/search calls that are collapsed to one-line summaries by default.
 - **Remote session title order:** explicit name flag/command, then `/rename`, then last meaningful message, then first prompt

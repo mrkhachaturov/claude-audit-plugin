@@ -229,6 +229,7 @@ match:
   - "MCP configuration"
   - "MCP elicitation"
   - "MCP channels"
+  - "iMessage channel"
   - "channels vs remote control"
   - "how do I use --channels"
 strong_terms: [MCP, stdio, SSE, http, mcp server, claude mcp add, external tool, elicitation, channel, --channels, claude/channel/permission]
@@ -293,21 +294,26 @@ match:
   - "allowedTools"
   - "denyTools"
   - "run Claude without prompts"
+  - "how do I use auto mode"
+  - "configure auto mode classifier"
 strong_terms: [permissions, allowedTools, denyTools, bypassPermissions, allow, deny, block]
 avoid: [sandboxing, network]
 answer_from_domain_if:
   - what permission modes are available
+  - when to use auto vs default vs bypassPermissions vs dontAsk
   - allow vs deny
   - permissions in CI
 read_source_docs_if:
   - exact rule syntax and pattern matching
+  - mode-switch mechanics and mode availability across CLI/VS Code/Desktop/web
+  - auto mode classifier behavior (thresholds, allow/soft_deny overrides, trusted infrastructure)
   - bypassPermissions protected-directory prompt exceptions
   - Read/Edit rule limits vs Bash subprocess access
   - Windows path normalization examples for Read/Edit rules
   - full tool name list
   - enterprise policy enforcement
 primary_doc: permissions.md
-secondary_doc: settings.md
+secondary_doc: permission-modes.md
 
 ---
 

@@ -13,10 +13,13 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - For Team/Enterprise remote and web session access, use Claude Code admin settings (not managed permission keys)
 
 ## Fast answers
-- **Permission modes:** `default` (prompt for risky), `acceptEdits` (auto-approve edits), `bypassPermissions` (skips prompts except protected directory writes)
+- **Permission modes:** `default` (prompt for risky), `acceptEdits` (auto-approve edits), `plan` (read-only planning), `auto` (classifier-guarded autonomy), `dontAsk` (deny unless pre-allowed), `bypassPermissions` (skip checks except protected-directory writes)
 - **Where do permissions live?** `.claude/settings.json` or `~/.claude/settings.json` under `permissions`
 - **Can I allow specific bash commands?** Yes — `allowedTools` with bash command patterns
 - **Can I block Claude from editing certain files?** Yes — `denyTools` or path-based rules
+- **How does auto mode decide?** Rules resolve first (`deny` -> `ask` -> `allow`), then safe local reads/edits auto-approve, then a classifier evaluates remaining actions
+- **Where do auto mode rules live?** `autoMode` is read from user/local/managed settings; not from shared project `.claude/settings.json`
+- **Can admins disable risky modes?** Yes — set `permissions.disableBypassPermissionsMode` and/or `disableAutoMode` to `"disable"` (strongest in managed settings)
 - **Can I deny broad reads but allow the workspace?** Yes — combine `sandbox.filesystem.denyRead` with `sandbox.filesystem.allowRead`
 - **Does bypass mode still prompt anywhere?** Yes — writes to `.git`, `.claude`, `.vscode`, and `.idea` still prompt; `.claude/commands`, `.claude/agents`, and `.claude/skills` are exempt
 - **Does `Read(...)` deny block `cat` in Bash?** No — Read/Edit denies apply to Claude file tools; use sandboxing for OS-level path enforcement
@@ -29,6 +32,7 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - **allowedTools vs denyTools:** Allow is a whitelist; deny is a blacklist; deny takes precedence
 - **Project permissions vs user permissions:** Project overrides user for that project
 - **Permission prompt vs bypassPermissions:** Prompt asks each time; bypass skips most prompts but still protects critical config/repo directories
+- **auto vs bypassPermissions:** Both reduce prompts; `auto` applies background classifier checks, `bypassPermissions` skips permission safety checks entirely
 
 ## Common tasks
 - "Allow Claude to run npm test without asking" → allowedTools with bash pattern
@@ -38,6 +42,10 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - "Deny broad reads but allow repo files" → use `denyRead` with `allowRead: ["."]` in project settings
 
 ## When you must read source docs
+- Exact mode switching behavior per surface (CLI/VS Code/Desktop/Web)
+- Auto mode eligibility limits (plan/model/provider/admin gating)
+- Auto mode fallback thresholds and non-interactive abort behavior
+- Auto mode classifier configuration (`environment`, `allow`, `soft_deny`) and override risks
 - Exact permission rule syntax and pattern matching
 - Read/Edit deny limitations for Bash subprocesses
 - What sandboxing does and does not cover (Bash sandbox vs built-in file tools and Desktop computer use)
@@ -47,7 +55,10 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - Network proxy configuration syntax
 
 ## Source map
+- permission-modes.md
 - permissions.md
+- settings.md
+- server-managed-settings.md
 - sandboxing.md
 - security.md
 - network-config.md

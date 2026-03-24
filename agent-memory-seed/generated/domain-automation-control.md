@@ -14,6 +14,7 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 ## Fast answers
 - **What are hooks?** Shell commands in settings.json that run before/after specific Claude tool uses
 - **Hook events (common):** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `StopFailure`, `SubagentStop`; newer lifecycle events include `PostCompact`, `Elicitation`, and `ElicitationResult` — see hooks.md for the full list
+- **Hook payload `permission_mode`:** may be `default`, `acceptEdits`, `plan`, `auto`, `dontAsk`, or `bypassPermissions` (event-dependent)
 - **SessionEnd `reason` values:** include `clear`, `resume`, `logout`, `prompt_input_exit`, `bypass_permissions_disabled`, and `other`
 - **Can hooks block Claude?** Yes — `PreToolUse` hooks that exit non-zero can block the tool call
 - **Can hooks auto-approve permission prompts?** Yes — `PermissionRequest` hooks can return JSON `decision.behavior: "allow"` and optionally `updatedPermissions` entries, but deny/ask permission rules still apply
