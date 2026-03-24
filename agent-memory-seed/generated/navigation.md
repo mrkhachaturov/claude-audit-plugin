@@ -319,7 +319,8 @@ match:
   - "explore plan implement"
   - "context window getting large"
   - "parallel Claude sessions"
-strong_terms: [best practices, explore plan implement, context, prompting, workflow]
+  - "dispatch vs remote control"
+strong_terms: [best practices, explore plan implement, context, prompting, workflow, dispatch, remote control]
 avoid: [hooks, skills, permissions]
 answer_from_domain_if:
   - what the explore-plan-implement workflow is
@@ -328,5 +329,6 @@ answer_from_domain_if:
 read_source_docs_if:
   - specific workflow patterns
   - exact command syntax
+  - compare away-from-terminal options (Dispatch, Remote Control, Channels, Slack, scheduled tasks)
 primary_doc: best-practices.md
 secondary_doc: common-workflows.md

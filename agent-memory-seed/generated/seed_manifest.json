@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-24T00:13:53Z",
+  "seed_version": "2026-03-24T03:49:28Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "4b825bac3f6179d734038f777add047d88d249cccf9804405b27be345300a4da",
@@ -1808,6 +1808,21 @@
         "Related resources"
       ],
       "sections": {}
+    },
+    "platforms.md": {
+      "file_hash": "a8b77f772f4b45b774243db76fce4bc8054e74ad4547bddedfc0b7c9d3bea4ad",
+      "headings_hash": "b953865883abff0a894c5420fe6b149145a4c9167122a96b5abbd1723c3b6844",
+      "headings": [
+        "Platforms and integrations",
+        "Where to run Claude Code",
+        "Connect your tools",
+        "Work when you are away from your terminal",
+        "Related resources",
+        "Platforms",
+        "Integrations",
+        "Remote access"
+      ],
+      "sections": {}
     }
   },
   "routes": {
@@ -1960,7 +1975,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "afea6a49b6127372377f516b49b9f81862b69c243eea7d0d7d035051ac8a4c24",
+      "content_hash": "19135771d0f5979e66a96232fee1c69d1db759535bd367a3ed1a6abbe713df2d",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
@@ -1969,7 +1984,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "63041bdf1aa7f87b80de87b927f045e1949f01914e5fba9a40f1118822d0f484",
+      "content_hash": "69a5578f5063f8c94a714677549fb5007d9052cb2a21c3a2c8ce52506a323fe0",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

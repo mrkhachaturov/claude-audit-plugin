@@ -47,6 +47,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - "Run parallel Claude sessions" → best-practices.md (parallel sessions section)
 - "Continue a local session from phone/browser" → remote-control.md
 - "Start code work from your phone without opening a terminal first" → desktop.md (Dispatch sessions)
+- "Compare away-from-terminal options (Dispatch, Remote Control, Channels, Slack, scheduling)" → platforms.md
 - "Have Claude react to incoming chat/alert events while remote" → channels.md + remote-control.md
 - "Fix Remote Control policy/account errors" → remote-control.md (troubleshooting section)
 - "Configure Claude for VSCode" → vs-code.md
@@ -83,6 +84,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - vs-code.md
 - jetbrains.md
 - remote-control.md
+- platforms.md
 - channels.md
 - headless.md
 - checkpointing.md
