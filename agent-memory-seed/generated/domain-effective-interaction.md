@@ -9,6 +9,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Use headless mode (`claude -p`) with `--bare` for deterministic CI/CD and scripted automation
 - Use checkpointing for long tasks where you might want to roll back
 - Use Remote Control when you want to continue a local session from browser/mobile while keeping work on your machine
+- Use Dispatch when you want to message work from your phone and let Desktop start a Code session for you
 
 ## Fast answers
 - **Built-in commands:** `/clear`, `/memory`, `/cost`, `/stats`, `/model`, `/hooks`, `/agents`, `/plugin`, `/schedule`, `/feedback`, `/branch` (alias: `/fork`), `/voice`
@@ -38,12 +39,14 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **fast mode vs standard:** Fast mode has lower latency; standard may be more thorough on complex tasks
 - **`/clear` vs new session:** `/clear` resets context in same session; new session is fully fresh
 - **Remote Control vs Claude Code on the web:** Remote Control runs on your machine; web sessions run in Anthropic-managed cloud
+- **Dispatch vs Remote Control:** Dispatch starts Desktop Code sessions from mobile messages; Remote Control steers an already-running local CLI/IDE session
 
 ## Common tasks
 - "Run Claude without interaction" → headless.md
 - "Reduce context window usage" → `/clear`, or use subagents
 - "Run parallel Claude sessions" → best-practices.md (parallel sessions section)
 - "Continue a local session from phone/browser" → remote-control.md
+- "Start code work from your phone without opening a terminal first" → desktop.md (Dispatch sessions)
 - "Have Claude react to incoming chat/alert events while remote" → channels.md + remote-control.md
 - "Fix Remote Control policy/account errors" → remote-control.md (troubleshooting section)
 - "Configure Claude for VSCode" → vs-code.md

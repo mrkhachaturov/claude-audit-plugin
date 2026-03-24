@@ -23,6 +23,7 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - **How do Read/Edit patterns work on Windows?** Paths are normalized to POSIX form (for example `C:\\Users\\alice` -> `/c/Users/alice`)
 - **Do hook approvals override deny rules?** No — hooks can skip interactive prompts, but deny/ask rules still take precedence
 - **Can managed `permissions` disable Remote Control or web sessions?** No — admins control those in Claude Code admin settings
+- **Does sandboxing cover every Claude tool boundary?** No — sandboxing isolates Bash subprocesses; Read/Edit/Write permission behavior and Desktop computer-use controls are separate boundaries
 
 ## Fast comparisons
 - **allowedTools vs denyTools:** Allow is a whitelist; deny is a blacklist; deny takes precedence
@@ -39,6 +40,7 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 ## When you must read source docs
 - Exact permission rule syntax and pattern matching
 - Read/Edit deny limitations for Bash subprocesses
+- What sandboxing does and does not cover (Bash sandbox vs built-in file tools and Desktop computer use)
 - Windows Read/Edit pattern syntax examples (`//c/**`, `//**`)
 - Full list of tool names for allow/deny rules
 - Sandboxing setup and limitations

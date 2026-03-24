@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-23T21:12:05Z",
+  "seed_version": "2026-03-24T00:13:53Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "4b825bac3f6179d734038f777add047d88d249cccf9804405b27be345300a4da",
@@ -689,8 +689,8 @@
       }
     },
     "remote-control.md": {
-      "file_hash": "8199a5cfab321d91f4721ce03d82bbb661b8ddddd22a134d7ad51f5596b0eabe",
-      "headings_hash": "a755d7050202b39951afdb731335c76d699ce81e061db0973e501b7d11f737a3",
+      "file_hash": "62078a31fea3bbbbd35e6104ca5f5ac057ecc84e02bf06ec462deef48c56da2d",
+      "headings_hash": "0bb0631c1b8c94327c6d8b18bafe512d48f480f7879682c2252da9bbd6689bb6",
       "headings": [
         "Continue local sessions from any device with Remote Control",
         "Requirements",
@@ -704,11 +704,12 @@
         "\"Remote Control is not yet enabled for your account\"",
         "\"Remote Control is disabled by your organization's policy\"",
         "\"Remote credentials fetch failed\"",
+        "Choose the right approach",
         "Related resources"
       ],
       "sections": {
         "connect-from-another-device": {
-          "hash": "8ab9e3dd4ad4b5fe3cfd1729f34b72c218370663c3f756ccef9a62e593eb093a",
+          "hash": "56cae94a8c2c7456072bf5da59b940a7c2312dad2a40a84b3d8b41272ebaa5f7",
           "start_heading": "Connect from another device",
           "end_heading": "Enable Remote Control for all sessions",
           "domains": [
@@ -717,7 +718,7 @@
           "routes": []
         },
         "troubleshooting": {
-          "hash": "82c777084bd0396ad60f9d06bfc2c57515b44ea1bc30058d8690871d37798941",
+          "hash": "987f083c8c310dbcfe8f009518582b0b686a25c398602b220d873f875e93005d",
           "start_heading": "Troubleshooting",
           "end_heading": "Related resources",
           "domains": [
@@ -1488,7 +1489,7 @@
       "sections": {}
     },
     "overview.md": {
-      "file_hash": "aafa12c85e38cc90eaf76c3a7a9098e353407b472600aa12f98a19d0ed8ba2ab",
+      "file_hash": "3464bb2b4d1aff01f1da5b5e8f68d06a7ba93d807c98f79a9bf2f1a030194ffb",
       "headings_hash": "fe285beaaf57b4727a070146a1747e6fde5b264dbce2dba59262141ec5f73a42",
       "headings": [
         "Claude Code overview",
@@ -1500,7 +1501,7 @@
       "sections": {}
     },
     "scheduled-tasks.md": {
-      "file_hash": "5e42f0269c98ca622a1dde744bce5847b3facf9e8df1c7a25ed871b0ee542fa9",
+      "file_hash": "be595a61b2465086e565160580ef29f8867eac6f9bb08d9505dd75692467dead",
       "headings_hash": "3af4b9d4ca29780e11d2d8e0c09580a69128293f295e70c7fed9729947079b20",
       "headings": [
         "Run prompts on a schedule",
@@ -1547,8 +1548,8 @@
       "sections": {}
     },
     "desktop.md": {
-      "file_hash": "37fd2bb6b940930bf16f2fb392619c40cc6a2a5cb88b341a2513f2f28f1a4181",
-      "headings_hash": "9ecf7ffabd93c15b4aa32c76bbcaeea5ffe018b019d62cd77b36aa2a74ec43c7",
+      "file_hash": "41c6dd8a3f1dd0869d496478bd8e8f9945a6a96af8a02729b1a26351214cdbcb",
+      "headings_hash": "6c0b4cb744bd6953b58930092675a0cb66e37abb100f8f7a088835e33f82792b",
       "headings": [
         "Use Claude Code Desktop",
         "Start a session",
@@ -1560,10 +1561,15 @@
         "Review changes with diff view",
         "Review your code",
         "Monitor pull request status",
+        "Let Claude use your computer",
+        "When computer use applies",
+        "Enable computer use",
+        "App permissions",
         "Manage sessions",
         "Work in parallel with sessions",
         "Run long-running tasks remotely",
         "Continue in another surface",
+        "Sessions from Dispatch",
         "Extend Claude Code",
         "Connect external tools",
         "Use skills",
@@ -1614,8 +1620,8 @@
       "sections": {}
     },
     "sandboxing.md": {
-      "file_hash": "21779615a4ad6bbef9200580ea0fa2bcad087ceefe3fb07b40d5931f00756c3f",
-      "headings_hash": "1a64687908d5152fe6d29e0640b8c853ab8a5621b42fbbcf1f196d0327e43245",
+      "file_hash": "fcd727507020cb5089b9de53cdd8304e0c84222a39c3938cfdfe4a749a5072a4",
+      "headings_hash": "e8abac71e55be78a11465e57d5e5c4570ec01d7909b92f686f6569730b02b6ab",
       "headings": [
         "Sandboxing",
         "Overview",
@@ -1642,6 +1648,7 @@
         "Best practices",
         "Open source",
         "Limitations",
+        "What sandboxing does not cover",
         "See also"
       ],
       "sections": {}
@@ -1785,7 +1792,7 @@
       "sections": {}
     },
     "web-scheduled-tasks.md": {
-      "file_hash": "17d688af58bfd1b78f5869d80bb8840b8f5ec569d37aa5fac8877e9f8a2b8415",
+      "file_hash": "3e4ab105e0e87d06f3d17d19c6ef5c99bb909a98f75e9afc7714b9053cc09661",
       "headings_hash": "6e915bcbc238ea3bb66cef0b86d215260c870e0d7a4c27b9314d5f89ce749075",
       "headings": [
         "Schedule tasks on the web",
@@ -1947,13 +1954,13 @@
       ]
     },
     "domain-access-control-safety.md": {
-      "content_hash": "212053b55468bd8079b83f0c53775801bb06d897e8277f1311a1f2db3aef6547",
+      "content_hash": "31a500c49f406431745ff130e3cde75bcdb7072c002382685660b780730ed53c",
       "depends_on_sections": [
         "permissions.md::permission-rule-syntax"
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "b3890b8fd69c8c6f02627f95cec793322bb00cfd5e304a21435495c60e32488f",
+      "content_hash": "afea6a49b6127372377f516b49b9f81862b69c243eea7d0d7d035051ac8a4c24",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",

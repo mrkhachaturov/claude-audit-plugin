@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.36] — 2026-03-24
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - desktop.md
+  - overview.md
+  - plugin-marketplaces.md
+  - remote-control.md
+  - sandboxing.md
+  - scheduled-tasks.md
+  - web-scheduled-tasks.md
+
+---
+
 ## [1.2.35] — 2026-03-23
 
 ### Changed
