@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-24T03:49:28Z",
+  "seed_version": "2026-03-24T18:18:17Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "4b825bac3f6179d734038f777add047d88d249cccf9804405b27be345300a4da",
@@ -396,7 +396,7 @@
       }
     },
     "sub-agents.md": {
-      "file_hash": "c1a01b67a3631b716a37616a5fa471840a764b8f578deb6edb540344b2452e6f",
+      "file_hash": "a3b96b0fda21c25e2198e556ff11ab592c0054e8a124a13e2e5f875afc7f9258",
       "headings_hash": "e040169e2f98b841b8b48c305602041b02a3da0e2818888adf79482646bd1645",
       "headings": [
         "Create custom subagents",
@@ -448,7 +448,7 @@
       ],
       "sections": {
         "configure-subagents": {
-          "hash": "4a37c1f961863c11721b69c3c800910567eceb492d47d4063316e67433fc0f06",
+          "hash": "2d8cafe2fff7c73fe774aab291388e45acbf62b038bdb61177e65b97754c1034",
           "start_heading": "Configure subagents",
           "end_heading": "./scripts/validate-readonly-query.sh",
           "domains": [
@@ -633,8 +633,8 @@
       }
     },
     "best-practices.md": {
-      "file_hash": "a20489d6868d9ee03b6c0350b3ce09321fd718d18307a6660b87bf119b14c095",
-      "headings_hash": "2035decc2c1bda3dfdf72a372af0f10df10ccb60a0fb71a8c112f31d216ecc7e",
+      "file_hash": "d36fb68bb1067ce11254901a4c80724832787476152ab9ad69de0216f1c4c0a5",
+      "headings_hash": "38a6a0babcd49efabe125c1b86e51948eb0143082c2dc022a434fd3a11ff4d53",
       "headings": [
         "Best Practices for Claude Code",
         "Give Claude a way to verify its work",
@@ -670,6 +670,7 @@
         "Streaming for real-time processing",
         "Run multiple Claude sessions",
         "Fan out across files",
+        "Run autonomously with auto mode",
         "Avoid common failure patterns",
         "Develop your intuition",
         "Related resources"
@@ -1305,7 +1306,7 @@
       "sections": {}
     },
     "vs-code.md": {
-      "file_hash": "431042c04776da6da146b36850a0952ddf5fe2db3478592bdb2025a7ba686d7c",
+      "file_hash": "1bd0cd28258266fa3b07e257399f04470fbf609fbdaedd5e9ba14bb1dc61e14a",
       "headings_hash": "423e6de95a4cab6c40198320659e37ffd223f07ec9abb7cb72fdc537efcef20b",
       "headings": [
         "Use Claude Code in VS Code",
@@ -1362,7 +1363,7 @@
       }
     },
     "channels-reference.md": {
-      "file_hash": "a5c6e5f5581a74a336807a5bdb4da51a920984f3c63c37c9005727e44a0bfbc0",
+      "file_hash": "dda09c39600048ed5bfc001e2a4824cf9ec61915ac6bdf810b23021d9aa4a960",
       "headings_hash": "66ed357c1da30c1ab0cd4737e66808a731cd0a44bd36244c635c648b9ad2dfd3",
       "headings": [
         "Channels reference",
@@ -1387,7 +1388,7 @@
       "sections": {}
     },
     "channels.md": {
-      "file_hash": "c5b269ea0470e22ad31ce287fcb4ac45400b24a929a786f5d9298bd50f0802d2",
+      "file_hash": "6b1dd4526b211b358f9e94a692904badbaaeb780a152ed33ae3ae507a2d54e7b",
       "headings_hash": "022b51e7bcdd4f57de9fd34204312e48eb6467672864ad09b35ba7ced94fd771",
       "headings": [
         "Push events into a running session with channels",
@@ -1403,7 +1404,7 @@
       "sections": {}
     },
     "cli-reference.md": {
-      "file_hash": "57b1c1c43cd6014037e15467725989c8e0633ea3b1c32fad1cfd7b5da739320a",
+      "file_hash": "25b78d9b2acac4504baf8acf29d7cc45d90cd0ce69d2f73749ec9ca5c81b1cba",
       "headings_hash": "af15295412f2c01e97132e950c4e2901497a69384f2e886ca96f048f213f1410",
       "headings": [
         "CLI reference",
@@ -1548,7 +1549,7 @@
       "sections": {}
     },
     "desktop.md": {
-      "file_hash": "41c6dd8a3f1dd0869d496478bd8e8f9945a6a96af8a02729b1a26351214cdbcb",
+      "file_hash": "571aba9fc42b0ed3449b5b5ed1ac34679bd26015c3f3fb9b6a885fc310962d5a",
       "headings_hash": "6c0b4cb744bd6953b58930092675a0cb66e37abb100f8f7a088835e33f82792b",
       "headings": [
         "Use Claude Code Desktop",
@@ -1959,7 +1960,7 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "68ece96ebaca43873b8b1cf724354d73b04b740438c95438ed51227fe96e5956",
+      "content_hash": "2fd32d7b579e069a9cb19e0047af03636158618690a176abf8e7b2c21205d64c",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1975,7 +1976,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "19135771d0f5979e66a96232fee1c69d1db759535bd367a3ed1a6abbe713df2d",
+      "content_hash": "8ff46f21f23f6f8800a718625e4646be36efe79884dd256a20915ec879a4b8a4",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
@@ -1984,7 +1985,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "69a5578f5063f8c94a714677549fb5007d9052cb2a21c3a2c8ce52506a323fe0",
+      "content_hash": "5321b1ef2ba83d145dcf719936eb60a36c4ab1387bd6f5234e093bb1ddad4494",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

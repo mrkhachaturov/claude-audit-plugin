@@ -20,6 +20,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Effort controls:** `/effort`, `--effort`, `effortLevel` setting, and `CLAUDE_CODE_EFFORT_LEVEL`; skill/subagent frontmatter can override session effort while active
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
 - **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use; add `--bare` to skip local auto-discovery and make runs deterministic
+- **Auto mode for unattended runs:** use `claude --permission-mode auto -p "..."` for classifier-guarded execution; non-interactive runs abort after repeated classifier blocks
 - **Recurring scheduling options:** `/loop` (session-scoped), Desktop scheduled tasks (local machine), cloud scheduled tasks (`/schedule` / web UI)
 - **Enable Remote Control:** `claude remote-control`, `claude --remote-control`, or `/remote-control`
 - **Stay reactive while away:** combine Remote Control with channels to forward Telegram/Discord/webhook events into the live session
@@ -33,6 +34,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Built-in VS Code IDE MCP server:** extension runs hidden local server `ide` (auto-connected by CLI; not listed in `/mcp`)
 - **IDE MCP tools visible to Claude:** `mcp__ide__getDiagnostics` (read-only diagnostics) and `mcp__ide__executeCode` (Jupyter cell execution with VS Code confirmation)
 - **Jupyter execution safety:** `mcp__ide__executeCode` always requires a native Quick Pick confirm/cancel in VS Code and fails if notebook/kernel prerequisites are missing
+- **VS Code permission modes:** extension `initialPermissionMode` includes `auto`; `allowDangerouslySkipPermissions` enables Auto + Bypass options in the selector (Auto still needs eligible plan/model)
 
 ## Fast comparisons
 - **Interactive vs headless:** Interactive is conversational; headless is single-shot for automation (prefer `--bare` in scripts)
@@ -43,6 +45,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 
 ## Common tasks
 - "Run Claude without interaction" → headless.md
+- "Run unattended with background approval checks" → best-practices.md (auto mode section)
 - "Reduce context window usage" → `/clear`, or use subagents
 - "Run parallel Claude sessions" → best-practices.md (parallel sessions section)
 - "Continue a local session from phone/browser" → remote-control.md
@@ -61,6 +64,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - Full list of slash commands and their arguments
 - `/schedule` setup and management commands
 - Exact headless mode flags and options
+- Auto mode fallback behavior in unattended/headless runs
 - Output style configuration options
 - Status line execution/trust requirements and troubleshooting
 - Remote control API details

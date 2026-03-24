@@ -194,6 +194,7 @@ match:
   - "agent setting in settings.json"
   - "agent memory"
   - "plugin subagent fields are ignored"
+  - "subagent permissionMode ignored in auto mode"
 strong_terms: [subagent, agent, Agent tool, SendMessage, dispatch, resume, @agent, --agent, agent setting, isolated context, agent memory]
 avoid: [MCP, plugins, hooks]
 answer_from_domain_if:
@@ -206,6 +207,7 @@ read_source_docs_if:
   - explicit invocation syntax (`@` mention forms)
   - session-wide agent config (`--agent` and `agent` setting precedence)
   - plugin subagent field limitations
+  - parent auto mode precedence over subagent `permissionMode`
   - tool and memory configuration (including recommended `project` memory scope)
   - `tools` vs `disallowedTools` precedence when both are set
   - resume behavior details (SendMessage, background auto-resume)
@@ -320,6 +322,7 @@ match:
   - "context window getting large"
   - "parallel Claude sessions"
   - "dispatch vs remote control"
+  - "how to run Claude with auto mode"
 strong_terms: [best practices, explore plan implement, context, prompting, workflow, dispatch, remote control]
 avoid: [hooks, skills, permissions]
 answer_from_domain_if:
@@ -329,6 +332,7 @@ answer_from_domain_if:
 read_source_docs_if:
   - specific workflow patterns
   - exact command syntax
+  - auto mode behavior for unattended/non-interactive runs
   - compare away-from-terminal options (Dispatch, Remote Control, Channels, Slack, scheduled tasks)
 primary_doc: best-practices.md
 secondary_doc: common-workflows.md

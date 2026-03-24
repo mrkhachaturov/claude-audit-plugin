@@ -20,6 +20,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **How do I run the whole session as a subagent?** Start with `claude --agent <name>` or set `agent` in `.claude/settings.json` (CLI flag wins)
 - **Subagent frontmatter fields:** include `model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, and `isolation` (plugin agents only support `isolation: "worktree"`)
 - **Subagent tool restriction precedence:** when both `disallowedTools` and `tools` are set, deny rules apply first, then the allowlist is resolved from remaining tools
+- **Subagent `permissionMode` under parent auto mode:** parent `auto` takes precedence; subagent frontmatter `permissionMode` is ignored and tool calls are checked by the same classifier rules
 - **CLI subagent JSON parity:** `--agents` accepts the same frontmatter keys as file-based subagents, including `effort`, `background`, and `isolation`
 - **How do I resume a subagent?** Claude sends `SendMessage` to the prior agent ID; stopped agents auto-resume in background on message
 - **Subagent memory scope default:** prefer `project` for team-shared repo-specific knowledge; use `user` for cross-project knowledge and `local` for non-committed project memory
@@ -70,6 +71,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - Subagent tool and memory configuration
 - Exact explicit-invocation syntax (`@` mentions, `--agent`, and `agent` setting behavior)
 - Full subagent frontmatter field details (`effort`, `background`, `isolation`)
+- Parent-mode precedence rules for subagent `permissionMode` (including `auto` and `bypassPermissions`)
 - Plugin subagent frontmatter limitations (`hooks`, `mcpServers`, `permissionMode`)
 - Full plugin-agent frontmatter support (`model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, `isolation`)
 - Plugin persistent data directory lifecycle and uninstall behavior
