@@ -17,12 +17,14 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - **What is auto-memory?** Session notes are auto-saved to `~/.claude/MEMORY.md`; use `/memory` to view and edit what was saved
 - **`/init` interactive flow:** set `CLAUDE_CODE_NEW_INIT=true` to run a guided setup for `CLAUDE.md`, skills, hooks, and memory files
 - **Settings precedence:** managed > CLI args > local project (`.claude/settings.local.json`) > shared project (`.claude/settings.json`) > user (`~/.claude/settings.json`)
+- **Managed file-based precedence detail:** within managed file-based settings, `managed-settings.d/*.json` and `managed-settings.json` merge together before lower-precedence scopes
 - **Cross-surface precedence:** the same settings precedence applies in CLI, VS Code, and JetBrains
 - **settings.json location:** `.claude/settings.json` (project) or `~/.claude/settings.json` (user)
 - **Global config settings location:** `~/.claude.json` (for example `autoConnectIde`, `autoInstallIdeExtension`, `editorMode`, `showTurnDuration`, `terminalProgressBarEnabled`)
 - **Disable built-in git workflow prompt content:** set `includeGitInstructions: false` or `CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS=1` to remove built-in commit/PR instructions and the git status snapshot from the system prompt
 - **Terminal progress bar support:** `terminalProgressBarEnabled` applies to supported terminals like ConEmu, Ghostty 1.2.0+, and iTerm2 3.6.6+
 - **Enterprise channels control:** managed `channelsEnabled` gates channel message delivery for Team/Enterprise regardless of user `--channels` flags
+- **Enterprise channels allowlist override:** managed `allowedChannelPlugins` can replace the default Anthropic channel plugin allowlist when `channelsEnabled` is true
 
 ## Fast comparisons
 - **CLAUDE.md vs memory:** CLAUDE.md is manually curated; memory is agent-written via `/memory`
@@ -44,6 +46,7 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - Memory file location and format details
 - Full settings.json schema and all available keys
 - Enterprise policy enforcement via server-managed-settings
+- Managed file-based settings merge behavior (`managed-settings.d/*.json` + `managed-settings.json`)
 
 ## Source map
 - memory.md

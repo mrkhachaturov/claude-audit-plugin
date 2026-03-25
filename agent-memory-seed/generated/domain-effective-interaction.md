@@ -13,11 +13,13 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 
 ## Fast answers
 - **Built-in commands:** `/clear`, `/memory`, `/cost`, `/stats`, `/model`, `/hooks`, `/agents`, `/plugin`, `/schedule`, `/feedback`, `/branch` (alias: `/fork`), `/voice`
+- **`/status` responsiveness:** `/status` opens immediately even while Claude is still generating a response
 - **Copy prior responses:** use `/copy [N]` (for example `/copy 2` for the second-latest response)
 - **Plan acceptance naming:** accepting a plan auto-names the session unless a name is already set via `--name` or `/rename`
 - **How to use a skill:** type `/skill-name` or ask Claude to use it
 - **Model selection:** `/model` command or `model` in settings.json
 - **Effort controls:** `/effort`, `--effort`, `effortLevel` setting, and `CLAUDE_CODE_EFFORT_LEVEL`; skill/subagent frontmatter can override session effort while active
+- **Effort persistence nuance:** `max` effort is session-scoped unless set through `CLAUDE_CODE_EFFORT_LEVEL`; use prompt term "ultrathink" for one-off deeper reasoning on a single turn
 - **Fast mode:** lower latency, same model, uses extra usage credits on subscription plans
 - **Headless mode:** `claude -p "your prompt"` for non-interactive scripted use; add `--bare` to skip local auto-discovery and make runs deterministic
 - **Enable auto mode in CLI mode cycle:** start with `--enable-auto-mode`, then use `Shift+Tab`/`Alt+M` to cycle modes
@@ -27,6 +29,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Stay reactive while away:** combine Remote Control with channels to forward Telegram/Discord/iMessage/webhook events into the live session
 - **tmux passthrough requirement:** for notifications and terminal progress updates to reach your outer terminal while inside tmux, set `set -g allow-passthrough on`
 - **Verbose toggle behavior:** `Ctrl+O` expands detailed tool output, including MCP read/search calls that are collapsed to one-line summaries by default.
+- **Keyboard updates:** kill background agents with `Ctrl+X Ctrl+K`; open external editor with `Ctrl+G` or `Ctrl+X Ctrl+E`; toggle fast mode with `Option/Alt+O`
 - **Remote session title order:** explicit name flag/command, then `/rename`, then last meaningful message, then first prompt
 - **Remote auth/provider limits:** requires claude.ai login; unsupported with API key auth or Bedrock/Vertex/Foundry provider modes
 - **Remote Control on Team/Enterprise:** off by default; admin must enable the Remote Control toggle in Claude Code admin settings

@@ -13,11 +13,13 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 
 ## Fast answers
 - **What are hooks?** Shell commands in settings.json that run before/after specific Claude tool uses
-- **Hook events (common):** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `StopFailure`, `SubagentStop`; newer lifecycle events include `PostCompact`, `Elicitation`, and `ElicitationResult` — see hooks.md for the full list
+- **Hook events (common):** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `StopFailure`, `SubagentStop`; newer lifecycle events include `PostCompact`, `Elicitation`, `ElicitationResult`, `CwdChanged`, and `FileChanged` — see hooks.md for the full list
 - **Hook payload `permission_mode`:** may be `default`, `acceptEdits`, `plan`, `auto`, `dontAsk`, or `bypassPermissions` (event-dependent)
 - **SessionEnd `reason` values:** include `clear`, `resume`, `logout`, `prompt_input_exit`, `bypass_permissions_disabled`, and `other`
 - **Can hooks block Claude?** Yes — `PreToolUse` hooks that exit non-zero can block the tool call
 - **Can hooks auto-approve permission prompts?** Yes — `PermissionRequest` hooks can return JSON `decision.behavior: "allow"` and optionally `updatedPermissions` entries, but deny/ask permission rules still apply
+- **`CwdChanged` vs `FileChanged`:** `CwdChanged` runs on every directory change (no matcher support); `FileChanged` watches files and uses `matcher` as the filename filter
+- **`CLAUDE_ENV_FILE` hook support:** available in `SessionStart`, `CwdChanged`, and `FileChanged` hooks for persisting environment variables into later Bash commands
 - **When do Stop vs StopFailure run?** `Stop` runs when Claude finishes normally; API errors fire `StopFailure` instead and ignore hook output/exit code
 - **SessionEnd timeout default:** 1.5s via `CLAUDE_CODE_SESSIONEND_HOOKS_TIMEOUT_MS`; applies to exit, `/clear`, and interactive `/resume` session switches
 - **Where do hooks live?** `.claude/settings.json` under the `hooks` key
@@ -43,6 +45,7 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 - "Auto-approve only plan-exit prompts" → PermissionRequest hook matched on `ExitPlanMode`
 - "Auto-handle MCP auth/input prompts" → Elicitation hook (or validate/override with ElicitationResult)
 - "Alert on API failures (rate limit/auth/server)" → StopFailure hook matched by error type
+- "Reload direnv/venv when Claude changes directories or `.env` files" → `CwdChanged`/`FileChanged` hooks that append exports to `CLAUDE_ENV_FILE`
 - "Run a quick recurring check while I stay in-session" → scheduled-tasks.md (`/loop`)
 - "Run daily reviews even when my machine is off" → web-scheduled-tasks.md (`/schedule`)
 - "Run recurring tasks with direct local repo access" → desktop.md (local scheduled tasks)
@@ -54,6 +57,7 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 - Blocking hook exit code semantics
 - PermissionRequest decision output fields (including `updatedPermissions` entry types and destinations)
 - Full list of hookable events and their payloads
+- `CwdChanged`/`FileChanged` payloads and `watchPaths` behavior
 - `/schedule` lifecycle and task-management commands (`list`, `update`, `run`)
 - Scheduled task cadence options and cloud/desktop/session behavior differences
 - Scheduled task cron expression format and limits for session-scoped `/loop` scheduling

@@ -86,6 +86,7 @@ intent: run code automatically at tool lifecycle events
 match:
   - "how do hooks work"
   - "run a command after Claude edits a file"
+  - "reload env when Claude cd changes directory"
   - "block a dangerous command"
   - "auto-format on save"
   - "auto-approve permission prompts"
@@ -93,7 +94,7 @@ match:
   - "notification hook"
   - "Elicitation hook"
   - "PostCompact hook"
-strong_terms: [hook, PostToolUse, PreToolUse, PermissionRequest, ExitPlanMode, Notification, Stop, StopFailure, Elicitation, ElicitationResult, PostCompact, matcher, blocking]
+strong_terms: [hook, PostToolUse, PreToolUse, PermissionRequest, ExitPlanMode, Notification, Stop, StopFailure, Elicitation, ElicitationResult, PostCompact, CwdChanged, FileChanged, CLAUDE_ENV_FILE, matcher, blocking]
 avoid: [scheduled tasks, cron, skills]
 answer_from_domain_if:
   - what hooks are
@@ -105,6 +106,8 @@ read_source_docs_if:
   - blocking semantics and exit codes
   - PermissionRequest decision schema and updatedPermissions entries
   - matcher support on InstructionsLoaded/Elicitation/ElicitationResult events
+  - `CwdChanged`/`FileChanged` behavior, `watchPaths`, and matcher differences
+  - `CLAUDE_ENV_FILE` availability by hook type
   - plugin path variables (`CLAUDE_PLUGIN_ROOT` vs `CLAUDE_PLUGIN_DATA`)
   - specific hook event payload format
 primary_doc: hooks.md
@@ -193,9 +196,10 @@ match:
   - "run session with --agent"
   - "agent setting in settings.json"
   - "agent memory"
+  - "subagent initialPrompt"
   - "plugin subagent fields are ignored"
   - "subagent permissionMode ignored in auto mode"
-strong_terms: [subagent, agent, Agent tool, SendMessage, dispatch, resume, @agent, --agent, agent setting, isolated context, agent memory]
+strong_terms: [subagent, agent, Agent tool, SendMessage, dispatch, resume, @agent, --agent, agent setting, initialPrompt, isolated context, agent memory]
 avoid: [MCP, plugins, hooks]
 answer_from_domain_if:
   - what a subagent is
@@ -210,6 +214,7 @@ read_source_docs_if:
   - parent auto mode precedence over subagent `permissionMode`
   - tool and memory configuration (including recommended `project` memory scope)
   - `tools` vs `disallowedTools` precedence when both are set
+  - `initialPrompt` behavior for `--agent` and `agent` setting
   - resume behavior details (SendMessage, background auto-resume)
   - agent isolation guarantees
 primary_doc: sub-agents.md
@@ -232,9 +237,10 @@ match:
   - "MCP elicitation"
   - "MCP channels"
   - "iMessage channel"
+  - "allowedChannelPlugins"
   - "channels vs remote control"
   - "how do I use --channels"
-strong_terms: [MCP, stdio, SSE, http, mcp server, claude mcp add, external tool, headersHelper, dynamic headers, elicitation, channel, --channels, claude/channel/permission]
+strong_terms: [MCP, stdio, SSE, http, mcp server, claude mcp add, external tool, headersHelper, dynamic headers, elicitation, channel, --channels, allowedChannelPlugins, channelsEnabled, claude/channel/permission]
 avoid: [plugins, hooks, skills]
 answer_from_domain_if:
   - what MCP is
@@ -246,6 +252,7 @@ read_source_docs_if:
   - OAuth and auth configuration (including Dynamic Client Registration vs CIMD)
   - `headersHelper` command requirements (JSON output shape, 10-second timeout, static header override behavior)
   - channel capabilities (`claude/channel`, optional `claude/channel/permission`) and startup flags (`--channels`)
+  - Team/Enterprise channel policy settings (`channelsEnabled`, `allowedChannelPlugins`) and effective allowlist behavior
   - channels vs web sessions/slack/remote-control behavior differences
   - plugin MCP path variables (`CLAUDE_PLUGIN_ROOT` and `CLAUDE_PLUGIN_DATA`)
 primary_doc: mcp.md
@@ -274,6 +281,8 @@ answer_from_domain_if:
   - plugin root path vs persistent data path
 read_source_docs_if:
   - exact plugin.json manifest format
+  - plugin `userConfig` schema, sensitive storage, and `${user_config.KEY}` substitution behavior
+  - plugin `channels` declarations and per-channel `userConfig`
   - marketplace recovery steps when install says "not found in any marketplace" (`/plugin marketplace update` vs `/plugin marketplace add`)
   - when `/reload-plugins` is needed to activate newly installed configure commands
   - plugin marketplace source schema details (url/ref/sha and URL suffix behavior)

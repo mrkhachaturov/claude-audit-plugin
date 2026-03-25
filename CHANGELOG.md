@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.2.45] — 2026-03-25
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - channels-reference.md
+  - channels.md
+  - commands.md
+  - env-vars.md
+  - hooks-guide.md
+  - hooks.md
+  - interactive-mode.md
+  - keybindings.md
+  - model-config.md
+  - monitoring-usage.md
+  - plugins-reference.md
+  - sandboxing.md
+  - settings.md
+  - sub-agents.md
+  - tools-reference.md
+
+---
+
 ## [1.2.44] — 2026-03-25
 
 ### Changed

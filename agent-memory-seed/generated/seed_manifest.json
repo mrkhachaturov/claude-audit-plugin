@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-25T15:25:03Z",
+  "seed_version": "2026-03-25T21:13:04Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "323e428c0d6d1dfda2e9dad4986129baafa903447e2b2548aa7eae49d89d7a09",
@@ -110,7 +110,7 @@
       }
     },
     "settings.md": {
-      "file_hash": "7f6a14ce613572fc08088e0edf31342ce40638bc7bb65e295b7cb2baa42828af",
+      "file_hash": "925a1191a46b72fc81450a81ff85067e7459818b4b0e69c93f2ffd427e3ba883",
       "headings_hash": "8e88ed3a8f2a510af40604a6f7f757ee06cd4f366f727adc7e36f4f335117986",
       "headings": [
         "Claude Code settings",
@@ -157,8 +157,8 @@
       }
     },
     "hooks.md": {
-      "file_hash": "f117e2b61dbbefcecbc7012e3421a0aa8859dc9073fceda7399e07371a1b3113",
-      "headings_hash": "cd367befd0f6f6d8c1677cb3d6e8bcfec2499e457dddc137e0e29c9d23aa8fa6",
+      "file_hash": "044bb69ee3d864135fe246aedc0bfb0601c5b8b8305b685aad92b463b2da44b1",
+      "headings_hash": "dfe676cf6c4898189466a726a84ca886cc99eb62f864311a626e68a196bee69a",
       "headings": [
         "Hooks reference",
         "Hook lifecycle",
@@ -240,6 +240,12 @@
         "ConfigChange",
         "ConfigChange input",
         "ConfigChange decision control",
+        "CwdChanged",
+        "CwdChanged input",
+        "CwdChanged output",
+        "FileChanged",
+        "FileChanged input",
+        "FileChanged output",
         "WorktreeCreate",
         "WorktreeCreate input",
         "WorktreeCreate output",
@@ -292,7 +298,7 @@
           ]
         },
         "hook-lifecycle": {
-          "hash": "e8bc3f30a8449a3134483f3bbba04251234da15a45392566a4f35c280c55ff42",
+          "hash": "779cffd7b9d0926b5c90fac4e841331b89efd6eb265ab2eb006fd761e0061fc0",
           "start_heading": "Hook lifecycle",
           "end_heading": ".claude/hooks/block-rm.sh",
           "domains": [
@@ -305,8 +311,8 @@
       }
     },
     "hooks-guide.md": {
-      "file_hash": "5172bf02736ed4360605c42a9dc859c0544bf359fdd8191c39e656858ec3f0dd",
-      "headings_hash": "49a850497ef3981ed041b5084ee9a0414928dc22a68bbdadacedfd8cde94a7cf",
+      "file_hash": "8ae3f4a61321d1d0b541b63b76fe0965e31f93ac1d469291392e96a099188967",
+      "headings_hash": "cb695774afe5e1950a031490c592be8b3a258adf55a5ca4bb98746f173f22072",
       "headings": [
         "Automate workflows with hooks",
         "Set up your first hook",
@@ -316,6 +322,7 @@
         "Block edits to protected files",
         "Re-inject context after compaction",
         "Audit configuration changes",
+        "Reload environment when directory or files change",
         "Auto-approve specific permission prompts",
         "How hooks work",
         "Read input and return output",
@@ -341,7 +348,7 @@
       ],
       "sections": {
         "what-you-can-automate": {
-          "hash": "5b11808a435ceeb4e745e729b81bb51c9bcc1492697c850bdac700a0fcebfade",
+          "hash": "ea232d8e4fd8ef4fa49922f6aa1d09cc5b692525c8c1c23e4ec8c01e3911aaf0",
           "start_heading": "What you can automate",
           "end_heading": "How hooks work",
           "domains": [],
@@ -405,7 +412,7 @@
       }
     },
     "sub-agents.md": {
-      "file_hash": "a3b96b0fda21c25e2198e556ff11ab592c0054e8a124a13e2e5f875afc7f9258",
+      "file_hash": "d7ca8cfabf4825097d1e031367e33ddc37c8cbfbb43798feca75376b8c0fb8aa",
       "headings_hash": "e040169e2f98b841b8b48c305602041b02a3da0e2818888adf79482646bd1645",
       "headings": [
         "Create custom subagents",
@@ -457,7 +464,7 @@
       ],
       "sections": {
         "configure-subagents": {
-          "hash": "902b3ed06214113884685e02baab85d3e99283084a1537fd0d6548416070d19c",
+          "hash": "0455198a366d1edac6eb48f76e7befebc804b05f83e9ee114b000971d11ede37",
           "start_heading": "Configure subagents",
           "end_heading": "./scripts/validate-readonly-query.sh",
           "domains": [
@@ -835,14 +842,14 @@
       }
     },
     "changelog.md": {
-      "file_hash": "6b5e69d7303f43e83fa420f2d217dfc7869c111ea8feb1be264b7fd25cd5ebb9",
+      "file_hash": "be860331d002f015567b5cfe9fad695bc5a90da719c7605bbb7c7027317874c5",
       "headings_hash": "ead07c84baac57a9542f388a07a2a5209456ce790b04251bc9bd7d179ea85cb1",
       "headings": [
         "Changelog"
       ],
       "sections": {
         "changelog": {
-          "hash": "ed5e302c03526b53ebf9bc65a2d548d551cb0a13f99e5bcedb7c18c6cfbbdb42",
+          "hash": "1c3544f000d366036865b81086edfae1f81fb36445115c19d7b147dd27b414cc",
           "start_heading": "Changelog",
           "end_heading": null,
           "domains": [],
@@ -878,7 +885,7 @@
       "sections": {}
     },
     "commands.md": {
-      "file_hash": "cad31f72977983c4ddfb8eef9b75cc458bdc8efcfbb065d18d2e0b0a4fb4b62f",
+      "file_hash": "0507cf22b50904fd369cf119efb6bf5fee25362134966b705cb59ae18596c969",
       "headings_hash": "947864011c9d136baade1d422d0a5c8b515c9b6df9236dcea1c342b35bb3c657",
       "headings": [
         "Built-in commands",
@@ -914,8 +921,8 @@
       "sections": {}
     },
     "interactive-mode.md": {
-      "file_hash": "ea3c47e4d62e87a83c10afa123addca92bbbd65e23a13811a8e1784e52859ff7",
-      "headings_hash": "e4a50bacc55b7b5db584c207811007e0210db205aa831d1d7776eeb55a00cb1a",
+      "file_hash": "0671ffd3cd65fc83d8832c7a5b96cb9334ebb24ac82ed44eda937b1b44867810",
+      "headings_hash": "39bdac0a5ee46785832a393f3f8068d3ed0d59f1225f76c6a0b9cd88466e4d70",
       "headings": [
         "Interactive mode",
         "Keyboard shortcuts",
@@ -924,6 +931,7 @@
         "Theme and display",
         "Multiline input",
         "Quick commands",
+        "Transcript viewer",
         "Voice input",
         "Built-in commands",
         "Vim editor mode",
@@ -945,7 +953,7 @@
       "sections": {}
     },
     "keybindings.md": {
-      "file_hash": "1ca8cde7270d0c526d0c2621c8e5831728209cfe6bdd1c1a1c30821df80ff793",
+      "file_hash": "e67a70b2fe0e039a5bd5e715134df2e6128cacc52ec31f03f7fa0b46f0b80ade",
       "headings_hash": "2b761d3d00a38e5befef78b6b0eaa770941abeca13db3c787e9351ba73922dc2",
       "headings": [
         "Customize keyboard shortcuts",
@@ -1010,8 +1018,8 @@
       "sections": {}
     },
     "plugins-reference.md": {
-      "file_hash": "c98a8d83b405b3f68e85896409f9aa452041f8985fe7d924d93b51a7491d19cd",
-      "headings_hash": "d38230a0d64fd483fe56868d378d7bab41754145b04c4f26641ff60e40bc569a",
+      "file_hash": "e3bc4c346015c0305d18f06d295d5b077a6786ec16283b5e5b2387710aac48a2",
+      "headings_hash": "c2c30fb7928b97e77f872387a295ad0cb6b54a0fd7c9b00710ae6b8128fc01d1",
       "headings": [
         "Plugins reference",
         "Plugin components reference",
@@ -1026,6 +1034,8 @@
         "Required fields",
         "Metadata fields",
         "Component path fields",
+        "User configuration",
+        "Channels",
         "Path behavior rules",
         "Environment variables",
         "Persistent data directory",
@@ -1131,7 +1141,7 @@
       }
     },
     "channels-reference.md": {
-      "file_hash": "dda09c39600048ed5bfc001e2a4824cf9ec61915ac6bdf810b23021d9aa4a960",
+      "file_hash": "36756d3392bf01564a90cb9b03016a84829797c298a4df5fc20e90dcf56cc527",
       "headings_hash": "66ed357c1da30c1ab0cd4737e66808a731cd0a44bd36244c635c648b9ad2dfd3",
       "headings": [
         "Channels reference",
@@ -1156,8 +1166,8 @@
       "sections": {}
     },
     "channels.md": {
-      "file_hash": "6b1dd4526b211b358f9e94a692904badbaaeb780a152ed33ae3ae507a2d54e7b",
-      "headings_hash": "022b51e7bcdd4f57de9fd34204312e48eb6467672864ad09b35ba7ced94fd771",
+      "file_hash": "bd50c20bb2b5966ff6597c06eb920896708b30f6ff3b68e6a911867a501ebe27",
+      "headings_hash": "fa82e8d8d8fd0e5dad855f7267d00b6b2225ee25a0b7125d74a6133047223f67",
       "headings": [
         "Push events into a running session with channels",
         "Supported channels",
@@ -1165,6 +1175,7 @@
         "Security",
         "Enterprise controls",
         "Enable channels for your organization",
+        "Restrict which channel plugins can run",
         "Research preview",
         "How channels compare",
         "Next steps"
@@ -1219,7 +1230,7 @@
       "sections": {}
     },
     "env-vars.md": {
-      "file_hash": "30649aabeca6609c39cf044b9b5542b99db2d81cadb61d18495bfc150850e634",
+      "file_hash": "55f445f1c79bb4ae38fc617e9e126cec086b4ac449ccc14494707e5e8331ff23",
       "headings_hash": "c34f362998cf1a9bb4cbda4acffe8c6d49d05cfffd6c69968af4761c231adf93",
       "headings": [
         "Environment variables",
@@ -1228,7 +1239,7 @@
       "sections": {}
     },
     "model-config.md": {
-      "file_hash": "07fbe4a5d636c8814b9cbf4b0bc16887395603ff6f9318d827d7136e87a05bf2",
+      "file_hash": "cbb27debd31fa691051f34dd8c61c9cc74797c77fe1948107a9731c3ba94a4ad",
       "headings_hash": "244a6c89b60ef565fb8ca4dc095437f0c3e24ea2245c96b038d498b6fa656b45",
       "headings": [
         "Model configuration",
@@ -1389,7 +1400,7 @@
       "sections": {}
     },
     "sandboxing.md": {
-      "file_hash": "fcd727507020cb5089b9de53cdd8304e0c84222a39c3938cfdfe4a749a5072a4",
+      "file_hash": "4ad8de4e8531fdfd689d073d05e680a6018c579adf9577d26c20969a55de8d0f",
       "headings_hash": "e8abac71e55be78a11465e57d5e5c4570ec01d7909b92f686f6569730b02b6ab",
       "headings": [
         "Sandboxing",
@@ -1787,7 +1798,7 @@
       ]
     },
     "domain-configuration-persistence.md": {
-      "content_hash": "6f00dbcef26bdde2ffde1e599ea5cd26f0ad50ede57f62855be36d63517543d7",
+      "content_hash": "35b666a1b2d7a85ef728347a3f24fe4ad2e4e4484118ae7130e11f53c391a363",
       "depends_on_sections": [
         "memory.md::claude-md-vs-auto-memory",
         "memory.md::claude-md-files",
@@ -1795,14 +1806,14 @@
       ]
     },
     "domain-automation-control.md": {
-      "content_hash": "989bd55a855ebbd851a50ddee0cd8052740b18524c47bbdb75ec3f2ce6fd791d",
+      "content_hash": "9a2ce7a6303c4cadac39c0b12fe6eecc83d2cf63fbe76e6386d62a6f5db98e2d",
       "depends_on_sections": [
         "hooks.md::hook-events",
         "hooks-guide.md::what-you-can-automate"
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "9b78d2431cdc89ba592c48463d4b2d8c5a70069b30781d0ae522d0a2452e987d",
+      "content_hash": "b66116069df27993c2b4724109b5c8a1f26ae811bc24822dcf812c905a049538",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1812,13 +1823,13 @@
       ]
     },
     "domain-access-control-safety.md": {
-      "content_hash": "03cf0dab611568cf36a1a01d2495c195b41601ab0c1ad39b0add61ef5d98edbd",
+      "content_hash": "4fd26ea5f267c5097ad785ae34662a93cc49cca89c93e274eda539130be7f36d",
       "depends_on_sections": [
         "permissions.md::permission-rule-syntax"
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "8f1ab844ea2724307e5e73ec7dcd1450222b51c7873ca5416697032c72e01308",
+      "content_hash": "f10d84e23a67403a2655d82923f7627ad2f7aceaa0bf3d0c88a1afcd15769345",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
@@ -1827,7 +1838,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "5d964f3290aa97ee012f06f20f379d245bc07af4b4a06cde28293438abe68e33",
+      "content_hash": "544353d51f506bbcdf7ce79038ba62bb8ebcd1bbea73006aa1a68ce75c066ec6",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

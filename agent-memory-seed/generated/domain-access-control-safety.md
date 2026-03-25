@@ -7,6 +7,7 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - Configure permissions in `settings.json` under the `permissions` key
 - Use permission rules to allow safe commands and block dangerous ones
 - Use sandboxing when Claude needs internet access or file system isolation
+- Use `sandbox.failIfUnavailable: true` when sandboxing must be a hard requirement (do not silently fall back to unsandboxed execution)
 - Use `sandbox.filesystem.allowRead` to re-allow specific paths inside denied read regions
 - In project settings, `allowRead: ["."]` resolves to project root; in user settings it resolves to `~/.claude`
 - Use network config for corporate proxy or certificate requirements
@@ -21,10 +22,12 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - **Where do auto mode rules live?** `autoMode` is read from user/local/managed settings; not from shared project `.claude/settings.json`
 - **Can admins disable risky modes?** Yes — set `permissions.disableBypassPermissionsMode` and/or `disableAutoMode` to `"disable"` (strongest in managed settings)
 - **Can I deny broad reads but allow the workspace?** Yes — combine `sandbox.filesystem.denyRead` with `sandbox.filesystem.allowRead`
+- **Can I force startup to fail if sandboxing cannot initialize?** Yes — set `sandbox.failIfUnavailable: true`
 - **Does bypass mode still prompt anywhere?** Yes — writes to `.git`, `.claude`, `.vscode`, and `.idea` still prompt; `.claude/commands`, `.claude/agents`, and `.claude/skills` are exempt
 - **Does `Read(...)` deny block `cat` in Bash?** No — Read/Edit denies apply to Claude file tools; use sandboxing for OS-level path enforcement
 - **How do Read/Edit patterns work on Windows?** Paths are normalized to POSIX form (for example `C:\\Users\\alice` -> `/c/Users/alice`)
 - **Do hook approvals override deny rules?** No — hooks can skip interactive prompts, but deny/ask rules still take precedence
+- **Can I hide provider credentials from subprocesses?** Yes — set `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1` to strip Anthropic/cloud creds from Bash, hooks, and MCP stdio subprocesses
 - **Can managed `permissions` disable Remote Control or web sessions?** No — admins control those in Claude Code admin settings
 - **Does sandboxing cover every Claude tool boundary?** No — sandboxing isolates Bash subprocesses; Read/Edit/Write permission behavior and Desktop computer-use controls are separate boundaries
 
@@ -52,6 +55,7 @@ Controlling what Claude Code can access and do: permission modes, tool allow/den
 - Windows Read/Edit pattern syntax examples (`//c/**`, `//**`)
 - Full list of tool names for allow/deny rules
 - Sandboxing setup and limitations
+- `sandbox.failIfUnavailable` behavior and deployment tradeoffs
 - Network proxy configuration syntax
 
 ## Source map

@@ -18,10 +18,10 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **How do I manage subagents interactively?** Use `/agents` to create, edit, and manage available subagents
 - **How do I force a specific subagent?** Use an `@` mention (for example `@\"code-reviewer (agent)\"`) for a single task
 - **How do I run the whole session as a subagent?** Start with `claude --agent <name>` or set `agent` in `.claude/settings.json` (CLI flag wins)
-- **Subagent frontmatter fields:** include `model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, and `isolation` (plugin agents only support `isolation: "worktree"`)
+- **Subagent frontmatter fields:** include `model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `initialPrompt`, `memory`, `background`, and `isolation` (plugin agents only support `isolation: "worktree"`)
 - **Subagent tool restriction precedence:** when both `disallowedTools` and `tools` are set, deny rules apply first, then the allowlist is resolved from remaining tools
 - **Subagent `permissionMode` under parent auto mode:** parent `auto` takes precedence; subagent frontmatter `permissionMode` is ignored and tool calls are checked by the same classifier rules
-- **CLI subagent JSON parity:** `--agents` accepts the same frontmatter keys as file-based subagents, including `effort`, `background`, and `isolation`
+- **CLI subagent JSON parity:** `--agents` accepts the same frontmatter keys as file-based subagents, including `initialPrompt`, `effort`, `background`, and `isolation`
 - **How do I resume a subagent?** Claude sends `SendMessage` to the prior agent ID; stopped agents auto-resume in background on message
 - **Subagent memory scope default:** prefer `project` for team-shared repo-specific knowledge; use `user` for cross-project knowledge and `local` for non-committed project memory
 - **What is MCP?** Model Context Protocol — lets Claude connect to external servers that expose tools/resources
@@ -32,7 +32,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **Which built-in channel plugins exist in preview?** Telegram, Discord, iMessage, and fakechat
 - **Can channels relay tool approvals?** Yes. Two-way channels can opt in with `claude/channel/permission` and relay permission prompts (`allow`/`deny`) using request IDs.
 - **iMessage channel access model:** self-messages are auto-allowed; other senders are added by handle (for example `/imessage:access allow +15551234567`)
-- **Channels policy gate:** channels require claude.ai auth and are blocked for Team/Enterprise unless managed `channelsEnabled` is enabled
+- **Channels policy gate:** channels require claude.ai auth; Team/Enterprise admins must enable managed `channelsEnabled`, and can replace the default channel allowlist with `allowedChannelPlugins`
 - **Remote approvals race behavior:** terminal prompt and relayed channel prompt stay live in parallel; Claude applies whichever verdict arrives first.
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
 - **Plugin install says not found in any marketplace:** update marketplace metadata with `/plugin marketplace update claude-plugins-official`, or add it first with `/plugin marketplace add anthropics/claude-plugins-official`, then retry
@@ -40,6 +40,8 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **Where can I browse official plugins?** `/plugin` Discover tab or https://claude.com/plugins
 - **Plugin file paths:** `${CLAUDE_PLUGIN_ROOT}` points at the current installed plugin directory; `${CLAUDE_PLUGIN_DATA}` is persistent across plugin updates
 - **Plugin source types:** plugin entries can be declared inline with `source: \"settings\"` in settings.json
+- **Plugin `userConfig`:** plugins can prompt for user-entered options at enable time; sensitive values go to keychain/credentials storage and non-sensitive values go in settings
+- **Plugin `channels` declarations:** plugins can declare channel bindings to plugin-provided MCP servers and collect channel-specific `userConfig`
 - **Plugin marketplace source note:** `url` plugin sources support git URLs with optional `.git` suffix
 - **Plugin seed directories:** `CLAUDE_CODE_PLUGIN_SEED_DIR` can layer multiple paths (`:` on Unix, `;` on Windows); first seed containing a marketplace/cache entry wins
 - **Plugin subagent caveat:** plugin-provided agents ignore `hooks`, `mcpServers`, and `permissionMode`; copy to project/user agents if those are required
@@ -65,6 +67,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - "React to CI alerts, webhooks, or chat messages in-session" → enable channels (`--channels`) for a channel-capable MCP server
 - "Handle MCP mid-task auth/input requests" → use built-in elicitation dialog, optionally automate with hooks
 - "Share our hooks and skills with teammates" → package as a plugin
+- "Prompt users for API keys/endpoints when enabling a plugin" → plugin `userConfig`
 - "Persist plugin-installed dependencies across updates" → install into `${CLAUDE_PLUGIN_DATA}` and keep scripts in `${CLAUDE_PLUGIN_ROOT}`
 - "Need per-subagent hooks/MCP/permission mode from a plugin agent" → move that agent into `.claude/agents/` or `~/.claude/agents/`
 - "Preload plugins in container/CI images from multiple mounts" → set `CLAUDE_CODE_PLUGIN_SEED_DIR` to a `:`/`;` separated list; order controls precedence
@@ -79,6 +82,8 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - Plugin subagent frontmatter limitations (`hooks`, `mcpServers`, `permissionMode`)
 - Full plugin-agent frontmatter support (`model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, `isolation`)
 - Plugin persistent data directory lifecycle and uninstall behavior
+- Plugin `userConfig` schema and `${user_config.KEY}` substitution rules
+- Plugin `channels` field schema and server binding requirements
 - MCP transport options (stdio, SSE, HTTP) and auth setup
 - `headersHelper` behavior (stdout JSON object format, 10-second shell timeout, trust-gated execution, and static-header override semantics)
 - MCP channels capabilities (`claude/channel`, optional `claude/channel/permission`) and `--channels` startup behavior
