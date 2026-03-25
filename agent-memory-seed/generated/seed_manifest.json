@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-25T06:24:14Z",
+  "seed_version": "2026-03-25T09:18:40Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "323e428c0d6d1dfda2e9dad4986129baafa903447e2b2548aa7eae49d89d7a09",
@@ -835,7 +835,7 @@
       }
     },
     "changelog.md": {
-      "file_hash": "4da1cdcfff896c5d86ed910100396f26ec5d408429050b3fbe07734a66d33abf",
+      "file_hash": "9f30f74f17d062114ce7aac205a84845967d022715da4ceef820245f4176adb2",
       "headings_hash": "7e1aa529479125329cfd74eb68d83e84536891ae25db608c64e79b5bcaf94b78",
       "headings": [
         "Claude Code Changelog",
@@ -1089,7 +1089,7 @@
       ],
       "sections": {
         "claude-code-changelog": {
-          "hash": "f68f4162be136b9afca4872f7837e487594bd5aae07806cd174198895caef6ad",
+          "hash": "0cdb9be3081d6e35fbe91faaf30398896895c92bcb3d789faf4ac9c88fd33d59",
           "start_heading": "Claude Code Changelog",
           "end_heading": null,
           "domains": [],
