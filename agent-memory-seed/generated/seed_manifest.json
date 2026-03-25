@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-25T03:50:19Z",
+  "seed_version": "2026-03-25T06:24:14Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "323e428c0d6d1dfda2e9dad4986129baafa903447e2b2548aa7eae49d89d7a09",
@@ -835,11 +835,12 @@
       }
     },
     "changelog.md": {
-      "file_hash": "42fdf3eafb4165f82e5e0b0fef7c20eb4f61efa655943bea395aa461e974b953",
-      "headings_hash": "11ff724d22d313bf6b7235a732b34c34bf73c86bba5ca2d4247dbf63003036a3",
+      "file_hash": "4da1cdcfff896c5d86ed910100396f26ec5d408429050b3fbe07734a66d33abf",
+      "headings_hash": "7e1aa529479125329cfd74eb68d83e84536891ae25db608c64e79b5bcaf94b78",
       "headings": [
         "Claude Code Changelog",
         "Changelog",
+        "2.1.83",
         "2.1.81",
         "2.1.80",
         "2.1.79",
@@ -1088,7 +1089,7 @@
       ],
       "sections": {
         "claude-code-changelog": {
-          "hash": "42fdf3eafb4165f82e5e0b0fef7c20eb4f61efa655943bea395aa461e974b953",
+          "hash": "f68f4162be136b9afca4872f7837e487594bd5aae07806cd174198895caef6ad",
           "start_heading": "Claude Code Changelog",
           "end_heading": null,
           "domains": [],
@@ -1191,7 +1192,7 @@
       "sections": {}
     },
     "keybindings.md": {
-      "file_hash": "290af2a807a1663aede435c910a1ab0267757d661027be919cf58e58deeb3f42",
+      "file_hash": "1ca8cde7270d0c526d0c2621c8e5831728209cfe6bdd1c1a1c30821df80ff793",
       "headings_hash": "2b761d3d00a38e5befef78b6b0eaa770941abeca13db3c787e9351ba73922dc2",
       "headings": [
         "Customize keyboard shortcuts",

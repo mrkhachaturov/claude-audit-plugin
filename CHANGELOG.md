@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.41] — 2026-03-25
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - keybindings.md
+  - mcp.md
+  - quickstart.md
+
+---
+
 ## [1.2.40] — 2026-03-25
 
 ### Changed
