@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.40] — 2026-03-25
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - desktop.md
+  - mcp.md
+  - settings.md
+
+---
+
 ## [1.2.39] — 2026-03-24
 
 ### Changed

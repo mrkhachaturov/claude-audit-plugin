@@ -25,6 +25,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **How do I resume a subagent?** Claude sends `SendMessage` to the prior agent ID; stopped agents auto-resume in background on message
 - **Subagent memory scope default:** prefer `project` for team-shared repo-specific knowledge; use `user` for cross-project knowledge and `local` for non-committed project memory
 - **What is MCP?** Model Context Protocol — lets Claude connect to external servers that expose tools/resources
+- **Non-OAuth MCP auth:** for HTTP servers, set `headersHelper` to a shell command that prints JSON headers; it runs at connection time and overrides same-name static headers
 - **What is MCP elicitation?** A structured input request from an MCP server; Claude shows a form/URL dialog and can be auto-handled by hooks
 - **MCP OAuth discovery:** Claude supports both Dynamic Client Registration and CIMD (Client ID Metadata Document); use pre-configured credentials when automatic discovery fails.
 - **What are MCP channels?** MCP servers with the `claude/channel` capability can push external events into your session when you start Claude with `--channels`
@@ -60,6 +61,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - "Run every turn with one subagent persona/tools/model" → `claude --agent <name>` or `agent` setting
 - "Background subagent hit a permissions wall" → launch a new foreground subagent with the same task
 - "Connect Claude to Jira/Notion/GitHub" → add an MCP server
+- "Use short-lived/custom auth for an HTTP MCP server" → configure `headersHelper` in `.mcp.json`
 - "React to CI alerts, webhooks, or chat messages in-session" → enable channels (`--channels`) for a channel-capable MCP server
 - "Handle MCP mid-task auth/input requests" → use built-in elicitation dialog, optionally automate with hooks
 - "Share our hooks and skills with teammates" → package as a plugin
@@ -78,6 +80,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - Full plugin-agent frontmatter support (`model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `memory`, `background`, `isolation`)
 - Plugin persistent data directory lifecycle and uninstall behavior
 - MCP transport options (stdio, SSE, HTTP) and auth setup
+- `headersHelper` behavior (stdout JSON object format, 10-second shell timeout, trust-gated execution, and static-header override semantics)
 - MCP channels capabilities (`claude/channel`, optional `claude/channel/permission`) and `--channels` startup behavior
 - Channels notification payload/reply-tool contract, sender allowlist gating, and permission relay request/response schema
 - Plugin manifest format and namespace rules

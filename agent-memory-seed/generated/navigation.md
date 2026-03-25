@@ -227,12 +227,14 @@ match:
   - "connect Claude to Jira"
   - "stdio vs SSE"
   - "MCP configuration"
+  - "headersHelper"
+  - "dynamic MCP headers"
   - "MCP elicitation"
   - "MCP channels"
   - "iMessage channel"
   - "channels vs remote control"
   - "how do I use --channels"
-strong_terms: [MCP, stdio, SSE, http, mcp server, claude mcp add, external tool, elicitation, channel, --channels, claude/channel/permission]
+strong_terms: [MCP, stdio, SSE, http, mcp server, claude mcp add, external tool, headersHelper, dynamic headers, elicitation, channel, --channels, claude/channel/permission]
 avoid: [plugins, hooks, skills]
 answer_from_domain_if:
   - what MCP is
@@ -242,6 +244,7 @@ read_source_docs_if:
   - exact mcp add command syntax
   - transport type selection
   - OAuth and auth configuration (including Dynamic Client Registration vs CIMD)
+  - `headersHelper` command requirements (JSON output shape, 10-second timeout, static header override behavior)
   - channel capabilities (`claude/channel`, optional `claude/channel/permission`) and startup flags (`--channels`)
   - channels vs web sessions/slack/remote-control behavior differences
   - plugin MCP path variables (`CLAUDE_PLUGIN_ROOT` and `CLAUDE_PLUGIN_DATA`)

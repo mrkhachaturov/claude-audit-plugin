@@ -16,7 +16,8 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 - **What goes in CLAUDE.md?** Project conventions, coding style, architecture notes, commands to run
 - **What is auto-memory?** Session notes are auto-saved to `~/.claude/MEMORY.md`; use `/memory` to view and edit what was saved
 - **`/init` interactive flow:** set `CLAUDE_CODE_NEW_INIT=true` to run a guided setup for `CLAUDE.md`, skills, hooks, and memory files
-- **Settings precedence:** enterprise > project > user (higher wins)
+- **Settings precedence:** managed > CLI args > local project (`.claude/settings.local.json`) > shared project (`.claude/settings.json`) > user (`~/.claude/settings.json`)
+- **Cross-surface precedence:** the same settings precedence applies in CLI, VS Code, and JetBrains
 - **settings.json location:** `.claude/settings.json` (project) or `~/.claude/settings.json` (user)
 - **Global config settings location:** `~/.claude.json` (for example `autoConnectIde`, `autoInstallIdeExtension`, `editorMode`, `showTurnDuration`, `terminalProgressBarEnabled`)
 - **Disable built-in git workflow prompt content:** set `includeGitInstructions: false` or `CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS=1` to remove built-in commit/PR instructions and the git status snapshot from the system prompt
