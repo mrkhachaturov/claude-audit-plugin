@@ -14,6 +14,7 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 ## Fast answers
 - **Where does CLAUDE.md live?** Project root or `.claude/CLAUDE.md`; personal at `~/.claude/CLAUDE.md`
 - **What goes in CLAUDE.md?** Project conventions, coding style, architecture notes, commands to run
+- **Using existing `AGENTS.md`:** create `CLAUDE.md` with `@AGENTS.md` import, then add Claude-specific instructions below it
 - **CLAUDE.md comments behavior:** block HTML comments (`<!-- ... -->`) are stripped before prompt injection, but remain visible when reading the file directly
 - **What is auto-memory?** Session notes are auto-saved to `~/.claude/MEMORY.md`; use `/memory` to view and edit what was saved
 - **`/init` interactive flow:** set `CLAUDE_CODE_NEW_INIT=true` to run a guided setup for `CLAUDE.md`, skills, hooks, and memory files
@@ -44,6 +45,7 @@ Storing instructions and settings that persist across sessions: CLAUDE.md files 
 
 ## When you must read source docs
 - Exact CLAUDE.md syntax and import system (`@path/to/file`)
+- `AGENTS.md` interoperability pattern (`CLAUDE.md` import and ordering)
 - Memory file location and format details
 - Full settings.json schema and all available keys
 - Enterprise policy enforcement via server-managed-settings

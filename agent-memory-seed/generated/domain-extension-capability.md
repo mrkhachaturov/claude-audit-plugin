@@ -14,6 +14,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 
 ## Fast answers
 - **What is a skill?** A `SKILL.md` file that defines a reusable workflow; invoked by user or Claude
+- **Skill shell for inline commands:** `shell: powershell` in skill frontmatter runs `` !`command` `` blocks via PowerShell on Windows (requires `CLAUDE_CODE_USE_POWERSHELL_TOOL=1`)
 - **What is a subagent?** A Claude instance dispatched via the Agent tool with its own context and tools
 - **How do I manage subagents interactively?** Use `/agents` to create, edit, and manage available subagents
 - **How do I force a specific subagent?** Use an `@` mention (for example `@\"code-reviewer (agent)\"`) for a single task
@@ -77,6 +78,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 
 ## When you must read source docs
 - Exact SKILL.md frontmatter fields (name, description, tools, memory)
+- Skill `shell` frontmatter behavior for inline command execution
 - Subagent tool and memory configuration
 - Exact explicit-invocation syntax (`@` mentions, `--agent`, and `agent` setting behavior)
 - Full subagent frontmatter field details (`effort`, `background`, `isolation`)

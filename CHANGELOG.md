@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.2.47] — 2026-03-26
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - cli-reference.md
+  - commands.md
+  - env-vars.md
+  - features-overview.md
+  - hooks.md
+  - keybindings.md
+  - memory.md
+  - model-config.md
+  - plugins-reference.md
+  - settings.md
+  - setup.md
+  - skills.md
+  - sub-agents.md
+  - tools-reference.md
+  - vs-code.md
+
+---
+
 ## [1.2.46] — 2026-03-26
 
 ### Changed

@@ -50,6 +50,7 @@ answer_from_domain_if:
 read_source_docs_if:
   - exact memory file format
   - memory scopes (user/project/local)
+  - `AGENTS.md` interop pattern via `@AGENTS.md` imports in `CLAUDE.md`
 primary_doc: memory.md
 secondary_doc: settings.md
 
@@ -102,6 +103,7 @@ answer_from_domain_if:
   - hooks vs skills or CLAUDE.md
 read_source_docs_if:
   - exact matcher syntax
+  - command-hook `shell` field behavior (`bash` vs `powershell`)
   - Stop vs StopFailure behavior and payloads
   - blocking semantics and exit codes
   - PermissionRequest decision schema and updatedPermissions entries
@@ -109,6 +111,7 @@ read_source_docs_if:
   - `CwdChanged`/`FileChanged` behavior, `watchPaths`, and matcher differences
   - `CLAUDE_ENV_FILE` availability by hook type
   - plugin path variables (`CLAUDE_PLUGIN_ROOT` vs `CLAUDE_PLUGIN_DATA`)
+  - WorktreeCreate path return details for command vs HTTP hooks
   - specific hook event payload format
 primary_doc: hooks.md
 secondary_doc: hooks-guide.md
@@ -154,6 +157,7 @@ answer_from_domain_if:
 read_source_docs_if:
   - exact SKILL.md frontmatter fields
   - `effort` frontmatter options and precedence
+  - skill `shell` frontmatter behavior for inline `` !`command` `` blocks
   - skill scoping (project vs personal vs plugin)
   - how skills load into context
 primary_doc: skills.md

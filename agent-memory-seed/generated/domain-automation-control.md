@@ -13,11 +13,13 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 
 ## Fast answers
 - **What are hooks?** Shell commands in settings.json that run before/after specific Claude tool uses
+- **Hook shell selection:** command hooks support `shell: "bash"` (default) or `shell: "powershell"`; PowerShell hook execution does not require `CLAUDE_CODE_USE_POWERSHELL_TOOL`
 - **Hook events (common):** `PreToolUse`, `PostToolUse`, `Notification`, `Stop`, `StopFailure`, `SubagentStop`; newer lifecycle events include `PostCompact`, `Elicitation`, `ElicitationResult`, `CwdChanged`, and `FileChanged` — see hooks.md for the full list
 - **Hook payload `permission_mode`:** may be `default`, `acceptEdits`, `plan`, `auto`, `dontAsk`, or `bypassPermissions` (event-dependent)
 - **SessionEnd `reason` values:** include `clear`, `resume`, `logout`, `prompt_input_exit`, `bypass_permissions_disabled`, and `other`
 - **Can hooks block Claude?** Yes — `PreToolUse` hooks that exit non-zero can block the tool call
 - **Can hooks auto-approve permission prompts?** Yes — `PermissionRequest` hooks can return JSON `decision.behavior: "allow"` and optionally `updatedPermissions` entries, but deny/ask permission rules still apply
+- **WorktreeCreate return format:** command hooks print the worktree path on stdout; HTTP hooks return `hookSpecificOutput.worktreePath`
 - **`CwdChanged` vs `FileChanged`:** `CwdChanged` runs on every directory change (no matcher support); `FileChanged` watches files and uses `matcher` as the filename filter
 - **`CLAUDE_ENV_FILE` hook support:** available in `SessionStart`, `CwdChanged`, and `FileChanged` hooks for persisting environment variables into later Bash commands
 - **When do Stop vs StopFailure run?** `Stop` runs when Claude finishes normally; API errors fire `StopFailure` instead and ignore hook output/exit code
@@ -53,10 +55,12 @@ Deterministic automation triggered at specific lifecycle points: hooks (shell co
 
 ## When you must read source docs
 - Exact hook matcher syntax (tool name patterns, regex)
+- Command-hook `shell` field behavior and PowerShell limitations
 - Matcher target fields for InstructionsLoaded (`load_reason`), Elicitation, ElicitationResult, and StopFailure
 - Blocking hook exit code semantics
 - PermissionRequest decision output fields (including `updatedPermissions` entry types and destinations)
 - Full list of hookable events and their payloads
+- WorktreeCreate/WorktreeRemove path return semantics for command vs HTTP hooks
 - `CwdChanged`/`FileChanged` payloads and `watchPaths` behavior
 - `/schedule` lifecycle and task-management commands (`list`, `update`, `run`)
 - Scheduled task cadence options and cloud/desktop/session behavior differences
