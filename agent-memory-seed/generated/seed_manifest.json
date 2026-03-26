@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "seed_version": "2026-03-25T21:13:04Z",
+  "seed_version": "2026-03-26T00:16:37Z",
   "source_docs": {
     "how-claude-code-works.md": {
       "file_hash": "323e428c0d6d1dfda2e9dad4986129baafa903447e2b2548aa7eae49d89d7a09",
@@ -48,8 +48,8 @@
       }
     },
     "memory.md": {
-      "file_hash": "dc98f1cd7217947e644c747d1d1333a236b7241f1b95b05ca04790f77df5df5c",
-      "headings_hash": "a177b8443a700314a9f7d8cccfdd84944b3ddb59a9aa543fa30609c87093cffe",
+      "file_hash": "61c0bf0b755e055bf63a71ff926756bc26c16cf4920289ea98afe52bdaa329cd",
+      "headings_hash": "5cfb8194105c5beb302c78ce355dff5f0d49039076a8d7d8ba49c6b5ceb8c785",
       "headings": [
         "How Claude remembers your project",
         "CLAUDE.md vs auto memory",
@@ -58,14 +58,12 @@
         "Set up a project CLAUDE.md",
         "Write effective instructions",
         "Import additional files",
-        "Additional Instructions",
-        "Individual Preferences",
+        "AGENTS.md",
         "How CLAUDE.md files load",
         "Load from additional directories",
         "Organize rules with `.claude/rules/`",
         "Set up rules",
         "Path-specific rules",
-        "API Development Rules",
         "Share rules across projects with symlinks",
         "User-level rules",
         "Manage CLAUDE.md for large teams",
@@ -97,9 +95,9 @@
           ]
         },
         "claude-md-files": {
-          "hash": "9591c931ef5553795ad0e216725651d583d514a1fd8c52c3ab0d4b487c69b455",
+          "hash": "4d242b4a30b15d2157fc22c3482dd884abb4c7f4ca5adbddb2eb3afa5d20f196",
           "start_heading": "CLAUDE.md files",
-          "end_heading": "Additional Instructions",
+          "end_heading": "Auto memory",
           "domains": [
             "configuration-persistence"
           ],
@@ -158,12 +156,11 @@
     },
     "hooks.md": {
       "file_hash": "044bb69ee3d864135fe246aedc0bfb0601c5b8b8305b685aad92b463b2da44b1",
-      "headings_hash": "dfe676cf6c4898189466a726a84ca886cc99eb62f864311a626e68a196bee69a",
+      "headings_hash": "fd8cb3f531cce15045ff3e767c4649dd6d73885b99d923026390333f5e87431f",
       "headings": [
         "Hooks reference",
         "Hook lifecycle",
         "How a hook resolves",
-        ".claude/hooks/block-rm.sh",
         "Configuration",
         "Hook locations",
         "Matcher patterns",
@@ -180,7 +177,6 @@
         "Hook input and output",
         "Common input fields",
         "Exit code output",
-        "Reads JSON input from stdin, checks the command",
         "Exit code 2 behavior per event",
         "HTTP response handling",
         "JSON output",
@@ -190,7 +186,6 @@
         "SessionStart input",
         "SessionStart decision control",
         "Persist environment variables",
-        "Run your setup commands that modify the environment",
         "InstructionsLoaded",
         "InstructionsLoaded input",
         "InstructionsLoaded decision control",
@@ -236,7 +231,6 @@
         "TaskCompleted",
         "TaskCompleted input",
         "TaskCompleted decision control",
-        "Run the test suite",
         "ConfigChange",
         "ConfigChange input",
         "ConfigChange decision control",
@@ -275,10 +269,6 @@
         "Configure an async hook",
         "How async hooks execute",
         "Example: run tests after file changes",
-        "run-tests-async.sh",
-        "Read hook input from stdin",
-        "Only run tests for source files",
-        "Run tests and report results via systemMessage",
         "Limitations",
         "Security considerations",
         "Disclaimer",
@@ -287,9 +277,9 @@
       ],
       "sections": {
         "hook-events": {
-          "hash": "b56c954c399e1d8b78e7c127dbf1430976a4dc6e5f5c7789456470c244b9c4ae",
+          "hash": "9ebfe9001f46c19791fc2c202bff9dd33ab775680cfae4f83ab7b58cae8225fe",
           "start_heading": "Hook events",
-          "end_heading": "Run your setup commands that modify the environment",
+          "end_heading": "Prompt-based hooks",
           "domains": [
             "automation-control"
           ],
@@ -298,9 +288,9 @@
           ]
         },
         "hook-lifecycle": {
-          "hash": "779cffd7b9d0926b5c90fac4e841331b89efd6eb265ab2eb006fd761e0061fc0",
+          "hash": "2bb2291b12e93c1e2c7c5f40f9400d054d197e1100f8ace422fd93dd721a50e5",
           "start_heading": "Hook lifecycle",
-          "end_heading": ".claude/hooks/block-rm.sh",
+          "end_heading": "Configuration",
           "domains": [
             "automation-control"
           ],
@@ -312,7 +302,7 @@
     },
     "hooks-guide.md": {
       "file_hash": "8ae3f4a61321d1d0b541b63b76fe0965e31f93ac1d469291392e96a099188967",
-      "headings_hash": "cb695774afe5e1950a031490c592be8b3a258adf55a5ca4bb98746f173f22072",
+      "headings_hash": "673d096999504470075395cb35cecec3a11da01a1c40f5033f696f56feabccf3",
       "headings": [
         "Automate workflows with hooks",
         "Set up your first hook",
@@ -340,9 +330,7 @@
         "Hook error in output",
         "`/hooks` shows no hooks configured",
         "Stop hook runs forever",
-        "... rest of your hook logic",
         "JSON validation failed",
-        "In ~/.zshrc or ~/.bashrc",
         "Debug techniques",
         "Learn more"
       ],
@@ -357,8 +345,8 @@
       }
     },
     "skills.md": {
-      "file_hash": "e19f7a4615743756482edeea41eaf50935b6d50be132e84ecbdeed8993ae6834",
-      "headings_hash": "1852f47af20d8bd5640da4a56220748f5e64e58dbe5f75481537c46fd34a9037",
+      "file_hash": "0308dd0893d8ff446c5dc8fd6a8c16c0b795d8ff541f7b205eb360adad364818",
+      "headings_hash": "adbefb6bf118f325c8f1ca24002ead8d6be14a76e61d84522f0316a69002eb56",
       "headings": [
         "Extend Claude with skills",
         "Bundled skills",
@@ -372,25 +360,16 @@
         "Frontmatter reference",
         "Available string substitutions",
         "Add supporting files",
-        "Additional resources",
         "Control who invokes a skill",
         "Restrict tool access",
         "Pass arguments to skills",
         "Advanced patterns",
         "Inject dynamic context",
-        "Pull request context",
-        "Your task",
         "Run skills in a subagent",
         "Example: Research skill using Explore agent",
         "Restrict Claude's skill access",
-        "Add to deny rules:",
-        "Allow only specific skills",
-        "Deny specific skills",
         "Share skills",
         "Generate visual output",
-        "Codebase Visualizer",
-        "Usage",
-        "What the visualization shows",
         "Troubleshooting",
         "Skill not triggering",
         "Skill triggers too often",
@@ -399,9 +378,9 @@
       ],
       "sections": {
         "configure-skills": {
-          "hash": "4fd6f930d70c3e3e1949d5611caec06772981b218bf82d2708ef3c16be1ef0ab",
+          "hash": "61a7334505bb65a988a47e1f2619d696a19a3877147f280eb88da4f94b4b54c6",
           "start_heading": "Configure skills",
-          "end_heading": "Additional resources",
+          "end_heading": "Advanced patterns",
           "domains": [
             "extension-capability"
           ],
@@ -412,8 +391,8 @@
       }
     },
     "sub-agents.md": {
-      "file_hash": "d7ca8cfabf4825097d1e031367e33ddc37c8cbfbb43798feca75376b8c0fb8aa",
-      "headings_hash": "e040169e2f98b841b8b48c305602041b02a3da0e2818888adf79482646bd1645",
+      "file_hash": "ebf9bc84f7809352fb5fc919c78d7ca3b7a46a2d57a0acdb8e8e8ceef5af93b0",
+      "headings_hash": "b56dafbba3bed4a3334f467435343b56a69b79457eea0ca8efe7242d588f2317",
       "headings": [
         "Create custom subagents",
         "Built-in subagents",
@@ -433,8 +412,6 @@
         "Enable persistent memory",
         "Persistent memory tips",
         "Conditional rules with hooks",
-        "./scripts/validate-readonly-query.sh",
-        "Block SQL write operations (case-insensitive)",
         "Disable specific subagents",
         "Define hooks for subagents",
         "Hooks in subagent frontmatter",
@@ -456,17 +433,13 @@
         "Debugger",
         "Data scientist",
         "Database query validator",
-        "Blocks SQL write operations, allows SELECT queries",
-        "Read JSON input from stdin",
-        "Extract the command field from tool_input using jq",
-        "Block write operations (case-insensitive)",
         "Next steps"
       ],
       "sections": {
         "configure-subagents": {
-          "hash": "0455198a366d1edac6eb48f76e7befebc804b05f83e9ee114b000971d11ede37",
+          "hash": "e415ee590e5efb418e1157112cbeb1525013540b4c796b55dfed6b38d43e4502",
           "start_heading": "Configure subagents",
-          "end_heading": "./scripts/validate-readonly-query.sh",
+          "end_heading": "Work with subagents",
           "domains": [
             "extension-capability"
           ],
@@ -751,7 +724,7 @@
       }
     },
     "features-overview.md": {
-      "file_hash": "8ff0d769d5cece59088dfbf99032108e6a2db1808ba198f042fe3392735382da",
+      "file_hash": "36ab18ff7c8251ca3f242a8da823c6c957489751a2ba0166c0501a92246fc7d8",
       "headings_hash": "119ac0f333c79af52126ff6757f696c7643da8e0fb7d0d39a75d6485a660c64c",
       "headings": [
         "Extend Claude Code",
@@ -767,7 +740,7 @@
       ],
       "sections": {
         "compare-similar-features": {
-          "hash": "76f60a09d0bfc64e17eaf87482d04afcb58c1ac238c65aa0b6a06ddd229207c9",
+          "hash": "ebdd525236e8299b198411d0936ffa3fe441e7f5854f255d71b428bc3eedc729",
           "start_heading": "Compare similar features",
           "end_heading": "Understand how features layer",
           "domains": [
@@ -885,7 +858,7 @@
       "sections": {}
     },
     "commands.md": {
-      "file_hash": "0507cf22b50904fd369cf119efb6bf5fee25362134966b705cb59ae18596c969",
+      "file_hash": "ae42354890cd2dd35f4c72e89b514959ae2bc49961b4f0f91514eb23b80294d5",
       "headings_hash": "947864011c9d136baade1d422d0a5c8b515c9b6df9236dcea1c342b35bb3c657",
       "headings": [
         "Built-in commands",
@@ -953,7 +926,7 @@
       "sections": {}
     },
     "keybindings.md": {
-      "file_hash": "e67a70b2fe0e039a5bd5e715134df2e6128cacc52ec31f03f7fa0b46f0b80ade",
+      "file_hash": "9cffb9633377251e96092108c39d650cc9b47cdb7808f8d3bbf4ecb65b276dae",
       "headings_hash": "2b761d3d00a38e5befef78b6b0eaa770941abeca13db3c787e9351ba73922dc2",
       "headings": [
         "Customize keyboard shortcuts",
@@ -1018,8 +991,8 @@
       "sections": {}
     },
     "plugins-reference.md": {
-      "file_hash": "e3bc4c346015c0305d18f06d295d5b077a6786ec16283b5e5b2387710aac48a2",
-      "headings_hash": "c2c30fb7928b97e77f872387a295ad0cb6b54a0fd7c9b00710ae6b8128fc01d1",
+      "file_hash": "c892f404a6b1d6f29e62a06c62e2018f933ae4bbe9deaa83cb71c4fa9de8b535",
+      "headings_hash": "240dac4ec461601dcd90c1d360f85599338d7c8af77d785c84ea0756179656b4",
       "headings": [
         "Plugins reference",
         "Plugin components reference",
@@ -1042,15 +1015,11 @@
         "Plugin caching and file resolution",
         "Path traversal limitations",
         "Working with external dependencies",
-        "Inside your plugin directory",
         "Plugin directory structure",
         "Standard plugin layout",
         "File locations reference",
         "CLI commands reference",
         "plugin install",
-        "Install to user scope (default)",
-        "Install to project scope (shared with team)",
-        "Install to local scope (gitignored)",
         "plugin uninstall",
         "plugin enable",
         "plugin disable",
@@ -1084,8 +1053,8 @@
       "sections": {}
     },
     "vs-code.md": {
-      "file_hash": "1bd0cd28258266fa3b07e257399f04470fbf609fbdaedd5e9ba14bb1dc61e14a",
-      "headings_hash": "423e6de95a4cab6c40198320659e37ffd223f07ec9abb7cb72fdc537efcef20b",
+      "file_hash": "e063751644ed0933d192777243d71758fdf1c7688e0d11adc3117b7a1799cdaf",
+      "headings_hash": "6e8880dab51ecce91b6f93bdb8eae5b777ac22629e9e8300a2bc32eab17e41aa",
       "headings": [
         "Use Claude Code in VS Code",
         "Prerequisites",
@@ -1104,6 +1073,7 @@
         "Manage marketplaces",
         "Automate browser tasks with Chrome",
         "VS Code commands and shortcuts",
+        "Launch a VS Code tab from other tools",
         "Configure settings",
         "Extension settings",
         "VS Code extension vs. Claude Code CLI",
@@ -1142,15 +1112,13 @@
     },
     "channels-reference.md": {
       "file_hash": "36756d3392bf01564a90cb9b03016a84829797c298a4df5fc20e90dcf56cc527",
-      "headings_hash": "66ed357c1da30c1ab0cd4737e66808a731cd0a44bd36244c635c648b9ad2dfd3",
+      "headings_hash": "2ad4f0aed5177074a0611995dbf22eca5f603a42ed1ebc81348d0584a60d827a",
       "headings": [
         "Channels reference",
         "Overview",
         "What you need",
         "Example: build a webhook receiver",
         "Test during the research preview",
-        "Testing a plugin you're developing",
-        "Testing a bare .mcp.json server (no plugin wrapper yet)",
         "Server options",
         "Notification format",
         "Expose a reply tool",
@@ -1183,7 +1151,7 @@
       "sections": {}
     },
     "cli-reference.md": {
-      "file_hash": "25b78d9b2acac4504baf8acf29d7cc45d90cd0ce69d2f73749ec9ca5c81b1cba",
+      "file_hash": "54d8525b23e54f48b6e9eae8bec3a80d41f4bca27b665929beefc59541eb3ff2",
       "headings_hash": "af15295412f2c01e97132e950c4e2901497a69384f2e886ca96f048f213f1410",
       "headings": [
         "CLI reference",
@@ -1798,7 +1766,7 @@
       ]
     },
     "domain-configuration-persistence.md": {
-      "content_hash": "35b666a1b2d7a85ef728347a3f24fe4ad2e4e4484118ae7130e11f53c391a363",
+      "content_hash": "6c0b886bf11e20168f411a8f6276a6cf1fe280793bd4f2971a8f7f3840bfd34a",
       "depends_on_sections": [
         "memory.md::claude-md-vs-auto-memory",
         "memory.md::claude-md-files",
@@ -1813,7 +1781,7 @@
       ]
     },
     "domain-extension-capability.md": {
-      "content_hash": "b66116069df27993c2b4724109b5c8a1f26ae811bc24822dcf812c905a049538",
+      "content_hash": "bef1dd7749350e17235c91f4a1b7db5b1969bb2a8cc4f6a06cd9c026d78bc20d",
       "depends_on_sections": [
         "skills.md::configure-skills",
         "sub-agents.md::configure-subagents",
@@ -1829,7 +1797,7 @@
       ]
     },
     "domain-effective-interaction.md": {
-      "content_hash": "f10d84e23a67403a2655d82923f7627ad2f7aceaa0bf3d0c88a1afcd15769345",
+      "content_hash": "a037e44773d33d54a8a6ad73beb806ede964388cfec6627a11f6e6a5b476d7c8",
       "depends_on_sections": [
         "best-practices.md::explore-first-then-plan-then-code",
         "remote-control.md::connect-from-another-device",
@@ -1838,7 +1806,7 @@
       ]
     },
     "navigation.md": {
-      "content_hash": "544353d51f506bbcdf7ce79038ba62bb8ebcd1bbea73006aa1a68ce75c066ec6",
+      "content_hash": "5d3ee31873e66ca55d0355437bef2d05f943c20c14242c0a7ddfb6731a7433c1",
       "depends_on_routes": [
         "how-claude-code-works",
         "configure-memory",

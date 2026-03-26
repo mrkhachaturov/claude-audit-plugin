@@ -210,6 +210,7 @@ read_source_docs_if:
   - exact agent frontmatter fields
   - explicit invocation syntax (`@` mention forms)
   - session-wide agent config (`--agent` and `agent` setting precedence)
+  - subagent model resolution precedence (`CLAUDE_CODE_SUBAGENT_MODEL`, per-invocation `model`, frontmatter `model`, session model)
   - plugin subagent field limitations
   - parent auto mode precedence over subagent `permissionMode`
   - tool and memory configuration (including recommended `project` memory scope)

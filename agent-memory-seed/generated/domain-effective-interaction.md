@@ -38,6 +38,7 @@ Working well with Claude Code as an agentic tool: prompting strategies, common w
 - **Built-in VS Code IDE MCP server:** extension runs hidden local server `ide` (auto-connected by CLI; not listed in `/mcp`)
 - **IDE MCP tools visible to Claude:** `mcp__ide__getDiagnostics` (read-only diagnostics) and `mcp__ide__executeCode` (Jupyter cell execution with VS Code confirmation)
 - **Jupyter execution safety:** `mcp__ide__executeCode` always requires a native Quick Pick confirm/cancel in VS Code and fails if notebook/kernel prerequisites are missing
+- **Open a Claude Code VS Code tab from tools/scripts:** launch `vscode://anthropic.claude-code/open` (optionally with URL-encoded `prompt=` or `session=` query params)
 - **VS Code permission modes:** extension `initialPermissionMode` includes `auto`; `allowDangerouslySkipPermissions` enables Auto + Bypass options in the selector (Auto still needs eligible plan/model)
 
 ## Fast comparisons

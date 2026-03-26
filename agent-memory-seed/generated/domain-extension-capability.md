@@ -19,6 +19,7 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **How do I force a specific subagent?** Use an `@` mention (for example `@\"code-reviewer (agent)\"`) for a single task
 - **How do I run the whole session as a subagent?** Start with `claude --agent <name>` or set `agent` in `.claude/settings.json` (CLI flag wins)
 - **Subagent frontmatter fields:** include `model`, `effort`, `maxTurns`, `tools`, `disallowedTools`, `skills`, `initialPrompt`, `memory`, `background`, and `isolation` (plugin agents only support `isolation: "worktree"`)
+- **Subagent model resolution order:** `CLAUDE_CODE_SUBAGENT_MODEL` env var, then per-invocation `model`, then subagent frontmatter `model`, then the main conversation model
 - **Subagent tool restriction precedence:** when both `disallowedTools` and `tools` are set, deny rules apply first, then the allowlist is resolved from remaining tools
 - **Subagent `permissionMode` under parent auto mode:** parent `auto` takes precedence; subagent frontmatter `permissionMode` is ignored and tool calls are checked by the same classifier rules
 - **CLI subagent JSON parity:** `--agents` accepts the same frontmatter keys as file-based subagents, including `initialPrompt`, `effort`, `background`, and `isolation`
@@ -32,7 +33,8 @@ Extending Claude Code beyond the base agentic loop: skills (reusable workflows),
 - **Which built-in channel plugins exist in preview?** Telegram, Discord, iMessage, and fakechat
 - **Can channels relay tool approvals?** Yes. Two-way channels can opt in with `claude/channel/permission` and relay permission prompts (`allow`/`deny`) using request IDs.
 - **iMessage channel access model:** self-messages are auto-allowed; other senders are added by handle (for example `/imessage:access allow +15551234567`)
-- **Channels policy gate:** channels require claude.ai auth; Team/Enterprise admins must enable managed `channelsEnabled`, and can replace the default channel allowlist with `allowedChannelPlugins`
+- **Channels policy gate:** channels require claude.ai auth; Team/Enterprise orgs are disabled by default until managed `channelsEnabled` is true, while Pro/Max users without an org are unaffected
+- **Channels allowlist override:** Team/Enterprise admins can set `allowedChannelPlugins` to replace the default Anthropic allowlist; if unset, Anthropic defaults apply
 - **Remote approvals race behavior:** terminal prompt and relayed channel prompt stay live in parallel; Claude applies whichever verdict arrives first.
 - **What is a plugin?** A packaged collection of skills, agents, and hooks distributed via a registry
 - **Plugin install says not found in any marketplace:** update marketplace metadata with `/plugin marketplace update claude-plugins-official`, or add it first with `/plugin marketplace add anthropics/claude-plugins-official`, then retry

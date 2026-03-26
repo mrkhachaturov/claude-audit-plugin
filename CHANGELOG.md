@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.2.46] — 2026-03-26
+
+### Changed
+- Auto-rebuilt knowledge seed from updated docs:
+  - changelog.md
+  - channels-reference.md
+  - channels.md
+  - cli-reference.md
+  - commands.md
+  - env-vars.md
+  - features-overview.md
+  - hooks-guide.md
+  - hooks.md
+  - interactive-mode.md
+  - keybindings.md
+  - memory.md
+  - monitoring-usage.md
+  - plugins-reference.md
+  - sandboxing.md
+  - settings.md
+  - skills.md
+  - sub-agents.md
+  - tools-reference.md
+  - vs-code.md
+
+---
+
 ## [1.2.45] — 2026-03-25
 
 ### Changed
